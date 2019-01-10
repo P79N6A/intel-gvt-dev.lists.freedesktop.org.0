@@ -1,69 +1,75 @@
 Delivered-To: linux.kernel.mailinglists@gmail.com
-Received: by 2002:a0d:d7d3:0:0:0:0:0 with SMTP id z202csp1769069ywd;
-        Thu, 10 Jan 2019 05:07:27 -0800 (PST)
-X-Google-Smtp-Source: ALg8bN5r+eW3E78V+WyOn/P7830TE7TBesVOSzpN+ZPO55SNk38Cq0PExzBIiBPjOVAEqvtBiIh6
-X-Received: by 2002:a65:4ccb:: with SMTP id n11mr9456278pgt.257.1547125647148;
-        Thu, 10 Jan 2019 05:07:27 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1547125647; cv=none;
+Received: by 2002:a0d:d7d3:0:0:0:0:0 with SMTP id z202csp1782889ywd;
+        Thu, 10 Jan 2019 05:19:36 -0800 (PST)
+X-Google-Smtp-Source: ALg8bN5+kJC8ApKDBlVE+n6lPD4japTpsR4bPvehEyslZtGeVTiEkg5ewYU/4dBdTR0VgUsBkkcW
+X-Received: by 2002:a17:902:6b09:: with SMTP id o9mr10276017plk.208.1547126376020;
+        Thu, 10 Jan 2019 05:19:36 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1547126375; cv=none;
         d=google.com; s=arc-20160816;
-        b=o1s4xRxUOJziHt9ChfVM0RN4Jkh3ADnRFzcYemtH6idEUWHma3FVpyjQ5lTVGQahYV
-         oM/e2QUsOQ2kDa7OKikoWkLE9vKbc9IBPSNRwR2wdjKevfQDzO+nvXEMpUxUKxQLN+p0
-         H/xU/B3iv3HEf9xcPPtVSeSaQkuk3jdUbv9kcaFvVbimRNI3uDxqeW6ZLOlnIXZqgAYk
-         uiRFW5Rlyv6jCfd5HysbdKfeVy/fc/pq6V4CcE5gJBrnbA9SVD6AzhHfMllLgYbQtLaC
-         Aq6lzJW2Skg8thZh4jMP6MjMr5Fp4cnC+rgy3GZGHL8pt+J0JrxvD892mw3Z2nW39eSl
-         my6Q==
+        b=ihryur/MxvLkROuqJx9G2SyVWfnr0TYjQjsG018NOZTh/9IuknXnADpedHBJc6maMX
+         2U/La8tvx7UPfMAA/XPpMGXMPqZC49AiZ9HcoF0Z5fcx6tAjSxRNSJEwhWvYeTmsdUXw
+         /mPdMhLd5KZekRitRvUt2Lyp92qoB8qC8HMs3iS/sFQ1GLym/1uP5l921HB5Wa+KChgc
+         ODp6Rwx7tCyySS0cmIxUocEPVTjOr46LGL3ePL+jUIdjGWQDJvDzTHpofoOG84ur+fj0
+         byBEbtGnS5ZXXgTLULZyU9+1SokBQpI6vDGQG5upzMBXxtfnIFW8HRdUB6lpoMwxGCG1
+         W4mQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=sender:errors-to:content-transfer-encoding:cc:list-subscribe
          :list-help:list-post:list-archive:list-unsubscribe:list-id
-         :precedence:mime-version:message-id:date:references:organization
-         :in-reply-to:subject:to:from:delivered-to;
-        bh=tW3ZmnJexlwEBVU6tINNCl2a4faEkRzluAUrAexqpiE=;
-        b=Pzd5gHwON9/KjoYFLgtRnsQtBQ+Xrr7ildz45SddOK+hLRK2bwkmrADErVoQKh6tuc
-         piLAPVGtyA6wzl2ph799mgAf+Su0CwTHjyp9oTQoZ7UGHljbAP+lh+Mk/o8zEwIqoNZk
-         7bN781GbCCOt1B88yNwqcr5NSTDtdF5x5U1YMNLwzP3G1wXmSVLOBndLjetwhPVUr8iM
-         RJKp8b5rFUSs6+PAJid5TVyryx0ywdnDEMzMjbPFwbO8fB6+rY0SQFh1nwwzDhnHor5W
-         rN6YXfI3TYv6lIdYFA9+46b2XeAmclWkJn50oCXjjDtQL5kbTDD22dVVSrYcLdv0aUMV
-         QXPw==
+         :precedence:user-agent:in-reply-to:content-disposition:mime-version
+         :references:message-id:subject:to:from:date:delivered-to;
+        bh=ZRD8rzrGHz8z8aDjNRvcexarSizV2iqQV6ILLWm7ySA=;
+        b=UIgT/EbnV0uv0py8+RDgwyHee/yNlpoaX5RJBFXOz5T7r20W0LXSAPkDcpUsEyIC4P
+         sGeVODQ9dSdSjb6FRWCFh4qrXP510cdBiYe7nA+TDnTDt6+4Cmfs4RSpKA1Ajg6P2gJd
+         mtUfKnMYJbx4MNzoPjUE2MsYgupOWbXnYUlHccAzEmgdi0bUxLkQV6I/9VZfmdztE+lc
+         O0eLzdLzgXsJoHLOxbZLB+J4504HjRVNGFLDdfUBOeXeC/UjjuLGvltsw/NCr+5mH1Wg
+         mMxtjTzk0NDPVD0/kOsYko9tsfaLLHg0J5DCvnfsfgG9Lzy2aM0rBnqI1o6N2hmHVB6R
+         c2gQ==
 ARC-Authentication-Results: i=1; mx.google.com;
        spf=pass (google.com: best guess record for domain of intel-gvt-dev-bounces@lists.freedesktop.org designates 131.252.210.177 as permitted sender) smtp.mailfrom=intel-gvt-dev-bounces@lists.freedesktop.org;
-       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=intel.com
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=redhat.com
 Return-Path: <intel-gvt-dev-bounces@lists.freedesktop.org>
 Received: from gabe.freedesktop.org (gabe.freedesktop.org. [131.252.210.177])
-        by mx.google.com with ESMTPS id i190si44090927pfc.116.2019.01.10.05.07.26
+        by mx.google.com with ESMTPS id p26si3250053pfj.244.2019.01.10.05.19.35
         (version=TLS1_2 cipher=ECDHE-RSA-CHACHA20-POLY1305 bits=256/256);
-        Thu, 10 Jan 2019 05:07:27 -0800 (PST)
+        Thu, 10 Jan 2019 05:19:35 -0800 (PST)
 Received-SPF: pass (google.com: best guess record for domain of intel-gvt-dev-bounces@lists.freedesktop.org designates 131.252.210.177 as permitted sender) client-ip=131.252.210.177;
 Authentication-Results: mx.google.com;
        spf=pass (google.com: best guess record for domain of intel-gvt-dev-bounces@lists.freedesktop.org designates 131.252.210.177 as permitted sender) smtp.mailfrom=intel-gvt-dev-bounces@lists.freedesktop.org;
-       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=intel.com
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=redhat.com
 Received: from gabe.freedesktop.org (localhost [127.0.0.1])
-	by gabe.freedesktop.org (Postfix) with ESMTP id 284F76F318;
-	Thu, 10 Jan 2019 13:07:26 +0000 (UTC)
+	by gabe.freedesktop.org (Postfix) with ESMTP id 1EABA6E615;
+	Thu, 10 Jan 2019 13:19:35 +0000 (UTC)
 X-Original-To: intel-gvt-dev@lists.freedesktop.org
 Delivered-To: intel-gvt-dev@lists.freedesktop.org
-Received: from mga01.intel.com (mga01.intel.com [192.55.52.88])
- by gabe.freedesktop.org (Postfix) with ESMTPS id AE8666F318;
- Thu, 10 Jan 2019 13:07:24 +0000 (UTC)
-X-Amp-Result: SKIPPED(no attachment in message)
-X-Amp-File-Uploaded: False
-Received: from fmsmga001.fm.intel.com ([10.253.24.23])
- by fmsmga101.fm.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384;
- 10 Jan 2019 05:07:23 -0800
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="5.56,461,1539673200"; d="scan'208";a="137081028"
-Received: from jnikula-mobl3.fi.intel.com (HELO localhost) ([10.237.72.79])
- by fmsmga001.fm.intel.com with ESMTP; 10 Jan 2019 05:07:21 -0800
-From: Jani Nikula <jani.nikula@intel.com>
-To: Zhenyu Wang <zhenyuw@linux.intel.com>,
- Joonas Lahtinen <joonas.lahtinen@linux.intel.com>, "Vivi\,
- Rodrigo" <rodrigo.vivi@intel.com>
-Subject: Re: [PULL] gvt-fixes for 5.0-rc2
-In-Reply-To: <20190109050151.GL11631@zhen-hp.sh.intel.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - Westendinkatu 7, 02160 Espoo
-References: <20190109050151.GL11631@zhen-hp.sh.intel.com>
-Date: Thu, 10 Jan 2019 15:09:03 +0200
-Message-ID: <87a7k87j80.fsf@intel.com>
+Received: from mx1.redhat.com (mx1.redhat.com [209.132.183.28])
+ by gabe.freedesktop.org (Postfix) with ESMTPS id 6D43C6E615
+ for <intel-gvt-dev@lists.freedesktop.org>;
+ Thu, 10 Jan 2019 13:19:34 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx07.intmail.prod.int.phx2.redhat.com
+ [10.5.11.22])
+ (using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
+ (No client certificate requested)
+ by mx1.redhat.com (Postfix) with ESMTPS id DB2B9A0C2B;
+ Thu, 10 Jan 2019 13:19:33 +0000 (UTC)
+Received: from sirius.home.kraxel.org (ovpn-116-203.ams2.redhat.com
+ [10.36.116.203])
+ by smtp.corp.redhat.com (Postfix) with ESMTP id 9EDB310A182A;
+ Thu, 10 Jan 2019 13:19:33 +0000 (UTC)
+Received: by sirius.home.kraxel.org (Postfix, from userid 1000)
+ id C9E02A213; Thu, 10 Jan 2019 14:19:32 +0100 (CET)
+Date: Thu, 10 Jan 2019 14:19:32 +0100
+From: Gerd Hoffmann <kraxel@redhat.com>
+To: hang.yuan@linux.intel.com
+Subject: Re: [PATCH v1 0/4] drm/i915/gvt: add one VFIO graphics EDID region
+Message-ID: <20190110131932.5gzlq6msbtnoy2gw@sirius.home.kraxel.org>
+References: <1547118288-1001-1-git-send-email-hang.yuan@linux.intel.com>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <1547118288-1001-1-git-send-email-hang.yuan@linux.intel.com>
+User-Agent: NeoMutt/20180716
+X-Scanned-By: MIMEDefang 2.84 on 10.5.11.22
+X-Greylist: Sender IP whitelisted, not delayed by milter-greylist-4.5.16
+ (mx1.redhat.com [10.5.110.39]); Thu, 10 Jan 2019 13:19:33 +0000 (UTC)
 X-BeenThere: intel-gvt-dev@lists.freedesktop.org
 X-Mailman-Version: 2.1.23
 Precedence: list
@@ -76,37 +82,19 @@ List-Post: <mailto:intel-gvt-dev@lists.freedesktop.org>
 List-Help: <mailto:intel-gvt-dev-request@lists.freedesktop.org?subject=help>
 List-Subscribe: <https://lists.freedesktop.org/mailman/listinfo/intel-gvt-dev>, 
  <mailto:intel-gvt-dev-request@lists.freedesktop.org?subject=subscribe>
-Cc: intel-gfx <intel-gfx@lists.freedesktop.org>,
- intel-gvt-dev <intel-gvt-dev@lists.freedesktop.org>, "Lv,
- Zhiyuan" <zhiyuan.lv@intel.com>, Zhi Wang <zhi.a.wang@intel.com>, "Yuan,
- Hang" <hang.yuan@intel.com>
+Cc: intel-gvt-dev@lists.freedesktop.org
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: base64
 Errors-To: intel-gvt-dev-bounces@lists.freedesktop.org
 Sender: "intel-gvt-dev" <intel-gvt-dev-bounces@lists.freedesktop.org>
 
-T24gV2VkLCAwOSBKYW4gMjAxOSwgWmhlbnl1IFdhbmcgPHpoZW55dXdAbGludXguaW50ZWwuY29t
-PiB3cm90ZToKPiBIaSwKPgo+IEhlcmUncyBvbmUgcmFjZSBmaXggZm9yIGd2dCB0byBoYW5kbGUg
-cmVxdWVzdCBwcm9wZXJseQo+IGJldHdlZW4gcHJlLXNjYW4gb2Ygd29ya2xvYWQgYW5kIHN1Ym1p
-c3Npb24uCgpQdWxsZWQsIHRoYW5rcy4KCkJSLApKYW5pLgoKPgo+IFRoYW5rcy4KPiAtLQo+IFRo
-ZSBmb2xsb3dpbmcgY2hhbmdlcyBzaW5jZSBjb21taXQgYmZlZmZkMTU1MjgzNzcyYmJlNzhjNmEw
-NWRlYzdjMDEyOGVlNTAwYzoKPgo+ICAgTGludXggNS4wLXJjMSAoMjAxOS0wMS0wNiAxNzowODoy
-MCAtMDgwMCkKPgo+IGFyZSBhdmFpbGFibGUgaW4gdGhlIEdpdCByZXBvc2l0b3J5IGF0Ogo+Cj4g
-ICBodHRwczovL2dpdGh1Yi5jb20vaW50ZWwvZ3Z0LWxpbnV4LmdpdCB0YWdzL2d2dC1maXhlcy0y
-MDE5LTAxLTA5Cj4KPiBmb3IgeW91IHRvIGZldGNoIGNoYW5nZXMgdXAgdG8gZjBlOTk0MzcyNTE4
-NmRkYmRjOTcxOGE1NTljMjZjNWY1MDcyNjJmMjoKPgo+ICAgZHJtL2k5MTUvZ3Z0OiBGaXggd29y
-a2xvYWQgcmVxdWVzdCBhbGxvY2F0aW9uIGJlZm9yZSByZXF1ZXN0IGFkZCAoMjAxOS0wMS0wOSAx
-Mjo1OTowOSArMDgwMCkKPgo+IC0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
-LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0KPiBndnQtZml4ZXMtMjAxOS0wMS0wOQo+Cj4gLSBG
-aXggb25lIHJhY2UgaXNzdWUgYmV0d2VlbiBwcmUtc2NhbiBvZiBndWVzdCB3b3JrbG9hZCB3aXRo
-IHN1Ym1pc3Npb24KPgo+IC0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
-LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0KPiBaaGVueXUgV2FuZyAoMSk6Cj4gICAgICAgZHJtL2k5
-MTUvZ3Z0OiBGaXggd29ya2xvYWQgcmVxdWVzdCBhbGxvY2F0aW9uIGJlZm9yZSByZXF1ZXN0IGFk
-ZAo+Cj4gIGRyaXZlcnMvZ3B1L2RybS9pOTE1L2d2dC9zY2hlZHVsZXIuYyB8IDY0ICsrKysrKysr
-KysrKysrKysrKysrKysrLS0tLS0tLS0tLS0tLQo+ICBkcml2ZXJzL2dwdS9kcm0vaTkxNS9ndnQv
-c2NoZWR1bGVyLmggfCAgMSArCj4gIDIgZmlsZXMgY2hhbmdlZCwgNDMgaW5zZXJ0aW9ucygrKSwg
-MjIgZGVsZXRpb25zKC0pCgotLSAKSmFuaSBOaWt1bGEsIEludGVsIE9wZW4gU291cmNlIEdyYXBo
-aWNzIENlbnRlcgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-XwppbnRlbC1ndnQtZGV2IG1haWxpbmcgbGlzdAppbnRlbC1ndnQtZGV2QGxpc3RzLmZyZWVkZXNr
-dG9wLm9yZwpodHRwczovL2xpc3RzLmZyZWVkZXNrdG9wLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2lu
-dGVsLWd2dC1kZXYK
+T24gVGh1LCBKYW4gMTAsIDIwMTkgYXQgMDc6MDQ6NDRQTSArMDgwMCwgaGFuZy55dWFuQGxpbnV4
+LmludGVsLmNvbSB3cm90ZToKPiBGcm9tOiBIYW5nIFl1YW4gPGhhbmcueXVhbkBsaW51eC5pbnRl
+bC5jb20+Cj4gCj4gQ3JlYXRlIG9uZSBWRklPIGdyYXBoaWNzIEVESUQgcmVnaW9uIGZvciB2Z3B1
+LiBXaGVuIHRoZSByZWdpb24gaXMgdXBkYXRlZCwKPiBob3RwbHVnIGV2ZW50IGlzIGVtdWxhdGVk
+IGZvciBndWVzdCB0byBnZXQgbmV3IEVESUQgZGF0YS4KCldoYXQgYnJhbmNoIHRoaXMgc2VyaWVz
+IGlzIGFnYWluc3Q/CkFwcGx5aW5nIHRvIDUuMC1yYzEgZG9lc24ndCB3b3JrIC4uLgoKY2hlZXJz
+LAogIEdlcmQKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+CmludGVsLWd2dC1kZXYgbWFpbGluZyBsaXN0CmludGVsLWd2dC1kZXZAbGlzdHMuZnJlZWRlc2t0
+b3Aub3JnCmh0dHBzOi8vbGlzdHMuZnJlZWRlc2t0b3Aub3JnL21haWxtYW4vbGlzdGluZm8vaW50
+ZWwtZ3Z0LWRldgo=
