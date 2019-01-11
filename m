@@ -1,75 +1,72 @@
 Delivered-To: linux.kernel.mailinglists@gmail.com
-Received: by 2002:a0d:d7d3:0:0:0:0:0 with SMTP id z202csp1782889ywd;
-        Thu, 10 Jan 2019 05:19:36 -0800 (PST)
-X-Google-Smtp-Source: ALg8bN5+kJC8ApKDBlVE+n6lPD4japTpsR4bPvehEyslZtGeVTiEkg5ewYU/4dBdTR0VgUsBkkcW
-X-Received: by 2002:a17:902:6b09:: with SMTP id o9mr10276017plk.208.1547126376020;
-        Thu, 10 Jan 2019 05:19:36 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1547126375; cv=none;
+Received: by 2002:a0d:d7d3:0:0:0:0:0 with SMTP id z202csp2430186ywd;
+        Thu, 10 Jan 2019 17:29:41 -0800 (PST)
+X-Google-Smtp-Source: ALg8bN4qiNj+t1QPHFE8jAVmPKuqK2RMXXMJ/nDIQXu2NAIm00JiPV9CWni6kXrIaDGNp49nvz88
+X-Received: by 2002:a17:902:7687:: with SMTP id m7mr12514641pll.187.1547170181554;
+        Thu, 10 Jan 2019 17:29:41 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1547170181; cv=none;
         d=google.com; s=arc-20160816;
-        b=ihryur/MxvLkROuqJx9G2SyVWfnr0TYjQjsG018NOZTh/9IuknXnADpedHBJc6maMX
-         2U/La8tvx7UPfMAA/XPpMGXMPqZC49AiZ9HcoF0Z5fcx6tAjSxRNSJEwhWvYeTmsdUXw
-         /mPdMhLd5KZekRitRvUt2Lyp92qoB8qC8HMs3iS/sFQ1GLym/1uP5l921HB5Wa+KChgc
-         ODp6Rwx7tCyySS0cmIxUocEPVTjOr46LGL3ePL+jUIdjGWQDJvDzTHpofoOG84ur+fj0
-         byBEbtGnS5ZXXgTLULZyU9+1SokBQpI6vDGQG5upzMBXxtfnIFW8HRdUB6lpoMwxGCG1
-         W4mQ==
+        b=LWzhb+BwV9wbniVlJ3eXCeD9oAHOZ7RtDv35il3lZnKjX8lxs97wfd2cgiLTK+5UCK
+         jFBLQNL5DTgUNGSIeMYr7Vq8tR3SwoA8fT2E5iVVjgW3WiUtlPBtvrfmIi1uOEvEOws8
+         AkJl5xs+pUAVrLpUeci1iFfR+LVZuHRcPS9jTzBZFrStYm2rj2HWc1gSnQlOP9Gquc7E
+         RCrya+9QRBYeN2JT68NNF2mYbBOhYqETswsICV2nrYSyp8GnFjQqR3fllT9kK3BeP78e
+         RHd3zzvxdcJWQXb17q+TzGsQ/alb+WMDUy+c7YO+JDxZpKeM5uZ9NquiuUTbBcFUFYLN
+         SUpw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=sender:errors-to:content-transfer-encoding:cc:list-subscribe
          :list-help:list-post:list-archive:list-unsubscribe:list-id
-         :precedence:user-agent:in-reply-to:content-disposition:mime-version
-         :references:message-id:subject:to:from:date:delivered-to;
-        bh=ZRD8rzrGHz8z8aDjNRvcexarSizV2iqQV6ILLWm7ySA=;
-        b=UIgT/EbnV0uv0py8+RDgwyHee/yNlpoaX5RJBFXOz5T7r20W0LXSAPkDcpUsEyIC4P
-         sGeVODQ9dSdSjb6FRWCFh4qrXP510cdBiYe7nA+TDnTDt6+4Cmfs4RSpKA1Ajg6P2gJd
-         mtUfKnMYJbx4MNzoPjUE2MsYgupOWbXnYUlHccAzEmgdi0bUxLkQV6I/9VZfmdztE+lc
-         O0eLzdLzgXsJoHLOxbZLB+J4504HjRVNGFLDdfUBOeXeC/UjjuLGvltsw/NCr+5mH1Wg
-         mMxtjTzk0NDPVD0/kOsYko9tsfaLLHg0J5DCvnfsfgG9Lzy2aM0rBnqI1o6N2hmHVB6R
-         c2gQ==
+         :precedence:content-language:in-reply-to:mime-version:user-agent
+         :date:message-id:from:references:to:subject:delivered-to;
+        bh=syQJQ75CZ9+F7EVZ3NEJTZ9S2TtSCGzppSi/QpG0Jnc=;
+        b=HH1VLr3MnXfNlN6MUws/5Dxy6PTvuwB6kC7V9vFFKr6frW7aKWq/sExZEaTMobEliI
+         v9n8HZRTrd2TmlCvFyGYnyXsNQZC3e9l2YxNmV1hNiAU49RoFyqDNPitCIAQj0vnYtOG
+         +enpSzyc0oUltf7rxmUX1eqIbGQHEhGMjUixoIHAvDsmREZiHjoOJ851plVS9KWFLAWv
+         4FbMmsWU8g/Em00cVej65M0ezA8wWC2rBCyijDfJNBjpXgJxwg6Bp5/veg1I9YLcS15V
+         hb4Pwsd8rfN9sL+jPCvUua+PttZt7diI76OOtauftYUZsqiEKf9EhQq5+Yx206fyIO+K
+         r2sQ==
 ARC-Authentication-Results: i=1; mx.google.com;
        spf=pass (google.com: best guess record for domain of intel-gvt-dev-bounces@lists.freedesktop.org designates 131.252.210.177 as permitted sender) smtp.mailfrom=intel-gvt-dev-bounces@lists.freedesktop.org;
-       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=redhat.com
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=intel.com
 Return-Path: <intel-gvt-dev-bounces@lists.freedesktop.org>
 Received: from gabe.freedesktop.org (gabe.freedesktop.org. [131.252.210.177])
-        by mx.google.com with ESMTPS id p26si3250053pfj.244.2019.01.10.05.19.35
+        by mx.google.com with ESMTPS id i18si34626717pgl.414.2019.01.10.17.29.40
         (version=TLS1_2 cipher=ECDHE-RSA-CHACHA20-POLY1305 bits=256/256);
-        Thu, 10 Jan 2019 05:19:35 -0800 (PST)
+        Thu, 10 Jan 2019 17:29:41 -0800 (PST)
 Received-SPF: pass (google.com: best guess record for domain of intel-gvt-dev-bounces@lists.freedesktop.org designates 131.252.210.177 as permitted sender) client-ip=131.252.210.177;
 Authentication-Results: mx.google.com;
        spf=pass (google.com: best guess record for domain of intel-gvt-dev-bounces@lists.freedesktop.org designates 131.252.210.177 as permitted sender) smtp.mailfrom=intel-gvt-dev-bounces@lists.freedesktop.org;
-       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=redhat.com
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=intel.com
 Received: from gabe.freedesktop.org (localhost [127.0.0.1])
-	by gabe.freedesktop.org (Postfix) with ESMTP id 1EABA6E615;
-	Thu, 10 Jan 2019 13:19:35 +0000 (UTC)
+	by gabe.freedesktop.org (Postfix) with ESMTP id A5B586F4E2;
+	Fri, 11 Jan 2019 01:29:40 +0000 (UTC)
 X-Original-To: intel-gvt-dev@lists.freedesktop.org
 Delivered-To: intel-gvt-dev@lists.freedesktop.org
-Received: from mx1.redhat.com (mx1.redhat.com [209.132.183.28])
- by gabe.freedesktop.org (Postfix) with ESMTPS id 6D43C6E615
+Received: from mga14.intel.com (mga14.intel.com [192.55.52.115])
+ by gabe.freedesktop.org (Postfix) with ESMTPS id B84866F4E2
  for <intel-gvt-dev@lists.freedesktop.org>;
- Thu, 10 Jan 2019 13:19:34 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx07.intmail.prod.int.phx2.redhat.com
- [10.5.11.22])
- (using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
- (No client certificate requested)
- by mx1.redhat.com (Postfix) with ESMTPS id DB2B9A0C2B;
- Thu, 10 Jan 2019 13:19:33 +0000 (UTC)
-Received: from sirius.home.kraxel.org (ovpn-116-203.ams2.redhat.com
- [10.36.116.203])
- by smtp.corp.redhat.com (Postfix) with ESMTP id 9EDB310A182A;
- Thu, 10 Jan 2019 13:19:33 +0000 (UTC)
-Received: by sirius.home.kraxel.org (Postfix, from userid 1000)
- id C9E02A213; Thu, 10 Jan 2019 14:19:32 +0100 (CET)
-Date: Thu, 10 Jan 2019 14:19:32 +0100
-From: Gerd Hoffmann <kraxel@redhat.com>
-To: hang.yuan@linux.intel.com
+ Fri, 11 Jan 2019 01:29:39 +0000 (UTC)
+X-Amp-Result: SKIPPED(no attachment in message)
+X-Amp-File-Uploaded: False
+Received: from orsmga007.jf.intel.com ([10.7.209.58])
+ by fmsmga103.fm.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384;
+ 10 Jan 2019 17:29:39 -0800
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="5.56,463,1539673200"; d="scan'208";a="105722639"
+Received: from henry-optiplex-7050.bj.intel.com (HELO [10.238.157.81])
+ ([10.238.157.81])
+ by orsmga007.jf.intel.com with ESMTP; 10 Jan 2019 17:29:38 -0800
 Subject: Re: [PATCH v1 0/4] drm/i915/gvt: add one VFIO graphics EDID region
-Message-ID: <20190110131932.5gzlq6msbtnoy2gw@sirius.home.kraxel.org>
+To: Gerd Hoffmann <kraxel@redhat.com>
 References: <1547118288-1001-1-git-send-email-hang.yuan@linux.intel.com>
+ <20190110131932.5gzlq6msbtnoy2gw@sirius.home.kraxel.org>
+From: Hang Yuan <hang.yuan@linux.intel.com>
+Message-ID: <3c63d6e4-b053-c36b-8529-123f7ff143cc@linux.intel.com>
+Date: Fri, 11 Jan 2019 09:22:35 +0800
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101
+ Thunderbird/60.2.1
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <1547118288-1001-1-git-send-email-hang.yuan@linux.intel.com>
-User-Agent: NeoMutt/20180716
-X-Scanned-By: MIMEDefang 2.84 on 10.5.11.22
-X-Greylist: Sender IP whitelisted, not delayed by milter-greylist-4.5.16
- (mx1.redhat.com [10.5.110.39]); Thu, 10 Jan 2019 13:19:33 +0000 (UTC)
+In-Reply-To: <20190110131932.5gzlq6msbtnoy2gw@sirius.home.kraxel.org>
+Content-Language: en-US
 X-BeenThere: intel-gvt-dev@lists.freedesktop.org
 X-Mailman-Version: 2.1.23
 Precedence: list
@@ -83,18 +80,20 @@ List-Help: <mailto:intel-gvt-dev-request@lists.freedesktop.org?subject=help>
 List-Subscribe: <https://lists.freedesktop.org/mailman/listinfo/intel-gvt-dev>, 
  <mailto:intel-gvt-dev-request@lists.freedesktop.org?subject=subscribe>
 Cc: intel-gvt-dev@lists.freedesktop.org
-Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Errors-To: intel-gvt-dev-bounces@lists.freedesktop.org
 Sender: "intel-gvt-dev" <intel-gvt-dev-bounces@lists.freedesktop.org>
 
-T24gVGh1LCBKYW4gMTAsIDIwMTkgYXQgMDc6MDQ6NDRQTSArMDgwMCwgaGFuZy55dWFuQGxpbnV4
-LmludGVsLmNvbSB3cm90ZToKPiBGcm9tOiBIYW5nIFl1YW4gPGhhbmcueXVhbkBsaW51eC5pbnRl
-bC5jb20+Cj4gCj4gQ3JlYXRlIG9uZSBWRklPIGdyYXBoaWNzIEVESUQgcmVnaW9uIGZvciB2Z3B1
-LiBXaGVuIHRoZSByZWdpb24gaXMgdXBkYXRlZCwKPiBob3RwbHVnIGV2ZW50IGlzIGVtdWxhdGVk
-IGZvciBndWVzdCB0byBnZXQgbmV3IEVESUQgZGF0YS4KCldoYXQgYnJhbmNoIHRoaXMgc2VyaWVz
-IGlzIGFnYWluc3Q/CkFwcGx5aW5nIHRvIDUuMC1yYzEgZG9lc24ndCB3b3JrIC4uLgoKY2hlZXJz
-LAogIEdlcmQKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-CmludGVsLWd2dC1kZXYgbWFpbGluZyBsaXN0CmludGVsLWd2dC1kZXZAbGlzdHMuZnJlZWRlc2t0
-b3Aub3JnCmh0dHBzOi8vbGlzdHMuZnJlZWRlc2t0b3Aub3JnL21haWxtYW4vbGlzdGluZm8vaW50
-ZWwtZ3Z0LWRldgo=
+T24gMS8xMC8xOSA5OjE5IFBNLCBHZXJkIEhvZmZtYW5uIHdyb3RlOgo+IE9uIFRodSwgSmFuIDEw
+LCAyMDE5IGF0IDA3OjA0OjQ0UE0gKzA4MDAsIGhhbmcueXVhbkBsaW51eC5pbnRlbC5jb20gd3Jv
+dGU6Cj4+IEZyb206IEhhbmcgWXVhbiA8aGFuZy55dWFuQGxpbnV4LmludGVsLmNvbT4KPj4KPj4g
+Q3JlYXRlIG9uZSBWRklPIGdyYXBoaWNzIEVESUQgcmVnaW9uIGZvciB2Z3B1LiBXaGVuIHRoZSBy
+ZWdpb24gaXMgdXBkYXRlZCwKPj4gaG90cGx1ZyBldmVudCBpcyBlbXVsYXRlZCBmb3IgZ3Vlc3Qg
+dG8gZ2V0IG5ldyBFRElEIGRhdGEuCj4gCj4gV2hhdCBicmFuY2ggdGhpcyBzZXJpZXMgaXMgYWdh
+aW5zdD8KPiBBcHBseWluZyB0byA1LjAtcmMxIGRvZXNuJ3Qgd29yayAuLi4KPiAKPiBjaGVlcnMs
+Cj4gICAgR2VyZAo+IApUaGUgcGF0Y2ggc2V0IGlzIGJhc2VkIG9uIGd2dC1zdGFnaW5nIGJyYW5j
+aCwgd2hpY2ggaXMgNS4wLXJjMSBhcyB3ZWxsLgoKUmVnYXJkcywKSGVucnkKX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KaW50ZWwtZ3Z0LWRldiBtYWlsaW5n
+IGxpc3QKaW50ZWwtZ3Z0LWRldkBsaXN0cy5mcmVlZGVza3RvcC5vcmcKaHR0cHM6Ly9saXN0cy5m
+cmVlZGVza3RvcC5vcmcvbWFpbG1hbi9saXN0aW5mby9pbnRlbC1ndnQtZGV2Cg==
