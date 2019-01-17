@@ -1,69 +1,70 @@
 Delivered-To: linux.kernel.mailinglists@gmail.com
-Received: by 2002:a0d:d7d3:0:0:0:0:0 with SMTP id z202csp1349809ywd;
-        Wed, 16 Jan 2019 21:09:07 -0800 (PST)
-X-Google-Smtp-Source: ALg8bN7hEs8dFB+6yBLgGVKzRsDZ9XknRuDOo37SdC0LDuUqaneGcVrMyX2MMXZiCko6H8EQI5BV
-X-Received: by 2002:a62:4bcf:: with SMTP id d76mr14037764pfj.170.1547701746938;
-        Wed, 16 Jan 2019 21:09:06 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1547701746; cv=none;
+Received: by 2002:a0d:d7d3:0:0:0:0:0 with SMTP id z202csp1444947ywd;
+        Wed, 16 Jan 2019 23:24:05 -0800 (PST)
+X-Google-Smtp-Source: ALg8bN6fv5t0ZfknNin1c71549v0nbMyG21s+GGNnO3hOZWDudqnuiYCGoJpVojNR3mJoRouHfBn
+X-Received: by 2002:a65:4904:: with SMTP id p4mr12592640pgs.384.1547709845071;
+        Wed, 16 Jan 2019 23:24:05 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1547709845; cv=none;
         d=google.com; s=arc-20160816;
-        b=GD3vS8bYRJPSTXKpWzS16NHvTF0WdudRfRuWkmKwbtgILaqhMdvQbDdx8rJNICdPTg
-         JaFPl1YMynqCweOO7fhFtmFfkeeve6Gt9Zi3u6ZbWbY2zEhkI5CZJBqcPONIh4rIjfo0
-         ybD0InglgkrB0mmJxfHm+2Nip57UI+ztqFBvyIcPjdRc82aCKXSmsnTOjWe2tdf0dIJV
-         yjR5utH7g2zP5UJgBrvcyrob66Mv49QtkNaoNHXJ5o3ckz9CMzIFHF1qPHxlPk2Gpjr/
-         mVl4WgUTqGDh69uSL/2aVXlq7s5sYC0et4B74ec7rFIf6G5685e+mVHm4LIKCr1GK9WJ
-         aTfw==
+        b=I6qqsGimG8rrsVNUUW4ogTRDuffrFE0XBnaRfTQviCYdvpr/y636DulEaf/ct5Z5Zh
+         rPGwjreHYjA+qWv1qhsqriJVQvKCUDsfoso/d4oyyz74FPH1dqNJhXWPIvFSmzoC09ia
+         6kH1ZTRQu0aU4F46E13zhEpEU77S9IeDa6LrUrWXqHJ7zy358JGybXrQ52aXgqCNXGzg
+         3wAz2ZJmH6XuRooNUfV+t96MlKVimTTiLFMn4RwKxvCVykPD5SFOEaXWgJSoyGsM55Qs
+         TPLM1+DUjBvNWXyBEH4CSiort7/y0EzsiPBQj1maafBF1H2FNuGqNRpStzgwppADUznh
+         Ldfw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=sender:errors-to:cc:reply-to:list-subscribe:list-help:list-post
          :list-archive:list-unsubscribe:list-id:precedence:user-agent
          :in-reply-to:mime-version:references:message-id:subject:to:from:date
          :delivered-to;
-        bh=T+t0YgBEHby7IvSVT9OrwGqcoPssG+o4YO+EHIlwU64=;
-        b=0+lj7QQcnJ/1gU2DWacRZxP+8wclLenRvNYCZ8LMijUiAoO96aO8XT8x4jzTa8S3zQ
-         vuiBVRA4KhtoixrEHpquNrINluAy7UHk/9jY1+yigudSSFbHN+Gl0IfA3KRDbsSClS5S
-         RaeVwIaLZDp5uhYtZZ3iH0ovgwTF7hSRAtCZ7WRriLd1KjSZjo/1XFJgp+hTCYfDCm+K
-         /fGI4yF1S8DdfmmHYA5UycCwAovpPaEudsLlMLlRuB6W5pdBl9XdMHex4J0uIl3W2lps
-         0S23h9SjcyIZu0uN9pJMOT6rmNeAnUcGEjvIZY4EByLRAulsIfLQFzE6XWp59Za/8FQu
-         53Hg==
+        bh=BQo0B4N3Djyzyt7TIO/XLUMdII+f04x5w9ebTpbACS0=;
+        b=u13AMZsdKIE3Fc5LrD8/CbY9hQLC5G/ZUJLNcq2VZ/mvnpHEzKmNVg9eO2vTYzXgcB
+         Semmk+g2a3TDQd1vPkt3Za1OUCL50ryZimWJq00FZGa1kS9zjHBY00z5b9mzKmVG4Dfr
+         D80nMGIzY0eJl4G+I3Vk1/i/S9bDUjJqPehzctHjL3KWT8qnyXb25muTcdjAiifwqGtw
+         iwWGbwr1CUWQDGEgM+01fOfaKE24kNdswQllhQVgYhRiymLhTfdHm5HLfWBvIxMn3xHP
+         cdCm88xA222WQabQ74JLeiWGXUdorchYdD5f44+5QK3NLMrIIZnQtgqeGdHrt2/lXBAr
+         e6FA==
 ARC-Authentication-Results: i=1; mx.google.com;
        spf=pass (google.com: best guess record for domain of intel-gvt-dev-bounces@lists.freedesktop.org designates 2610:10:20:722:a800:ff:fe36:1795 as permitted sender) smtp.mailfrom=intel-gvt-dev-bounces@lists.freedesktop.org;
        dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=intel.com
 Return-Path: <intel-gvt-dev-bounces@lists.freedesktop.org>
 Received: from gabe.freedesktop.org (gabe.freedesktop.org. [2610:10:20:722:a800:ff:fe36:1795])
-        by mx.google.com with ESMTPS id z128si612688pgb.372.2019.01.16.21.09.06
+        by mx.google.com with ESMTPS id p17si908301pfk.275.2019.01.16.23.24.04
         (version=TLS1_2 cipher=ECDHE-RSA-CHACHA20-POLY1305 bits=256/256);
-        Wed, 16 Jan 2019 21:09:06 -0800 (PST)
+        Wed, 16 Jan 2019 23:24:05 -0800 (PST)
 Received-SPF: pass (google.com: best guess record for domain of intel-gvt-dev-bounces@lists.freedesktop.org designates 2610:10:20:722:a800:ff:fe36:1795 as permitted sender) client-ip=2610:10:20:722:a800:ff:fe36:1795;
 Authentication-Results: mx.google.com;
        spf=pass (google.com: best guess record for domain of intel-gvt-dev-bounces@lists.freedesktop.org designates 2610:10:20:722:a800:ff:fe36:1795 as permitted sender) smtp.mailfrom=intel-gvt-dev-bounces@lists.freedesktop.org;
        dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=intel.com
 Received: from gabe.freedesktop.org (localhost [127.0.0.1])
-	by gabe.freedesktop.org (Postfix) with ESMTP id DF4826F2B8;
-	Thu, 17 Jan 2019 05:09:05 +0000 (UTC)
+	by gabe.freedesktop.org (Postfix) with ESMTP id 4751E6F2EA;
+	Thu, 17 Jan 2019 07:24:04 +0000 (UTC)
 X-Original-To: intel-gvt-dev@lists.freedesktop.org
 Delivered-To: intel-gvt-dev@lists.freedesktop.org
-Received: from mga02.intel.com (mga02.intel.com [134.134.136.20])
- by gabe.freedesktop.org (Postfix) with ESMTPS id 3C93B6F2B8
+Received: from mga04.intel.com (mga04.intel.com [192.55.52.120])
+ by gabe.freedesktop.org (Postfix) with ESMTPS id D512B6F2EA
  for <intel-gvt-dev@lists.freedesktop.org>;
- Thu, 17 Jan 2019 05:09:04 +0000 (UTC)
-X-Amp-Result: UNSCANNABLE
+ Thu, 17 Jan 2019 07:24:02 +0000 (UTC)
+X-Amp-Result: UNKNOWN
+X-Amp-Original-Verdict: FILE UNKNOWN
 X-Amp-File-Uploaded: False
-Received: from orsmga006.jf.intel.com ([10.7.209.51])
- by orsmga101.jf.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384;
- 16 Jan 2019 21:09:03 -0800
+Received: from fmsmga008.fm.intel.com ([10.253.24.58])
+ by fmsmga104.fm.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384;
+ 16 Jan 2019 23:24:02 -0800
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="5.56,488,1539673200"; 
- d="asc'?scan'208";a="108891418"
+ d="asc'?scan'208";a="117375365"
 Received: from zhen-hp.sh.intel.com (HELO zhen-hp) ([10.239.13.8])
- by orsmga006.jf.intel.com with ESMTP; 16 Jan 2019 21:09:02 -0800
-Date: Thu, 17 Jan 2019 12:57:34 +0800
+ by fmsmga008.fm.intel.com with ESMTP; 16 Jan 2019 23:24:01 -0800
+Date: Thu, 17 Jan 2019 15:12:32 +0800
 From: Zhenyu Wang <zhenyuw@linux.intel.com>
-To: hang.yuan@linux.intel.com
-Subject: Re: [PATCH v2 3/3] drm/i915/gvt: add VFIO EDID region
-Message-ID: <20190117045734.GD18272@zhen-hp.sh.intel.com>
-References: <1547639067-5181-1-git-send-email-hang.yuan@linux.intel.com>
- <1547639067-5181-4-git-send-email-hang.yuan@linux.intel.com>
+To: Sasha Levin <sashal@kernel.org>
+Subject: Re: [PATCH] drm/i915/gvt: Fix mmap range check
+Message-ID: <20190117071232.GH18272@zhen-hp.sh.intel.com>
+References: <20190111055853.1943-1-zhenyuw@linux.intel.com>
+ <20190116133557.4158F20866@mail.kernel.org>
 MIME-Version: 1.0
-In-Reply-To: <1547639067-5181-4-git-send-email-hang.yuan@linux.intel.com>
+In-Reply-To: <20190116133557.4158F20866@mail.kernel.org>
 User-Agent: Mutt/1.10.0 (2018-05-17)
 X-BeenThere: intel-gvt-dev@lists.freedesktop.org
 X-Mailman-Version: 2.1.23
@@ -78,301 +79,69 @@ List-Help: <mailto:intel-gvt-dev-request@lists.freedesktop.org?subject=help>
 List-Subscribe: <https://lists.freedesktop.org/mailman/listinfo/intel-gvt-dev>, 
  <mailto:intel-gvt-dev-request@lists.freedesktop.org?subject=subscribe>
 Reply-To: Zhenyu Wang <zhenyuw@linux.intel.com>
-Cc: intel-gvt-dev@lists.freedesktop.org, kraxel@redhat.com
-Content-Type: multipart/mixed; boundary="===============1803193660=="
+Cc: "Orrala Contreras, Alfredo" <alfredo.orrala.contreras@intel.com>, "Monroy,
+ Rodrigo Axel" <rodrigo.axel.monroy@intel.com>,
+ intel-gvt-dev@lists.freedesktop.org, stable@vger.kernel.org
+Content-Type: multipart/mixed; boundary="===============0791234677=="
 Errors-To: intel-gvt-dev-bounces@lists.freedesktop.org
 Sender: "intel-gvt-dev" <intel-gvt-dev-bounces@lists.freedesktop.org>
 
 
---===============1803193660==
+--===============0791234677==
 Content-Type: multipart/signed; micalg=pgp-sha1;
-	protocol="application/pgp-signature"; boundary="vGgW1X5XWziG23Ko"
+	protocol="application/pgp-signature"; boundary="VUDLurXRWRKrGuMn"
 Content-Disposition: inline
 
 
---vGgW1X5XWziG23Ko
+--VUDLurXRWRKrGuMn
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-On 2019.01.16 19:44:27 +0800, hang.yuan@linux.intel.com wrote:
-> From: Hang Yuan <hang.yuan@linux.intel.com>
+On 2019.01.16 13:35:56 +0000, Sasha Levin wrote:
+> Hi,
 >=20
-> Add EDID region for vGPU and support EDID update via this region.
+> [This is an automated email]
 >=20
-> Signed-off-by: Hang Yuan <hang.yuan@linux.intel.com>
-> ---
->  drivers/gpu/drm/i915/gvt/gvt.h       |   1 +
->  drivers/gpu/drm/i915/gvt/hypercall.h |   1 +
->  drivers/gpu/drm/i915/gvt/kvmgt.c     | 119 +++++++++++++++++++++++++++++=
-++++++
->  drivers/gpu/drm/i915/gvt/mpt.h       |  17 +++++
->  drivers/gpu/drm/i915/gvt/vgpu.c      |   6 ++
->  5 files changed, 144 insertions(+)
+> This commit has been processed because it contains a "Fixes:" tag,
+> fixing commit: 659643f7d814 drm/i915/gvt/kvmgt: add vfio/mdev support to =
+KVMGT.
 >=20
-> diff --git a/drivers/gpu/drm/i915/gvt/gvt.h b/drivers/gpu/drm/i915/gvt/gv=
-t.h
-> index 8bce09d..54ad341 100644
-> --- a/drivers/gpu/drm/i915/gvt/gvt.h
-> +++ b/drivers/gpu/drm/i915/gvt/gvt.h
-> @@ -203,6 +203,7 @@ struct intel_vgpu {
->  	struct {
->  		struct mdev_device *mdev;
->  		struct vfio_region *region;
-> +		struct vfio_region_gfx_edid vfio_edid_regs;
->  		int num_regions;
->  		struct eventfd_ctx *intx_trigger;
->  		struct eventfd_ctx *msi_trigger;
-> diff --git a/drivers/gpu/drm/i915/gvt/hypercall.h b/drivers/gpu/drm/i915/=
-gvt/hypercall.h
-> index 831ab34..4862fb1 100644
-> --- a/drivers/gpu/drm/i915/gvt/hypercall.h
-> +++ b/drivers/gpu/drm/i915/gvt/hypercall.h
-> @@ -67,6 +67,7 @@ struct intel_gvt_mpt {
->  	int (*set_trap_area)(unsigned long handle, u64 start, u64 end,
->  			     bool map);
->  	int (*set_opregion)(void *vgpu);
-> +	int (*set_edid)(void *vgpu, int port_num);
->  	int (*get_vfio_device)(void *vgpu);
->  	void (*put_vfio_device)(void *vgpu);
->  	bool (*is_valid_gfn)(unsigned long handle, unsigned long gfn);
-> diff --git a/drivers/gpu/drm/i915/gvt/kvmgt.c b/drivers/gpu/drm/i915/gvt/=
-kvmgt.c
-> index 5bec0b5..a667081 100644
-> --- a/drivers/gpu/drm/i915/gvt/kvmgt.c
-> +++ b/drivers/gpu/drm/i915/gvt/kvmgt.c
-> @@ -57,6 +57,8 @@ static const struct intel_gvt_ops *intel_gvt_ops;
->  #define VFIO_PCI_INDEX_TO_OFFSET(index) ((u64)(index) << VFIO_PCI_OFFSET=
-_SHIFT)
->  #define VFIO_PCI_OFFSET_MASK    (((u64)(1) << VFIO_PCI_OFFSET_SHIFT) - 1)
-> =20
-> +#define EDID_BLOB_OFFSET (PAGE_SIZE/2)
-> +
->  #define OPREGION_SIGNATURE "IntelGraphicsMem"
-> =20
->  struct vfio_region;
-> @@ -427,6 +429,92 @@ static const struct intel_vgpu_regops intel_vgpu_reg=
-ops_opregion =3D {
->  	.release =3D intel_vgpu_reg_release_opregion,
->  };
-> =20
-> +static int handle_edid_regs(struct intel_vgpu *vgpu, char *buf, size_t c=
-ount,
-> +		u16 offset, bool is_write)
-> +{
-> +	struct vfio_region_gfx_edid *regs =3D (void *)&vgpu->vdev.vfio_edid_reg=
-s;
-> +
-> +	if (offset + count > sizeof(vgpu->vdev.vfio_edid_regs))
-> +		return -EINVAL;
-> +
-> +	if (count !=3D 4)
-> +		return -EINVAL;
-> +
-> +	if (is_write) {
-> +		switch (offset) {
-> +		case offsetof(struct vfio_region_gfx_edid, link_state):
-> +			memcpy((char *)regs + offset, buf, count);
-> +			if (regs->link_state =3D=3D VFIO_DEVICE_GFX_LINK_STATE_UP)
-> +				intel_gvt_ops->emulate_hotplug(vgpu, true);
-> +			else if (regs->link_state
-> +					=3D=3D VFIO_DEVICE_GFX_LINK_STATE_DOWN)
-> +				intel_gvt_ops->emulate_hotplug(vgpu, false);
-> +			else {
-> +				gvt_vgpu_err("invalid EDID link state %d\n",
-> +					regs->link_state);
-> +				return -EINVAL;
-> +			}
-> +			break;
-> +		default:
-> +			/* read-only regs */
-> +			gvt_vgpu_err("write read-only EDID region at offset %d\n",
-> +				offset);
-> +			return -EPERM;
-> +		}
+> The bot has tested the following trees: v4.20.2, v4.19.15, v4.14.93.
+>=20
+> v4.20.2: Build OK!
+> v4.19.15: Build OK!
+> v4.14.93: Build failed! Errors:
+>     drivers/gpu/drm/i915/gvt/kvmgt.c:836:7: error: implicit declaration o=
+f function ???intel_vgpu_in_aperture???; did you mean ???intel_vgpu_create?=
+??? [-Werror=3Dimplicit-function-declaration]
+>=20
+>=20
+> How should we proceed with this patch?
+>
 
-"edid_size" is also writable for user, so need to check or bail with
-different error. And we might at least do some validation of passed
-edid blob for sanity.
+I'll prepare a backport version once this one hits linux master.
 
-> +	} else {
-> +		memcpy(buf, (char *)regs + offset, count);
-> +	}
-> +
-> +	return count;
-> +}
-> +
-> +static int handle_edid_blob(struct intel_vgpu *vgpu, char *base, char *b=
-uf,
-> +		size_t count, u16 offset, bool is_write)
-> +{
-> +	if (offset + count > vgpu->vdev.vfio_edid_regs.edid_size)
-> +		return -EINVAL;
-> +
-> +	if (is_write)
-> +		memcpy(base + offset, buf, count);
-> +	else
-> +		memcpy(buf, base + offset, count);
-> +
-> +	return count;
-> +}
-> +
-> +static size_t intel_vgpu_reg_rw_edid(struct intel_vgpu *vgpu, char *buf,
-> +		size_t count, loff_t *ppos, bool iswrite)
-> +{
-> +	int ret;
-> +	unsigned int i =3D VFIO_PCI_OFFSET_TO_INDEX(*ppos) -
-> +			VFIO_PCI_NUM_REGIONS;
-> +	void *base =3D vgpu->vdev.region[i].data;
-> +	loff_t pos =3D *ppos & VFIO_PCI_OFFSET_MASK;
-> +
-> +	if (pos < EDID_BLOB_OFFSET) {
-> +		ret =3D handle_edid_regs(vgpu, buf, count, pos, iswrite);
-> +	} else {
-> +		pos -=3D EDID_BLOB_OFFSET;
-> +		ret =3D handle_edid_blob(vgpu, base, buf, count, pos, iswrite);
-> +	}
-> +
-> +	if (ret < 0)
-> +		gvt_vgpu_err("failed to access EDID region at offset 0x%llx\n",
-> +				pos);
-> +
-> +	return ret;
-> +}
-> +
-> +static void intel_vgpu_reg_release_edid(struct intel_vgpu *vgpu,
-> +					struct vfio_region *region)
-> +{
-> +}
-> +
-> +static const struct intel_vgpu_regops intel_vgpu_regops_edid =3D {
-> +	.rw =3D intel_vgpu_reg_rw_edid,
-> +	.release =3D intel_vgpu_reg_release_edid,
-> +};
-> +
->  static int intel_vgpu_register_reg(struct intel_vgpu *vgpu,
->  		unsigned int type, unsigned int subtype,
->  		const struct intel_vgpu_regops *ops,
-> @@ -493,6 +581,36 @@ static int kvmgt_set_opregion(void *p_vgpu)
->  	return ret;
->  }
-> =20
-> +static int kvmgt_set_edid(void *p_vgpu, int port_num)
-> +{
-> +	struct intel_vgpu *vgpu =3D (struct intel_vgpu *)p_vgpu;
-> +	struct intel_vgpu_port *port =3D intel_vgpu_port(vgpu, port_num);
-> +	void *base;
-> +	int ret;
-> +
-> +	base =3D port->edid->edid_block;
-> +	if (!base)
-> +		return -ENOMEM;
-> +
-> +	vgpu->vdev.vfio_edid_regs.edid_offset =3D EDID_BLOB_OFFSET;
-> +
-> +	/* No extended EDID block for DP interface */
-> +	vgpu->vdev.vfio_edid_regs.edid_max_size =3D EDID_SIZE;
-> +	vgpu->vdev.vfio_edid_regs.edid_size =3D EDID_SIZE;
-> +	vgpu->vdev.vfio_edid_regs.max_xres =3D vgpu_edid_xres(port->id);
-> +	vgpu->vdev.vfio_edid_regs.max_yres =3D vgpu_edid_yres(port->id);
-> +
-> +	ret =3D intel_vgpu_register_reg(vgpu,
-> +			VFIO_REGION_TYPE_GFX,
-> +			VFIO_REGION_SUBTYPE_GFX_EDID,
-> +			&intel_vgpu_regops_edid, EDID_SIZE,
-> +			VFIO_REGION_INFO_FLAG_READ |
-> +			VFIO_REGION_INFO_FLAG_WRITE |
-> +			VFIO_REGION_INFO_FLAG_CAPS, base);
-> +
-> +	return ret;
-> +}
-> +
->  static void kvmgt_put_vfio_device(void *vgpu)
->  {
->  	if (WARN_ON(!((struct intel_vgpu *)vgpu)->vdev.vfio_device))
-> @@ -1896,6 +2014,7 @@ static struct intel_gvt_mpt kvmgt_mpt =3D {
->  	.dma_map_guest_page =3D kvmgt_dma_map_guest_page,
->  	.dma_unmap_guest_page =3D kvmgt_dma_unmap_guest_page,
->  	.set_opregion =3D kvmgt_set_opregion,
-> +	.set_edid =3D kvmgt_set_edid,
->  	.get_vfio_device =3D kvmgt_get_vfio_device,
->  	.put_vfio_device =3D kvmgt_put_vfio_device,
->  	.is_valid_gfn =3D kvmgt_is_valid_gfn,
-> diff --git a/drivers/gpu/drm/i915/gvt/mpt.h b/drivers/gpu/drm/i915/gvt/mp=
-t.h
-> index 5b5995a..0f94401 100644
-> --- a/drivers/gpu/drm/i915/gvt/mpt.h
-> +++ b/drivers/gpu/drm/i915/gvt/mpt.h
-> @@ -314,6 +314,23 @@ static inline int intel_gvt_hypervisor_set_opregion(=
-struct intel_vgpu *vgpu)
->  }
-> =20
->  /**
-> + * intel_gvt_hypervisor_set_edid - Set EDID region for guest
-> + * @vgpu: a vGPU
-> + * @port_num: display port number
-> + *
-> + * Returns:
-> + * Zero on success, negative error code if failed.
-> + */
-> +static inline int intel_gvt_hypervisor_set_edid(struct intel_vgpu *vgpu,
-> +						int port_num)
-> +{
-> +	if (!intel_gvt_host.mpt->set_edid)
-> +		return 0;
-> +
-> +	return intel_gvt_host.mpt->set_edid(vgpu, port_num);
-> +}
-> +
-> +/**
->   * intel_gvt_hypervisor_get_vfio_device - increase vfio device ref count
->   * @vgpu: a vGPU
->   *
-> diff --git a/drivers/gpu/drm/i915/gvt/vgpu.c b/drivers/gpu/drm/i915/gvt/v=
-gpu.c
-> index e1c860f8..720e2b1 100644
-> --- a/drivers/gpu/drm/i915/gvt/vgpu.c
-> +++ b/drivers/gpu/drm/i915/gvt/vgpu.c
-> @@ -428,6 +428,12 @@ static struct intel_vgpu *__intel_gvt_create_vgpu(st=
-ruct intel_gvt *gvt,
->  	if (ret)
->  		goto out_clean_sched_policy;
-> =20
-> +	/*TODO: add more platforms support */
-> +	if (IS_SKYLAKE(gvt->dev_priv) || IS_KABYLAKE(gvt->dev_priv))
-> +		ret =3D intel_gvt_hypervisor_set_edid(vgpu, PORT_D);
-> +	if (ret)
-> +		goto out_clean_sched_policy;
-> +
->  	return vgpu;
-> =20
->  out_clean_sched_policy:
-> --=20
-> 2.7.4
->=20
-> _______________________________________________
-> intel-gvt-dev mailing list
-> intel-gvt-dev@lists.freedesktop.org
-> https://lists.freedesktop.org/mailman/listinfo/intel-gvt-dev
+Thanks.
 
 --=20
 Open Source Technology Center, Intel ltd.
 
 $gpg --keyserver wwwkeys.pgp.net --recv-keys 4D781827
 
---vGgW1X5XWziG23Ko
+--VUDLurXRWRKrGuMn
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iF0EARECAB0WIQTXuabgHDW6LPt9CICxBBozTXgYJwUCXEALPQAKCRCxBBozTXgY
-J+AgAJ9hoRAZE4G/3mm6uZgK2RT2pt0u3ACfciIZBqFsEvlkGGbl3pipcvaVG1w=
-=HbwG
+iF0EARECAB0WIQTXuabgHDW6LPt9CICxBBozTXgYJwUCXEAq4AAKCRCxBBozTXgY
+J+amAJ9Mexp7Wpb6UicmatFi4UlrCcpBhgCfUkeCHkAnmiC/gSHunSwwNPT9hk8=
+=ENse
 -----END PGP SIGNATURE-----
 
---vGgW1X5XWziG23Ko--
+--VUDLurXRWRKrGuMn--
 
---===============1803193660==
+--===============0791234677==
 Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
 Content-Transfer-Encoding: base64
@@ -383,4 +152,4 @@ LWRldiBtYWlsaW5nIGxpc3QKaW50ZWwtZ3Z0LWRldkBsaXN0cy5mcmVlZGVza3RvcC5vcmcKaHR0
 cHM6Ly9saXN0cy5mcmVlZGVza3RvcC5vcmcvbWFpbG1hbi9saXN0aW5mby9pbnRlbC1ndnQtZGV2
 Cg==
 
---===============1803193660==--
+--===============0791234677==--
