@@ -1,71 +1,79 @@
 Delivered-To: linux.kernel.mailinglists@gmail.com
-Received: by 2002:a81:3684:0:0:0:0:0 with SMTP id d126csp1965703ywa;
-        Mon, 18 Feb 2019 00:07:13 -0800 (PST)
-X-Google-Smtp-Source: AHgI3IY/vOvJxbEPTP69KEeFh0r02GnqdVY7YuEuL7CulfPShPGx1lLrEqF2wHiWNUTo5csifzpD
-X-Received: by 2002:a17:902:4d46:: with SMTP id o6mr23265135plh.302.1550477233028;
-        Mon, 18 Feb 2019 00:07:13 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1550477233; cv=none;
+Received: by 2002:a81:3684:0:0:0:0:0 with SMTP id d126csp1997298ywa;
+        Mon, 18 Feb 2019 00:52:12 -0800 (PST)
+X-Google-Smtp-Source: AHgI3IbGVl+aaQJzsoWcOgm9TJB+sphmSCE8tv0eWVk7vkGcaW73J/9LKIbM8MBjExTtARMtZp4h
+X-Received: by 2002:a17:902:6686:: with SMTP id e6mr24152875plk.208.1550479932579;
+        Mon, 18 Feb 2019 00:52:12 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1550479932; cv=none;
         d=google.com; s=arc-20160816;
-        b=euxniiCdbQXnQKKP+BprnwwvUmfxLS2F4gTMdCZ6oYxty/VOjWfwI3gwWuX4CmLWAl
-         SKw0FOLgEY6so8hk9PJk+PxSFGzfH+3+OYPT+gIr3hHEhzT/SNXdK4f9EAiaVDHFUEo5
-         P/Kund+7fL/28oFVeBGgn0H9/wTOVMfsUAKdF531AaXkRNmwtm10TLL0lv5uwu2UoGmf
-         T6VHB5qt4Qdd+htliXJpYKyC6wmPim0kLkIxeoWa8Q/WI/S4V+gHRO0eqgTnGYdQ0tGe
-         R2yqeBOwNAxZQ4zUqiOTz2sCeyZENvW5iTZNz6DOWAJBxxyLoF50g44hPhNTZMzkNg9e
-         64mw==
+        b=d90iHx2P+AS/PRFfoN8yNiWkiTWAY8/+DrGF/tN0B49j4G86eZmPpTRlOF6L8w6UZq
+         33fSL5Re4UE4H/HYHkfH/HtlUMZpXa7xt9mvFcme4ZaU4580nEhY+xBpIE2GvKU0j8DK
+         jH+3L62oxTWyb2U6k/vWqToj78hm739lvXhvP+hfvTy7A2OEhgRyb6qYTxV+fQV1XdGB
+         XYFwW45mY85sFn324VGAmGvZkUb99KZDKY0ADwKCvYn1Q2gpDryZn6V7C8DS/qzXKtUr
+         SArCDuA9yWabtybaOT3X6oEAeqWH++b1qYSq0DIRKxNNQ+Sku5fNWxeX6uRmWPBooCai
+         k+AQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=sender:errors-to:cc:reply-to:list-subscribe:list-help:list-post
-         :list-archive:list-unsubscribe:list-id:precedence:user-agent
-         :in-reply-to:mime-version:references:message-id:subject:to:from:date
-         :delivered-to;
-        bh=SGqWRvrP8qTZJcZ3Kd8CGULF20T4hmSd0J4RqhOxm4U=;
-        b=OWKgpWzK8wKEXokqOFdsYD0Tg/QhLq9h4seI92TkqnoZVArFTFDJnx64LFK8buOcDE
-         tZOuONW0Uh/R8scOrvjeMz0YZUxaOpC/Iim6OU/a2/SNPIUyolyfNJZB8n9Jm7eUYGQL
-         iLa6NYjI2lexIr9DkDTHRl4cCHi+W9mdPBWd9T+ePv4aH0RzOxuQcJiM542La9vx/ITW
-         te/2TYpLwkd2fahowsXIKTUt5Zk2atZV0CPieMJsn6XvbRoiPlvVI3LrvooEGttLUP87
-         pNCpUHfk03DZtQa0B3l6aIkUfpMK09n78dW62v7j9eqSGGkkRXhdjDEiT6OSzLnMaiuA
-         9JpQ==
+        h=sender:errors-to:list-subscribe:list-help:list-post:list-archive
+         :list-unsubscribe:list-id:precedence:date:from:message-id:subject
+         :in-reply-to:to:mime-version:delivered-to;
+        bh=sDZNJ2j+J3khoR2/pg3HYggr22/uy9mz1YkdvQWb8hc=;
+        b=aacZ1fGaY49PbmpYy1bISm9emj+b/UGF3f5uxptTfEoMtR17GVWZpBrpgdsEvf/QAf
+         VN/wmQNBh02CKIngDTorBbezQ3cj+XxMuJeMWMxbRvwh/+YvEVBiWUHLaEW0ouUO4ZiP
+         W4HMYAb4q18qI6LJJrLEeBkPs7iqnLSWevuwnkAgsrxTj6gRUKSG6+oAdFkMUpRQ173I
+         rOkDGqU3JfysgfIjJSBBNS8mAhnygtE3iRclj3X41FNNSjwJItPYJWYMQmvLLy853Xxv
+         LSCu7zfeOE5TS9EPWb+X3jxNR7sdaB4FrgPd7qCjJo/isEEClawYPO1q9RfOlTH0kYeE
+         FZfA==
 ARC-Authentication-Results: i=1; mx.google.com;
        spf=pass (google.com: best guess record for domain of intel-gvt-dev-bounces@lists.freedesktop.org designates 2610:10:20:722:a800:ff:fe36:1795 as permitted sender) smtp.mailfrom=intel-gvt-dev-bounces@lists.freedesktop.org;
        dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=intel.com
 Return-Path: <intel-gvt-dev-bounces@lists.freedesktop.org>
 Received: from gabe.freedesktop.org (gabe.freedesktop.org. [2610:10:20:722:a800:ff:fe36:1795])
-        by mx.google.com with ESMTPS id 16si12333600pgt.548.2019.02.18.00.07.12
+        by mx.google.com with ESMTPS id c139si10900823pfb.281.2019.02.18.00.52.11
         (version=TLS1_2 cipher=ECDHE-RSA-CHACHA20-POLY1305 bits=256/256);
-        Mon, 18 Feb 2019 00:07:13 -0800 (PST)
+        Mon, 18 Feb 2019 00:52:12 -0800 (PST)
 Received-SPF: pass (google.com: best guess record for domain of intel-gvt-dev-bounces@lists.freedesktop.org designates 2610:10:20:722:a800:ff:fe36:1795 as permitted sender) client-ip=2610:10:20:722:a800:ff:fe36:1795;
 Authentication-Results: mx.google.com;
        spf=pass (google.com: best guess record for domain of intel-gvt-dev-bounces@lists.freedesktop.org designates 2610:10:20:722:a800:ff:fe36:1795 as permitted sender) smtp.mailfrom=intel-gvt-dev-bounces@lists.freedesktop.org;
        dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=intel.com
 Received: from gabe.freedesktop.org (localhost [127.0.0.1])
-	by gabe.freedesktop.org (Postfix) with ESMTP id 9A75189166;
-	Mon, 18 Feb 2019 08:07:12 +0000 (UTC)
+	by gabe.freedesktop.org (Postfix) with ESMTP id C7BF18914A;
+	Mon, 18 Feb 2019 08:52:11 +0000 (UTC)
 X-Original-To: intel-gvt-dev@lists.freedesktop.org
 Delivered-To: intel-gvt-dev@lists.freedesktop.org
-Received: from mga03.intel.com (mga03.intel.com [134.134.136.65])
- by gabe.freedesktop.org (Postfix) with ESMTPS id 8D61489166
+Received: from mga07.intel.com (mga07.intel.com [134.134.136.100])
+ by gabe.freedesktop.org (Postfix) with ESMTPS id E1B248914A
  for <intel-gvt-dev@lists.freedesktop.org>;
- Mon, 18 Feb 2019 08:07:11 +0000 (UTC)
+ Mon, 18 Feb 2019 08:52:09 +0000 (UTC)
 X-Amp-Result: UNSCANNABLE
 X-Amp-File-Uploaded: False
-Received: from orsmga001.jf.intel.com ([10.7.209.18])
- by orsmga103.jf.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384;
- 18 Feb 2019 00:07:11 -0800
+Received: from orsmga006.jf.intel.com ([10.7.209.51])
+ by orsmga105.jf.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384;
+ 18 Feb 2019 00:52:09 -0800
 X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="5.58,383,1544515200"; 
- d="asc'?scan'208";a="139476318"
-Received: from zhen-hp.sh.intel.com (HELO zhen-hp) ([10.239.13.116])
- by orsmga001.jf.intel.com with ESMTP; 18 Feb 2019 00:07:10 -0800
-Date: Mon, 18 Feb 2019 15:57:41 +0800
-From: Zhenyu Wang <zhenyuw@linux.intel.com>
-To: Zhao Yakui <yakui.zhao@intel.com>
-Subject: Re: [PATCH 2/2] drm/i915/gvt: Refine the combined
- intel_vgpu_oos_page struct to save memory
-Message-ID: <20190218075741.GP12380@zhen-hp.sh.intel.com>
-References: <1550135357-30932-1-git-send-email-yakui.zhao@intel.com>
- <1550135357-30932-2-git-send-email-yakui.zhao@intel.com>
+X-IronPort-AV: E=Sophos;i="5.58,384,1544515200"; 
+ d="txt'?scan'208,217";a="117038412"
+Received: from fmsmsx107.amr.corp.intel.com ([10.18.124.205])
+ by orsmga006.jf.intel.com with ESMTP; 18 Feb 2019 00:52:09 -0800
+Received: from fmsmsx112.amr.corp.intel.com (10.18.116.6) by
+ fmsmsx107.amr.corp.intel.com (10.18.124.205) with Microsoft SMTP Server (TLS)
+ id 14.3.408.0; Mon, 18 Feb 2019 00:52:09 -0800
+Received: from shsmsx101.ccr.corp.intel.com (10.239.4.153) by
+ FMSMSX112.amr.corp.intel.com (10.18.116.6) with Microsoft SMTP Server (TLS)
+ id 14.3.408.0; Mon, 18 Feb 2019 00:52:08 -0800
+Received: from [127.0.1.1] (10.239.127.40) by SHSMSX101.ccr.corp.intel.com
+ (10.239.4.153) with Microsoft SMTP Server (TLS) id 14.3.408.0; Mon, 18 Feb
+ 2019 16:52:06 +0800
+Content-Type: multipart/mixed; boundary="===============7531686885166066985=="
 MIME-Version: 1.0
-In-Reply-To: <1550135357-30932-2-git-send-email-yakui.zhao@intel.com>
-User-Agent: Mutt/1.10.0 (2018-05-17)
+To: <intel-gvt-dev@lists.freedesktop.org>, <fenglin.hu@intel.com>
+In-Reply-To: <20190218064653.26020-1-zhenyuw@linux.intel.com>
+Subject: Patch Review for
+ [PATCH]_drm/i915/gvt:_Fix_MI_FLUSH_DW_parsing_with_correct_index_check by
+ zhenyuw:PASS
+Message-ID: <213ee2d6-0a87-45c6-9eb1-587e311d32be@shsmsx101.ccr.corp.intel.com>
+From: <lab_gvt-test@intel.com>
+Date: Mon, 18 Feb 2019 16:52:06 +0800
+X-Originating-IP: [10.239.127.40]
 X-BeenThere: intel-gvt-dev@lists.freedesktop.org
 X-Mailman-Version: 2.1.23
 Precedence: list
@@ -78,109 +86,66 @@ List-Post: <mailto:intel-gvt-dev@lists.freedesktop.org>
 List-Help: <mailto:intel-gvt-dev-request@lists.freedesktop.org?subject=help>
 List-Subscribe: <https://lists.freedesktop.org/mailman/listinfo/intel-gvt-dev>, 
  <mailto:intel-gvt-dev-request@lists.freedesktop.org?subject=subscribe>
-Reply-To: Zhenyu Wang <zhenyuw@linux.intel.com>
-Cc: intel-gvt-dev@lists.freedesktop.org
-Content-Type: multipart/mixed; boundary="===============1949147985=="
 Errors-To: intel-gvt-dev-bounces@lists.freedesktop.org
 Sender: "intel-gvt-dev" <intel-gvt-dev-bounces@lists.freedesktop.org>
 
+--===============7531686885166066985==
+Content-Type: text/html; charset="utf-8"
+MIME-Version: 1.0
+Content-Transfer-Encoding: base64
 
---===============1949147985==
-Content-Type: multipart/signed; micalg=pgp-sha1;
-	protocol="application/pgp-signature"; boundary="JPKYlvo4+BwO1+FT"
-Content-Disposition: inline
+PGh0bWw+PGhlYWQ+PHRpdGxlPklyaXMgUHJvIDU4MCAyMDE5LTItMTk8L3RpdGxlPjwvaGVhZD48
+Ym9keT48cD48Yj48Zm9udCBmYWNlPSJ2ZXJkYW5hIj5JcmlzIFBybyA1ODAgMjAxOS0yLTE5PC9m
+b250PjwvYj48L3A+PHRhYmxlIGJvcmRlcj0iMCI+PHRyPjx0ZCBjb2xzcGFuPSIzIiBhbGlnbj0i
+Y2VudGVyIj48Yj5UZXN0IFJlc3VsdDwvYj48dGQ+PHRyPjx0cj48dGQgYWxpZ249ImxlZnQiPjxi
+PlRvdGFsOiAxNjwvYj48L3RkPjx0ZCBhbGlnbj0ibGVmdCI+PGI+PGZvbnQgY29sb3I9ImdyZWVu
+Ij5QYXNzOiAxNjwvZm9udD48L2I+PC90ZD48dGQgYWxpZ249ImxlZnQiPjxiPjxmb250IGNvbG9y
+PSJyZWQiPkZhaWw6IDA8L2ZvbnQ+PC9iPjwvdGQ+PC90cj48dHI+PHRkIGNvbHNwYW49IjMiIGFs
+aWduPSJjZW50ZXIiPjxiPkRldGFpbCBSZXN1bHQ8L2I+PHRkPjx0cj48dHI+PHRkIGNvbHNwYW49
+IjIiPlZNTSBjcmVhdGVfbGludXg8L3RkPjx0ZD48Zm9udCBjb2xvcj0iZ3JlZW4iPlBBU1M8L2Zv
+bnQ+PC90ZD48L3RyPjx0cj48dGQgY29sc3Bhbj0iMiI+Vk1NIHNodXRkb3duX2xpbnV4PC90ZD48
+dGQ+PGZvbnQgY29sb3I9ImdyZWVuIj5QQVNTPC9mb250PjwvdGQ+PC90cj48dHI+PHRkIGNvbHNw
+YW49IjIiPlZNTSByZWJvb3RfbGludXg8L3RkPjx0ZD48Zm9udCBjb2xvcj0iZ3JlZW4iPlBBU1M8
+L2ZvbnQ+PC90ZD48L3RyPjx0cj48dGQgY29sc3Bhbj0iMiI+Vk1NIGRlc3Ryb3lfbGludXg8L3Rk
+Pjx0ZD48Zm9udCBjb2xvcj0iZ3JlZW4iPlBBU1M8L2ZvbnQ+PC90ZD48L3RyPjx0cj48dGQgY29s
+c3Bhbj0iMiI+Vk1NIGNyZWF0ZV8yX2xpbnV4PC90ZD48dGQ+PGZvbnQgY29sb3I9ImdyZWVuIj5Q
+QVNTPC9mb250PjwvdGQ+PC90cj48dHI+PHRkIGNvbHNwYW49IjIiPlZNTSBkZXN0cm95XzJfbGlu
+dXg8L3RkPjx0ZD48Zm9udCBjb2xvcj0iZ3JlZW4iPlBBU1M8L2ZvbnQ+PC90ZD48L3RyPjx0cj48
+dGQgY29sc3Bhbj0iMiI+Vk1NIGNyZWF0ZV93aW4xMF82NDwvdGQ+PHRkPjxmb250IGNvbG9yPSJn
+cmVlbiI+UEFTUzwvZm9udD48L3RkPjwvdHI+PHRyPjx0ZCBjb2xzcGFuPSIyIj5WTU0gc2h1dGRv
+d25fd2luMTBfNjQ8L3RkPjx0ZD48Zm9udCBjb2xvcj0iZ3JlZW4iPlBBU1M8L2ZvbnQ+PC90ZD48
+L3RyPjx0cj48dGQgY29sc3Bhbj0iMiI+Vk1NIHJlYm9vdF93aW4xMF82NDwvdGQ+PHRkPjxmb250
+IGNvbG9yPSJncmVlbiI+UEFTUzwvZm9udD48L3RkPjwvdHI+PHRyPjx0ZCBjb2xzcGFuPSIyIj5W
+TU0gZGVzdHJveV93aW4xMF82NDwvdGQ+PHRkPjxmb250IGNvbG9yPSJncmVlbiI+UEFTUzwvZm9u
+dD48L3RkPjwvdHI+PHRyPjx0ZCBjb2xzcGFuPSIyIj5WTU0gY3JlYXRlX2xpbnV4X3dpbjEwXzY0
+PC90ZD48dGQ+PGZvbnQgY29sb3I9ImdyZWVuIj5QQVNTPC9mb250PjwvdGQ+PC90cj48dHI+PHRk
+IGNvbHNwYW49IjIiPlZNTSBjcmVhdGVfbGludXhfd2luMTBfNjRfdG9nZXRoZXI8L3RkPjx0ZD48
+Zm9udCBjb2xvcj0iZ3JlZW4iPlBBU1M8L2ZvbnQ+PC90ZD48L3RyPjx0cj48dGQgY29sc3Bhbj0i
+MiI+d2ludm1fdGVzdCBydW4gVHJvcGljc19yZWJvb3Qgd2luMTAtNjQ8L3RkPjx0ZD48Zm9udCBj
+b2xvcj0iZ3JlZW4iPlBBU1M8L2ZvbnQ+PC90ZD48L3RyPjx0cj48dGQgY29sc3Bhbj0iMiI+bGlu
+dXh2bV90ZXN0IDNEZ2FtZV9yZWJvb3Q8L3RkPjx0ZD48Zm9udCBjb2xvcj0iZ3JlZW4iPlBBU1M8
+L2ZvbnQ+PC90ZD48L3RyPjx0cj48dGQgY29sc3Bhbj0iMiI+d2ludm1fdGVzdCBydW4gVkxDIHdp
+bjEwLTY0PC90ZD48dGQ+PGZvbnQgY29sb3I9ImdyZWVuIj5QQVNTPC9mb250PjwvdGQ+PC90cj48
+dHI+PHRkIGNvbHNwYW49IjIiPndpbnZtX3Rlc3QgcnVuIE9DTDJfYmFzaWMgd2luMTAtNjQ8L3Rk
+Pjx0ZD48Zm9udCBjb2xvcj0iZ3JlZW4iPlBBU1M8L2ZvbnQ+PC90ZD48L3RyPjwvdGFibGU+PC9i
+b2R5Pg==
 
+--===============7531686885166066985==
+MIME-Version: 1.0
+Content-Transfer-Encoding: base64
+Content-Type: application/octet-stream
+Content-Disposition: attachment; filename="hwinfo.txt"
 
---JPKYlvo4+BwO1+FT
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+SGFyZHdhcmUgSW5mb3JtYXRpb24NCglCb3JhZA0KCQlOYW1lCQk6IFNreWxha2UgSGFsbyBERFI0
+IFJWUDExDQoJCVZlcnNpb24JOiAxDQoJQ1BVDQoJCU5hbWUJCTogR2VudWluZSBJbnRlbChSKSBD
+UFUgMDAwMCBAIDEuNjBHSHoNCgkJTWF4IFNwZWVkCTogODMwMCBNSHoNCgkJQ29yZSBFbmFibGVk
+OiA0DQoJCVRocmVhZCBDb3VudDogOA0KCU1lbW9yeQ0KCQlTbG90CQk6IDINCgkJU2l6ZQkJOiA4
+MTkyIE1COyA4MTkyIE1CDQoJCVR5cGUJCTogRERSNDsgRERSNA0KCQlTcGVlZAkJOiAyMTMzIE1U
+L3M7IDIxMzMgTVQvcw0KCUJJT1MKDQoJCVZlcnNpb24JOiBTS0xTRTJSMS5SMDAuQjA5NS5CMDIu
+MTUwODE5MTY1NQ0KCVZHQQoNCgkJTmFtZQkJOiBJcmlzIFBybyA1ODANCgkJUmV2CQk6IDA1DQoJ
+CVBDSSBJRAk6IDE5M2INCgoNCg==
 
-On 2019.02.14 17:09:17 +0800, Zhao Yakui wrote:
-> The intel_vgpu_oos_page uses the combined structure, which embdeds the
-> tracked page. As it is allocated by kmalloc, the size(4140) is aligned
-> to 8192. The 8192 oos_pages will waste about 32M memory.
-> So the tracked page is split from the intel_vgpu_oos_page. And this will
-> help to assure that the access of tracked page is cache aligned.
->=20
-> Another minor change is that it doesn't need to be cleared to zero as
-> it is writen firstly when one page is added to oos_page list.
->=20
-> Signed-off-by: Zhao Yakui <yakui.zhao@intel.com>
-> ---
->  drivers/gpu/drm/i915/gvt/gtt.c | 7 +++++++
->  drivers/gpu/drm/i915/gvt/gtt.h | 2 +-
->  2 files changed, 8 insertions(+), 1 deletion(-)
->=20
-> diff --git a/drivers/gpu/drm/i915/gvt/gtt.c b/drivers/gpu/drm/i915/gvt/gt=
-t.c
-> index c7103dd..9ba1ed8 100644
-> --- a/drivers/gpu/drm/i915/gvt/gtt.c
-> +++ b/drivers/gpu/drm/i915/gvt/gtt.c
-> @@ -2489,6 +2489,7 @@ static void clean_spt_oos(struct intel_gvt *gvt)
->  	list_for_each_safe(pos, n, &gtt->oos_page_free_list_head) {
->  		oos_page =3D container_of(pos, struct intel_vgpu_oos_page, list);
->  		list_del(&oos_page->list);
-> +		free_page((unsigned long)oos_page->mem);
->  		kfree(oos_page);
->  	}
->  }
-> @@ -2509,6 +2510,12 @@ static int setup_spt_oos(struct intel_gvt *gvt)
->  			ret =3D -ENOMEM;
->  			goto fail;
->  		}
-> +		oos_page->mem =3D (void *)__get_free_pages(GFP_KERNEL, 0);
-> +		if (!oos_page->mem) {
-> +			ret =3D -ENOMEM;
-> +			kfree(oos_page);
-> +			goto fail;
-> +		}
-> =20
->  		INIT_LIST_HEAD(&oos_page->list);
->  		INIT_LIST_HEAD(&oos_page->vm_list);
-> diff --git a/drivers/gpu/drm/i915/gvt/gtt.h b/drivers/gpu/drm/i915/gvt/gt=
-t.h
-> index d8cb04c..e9f72a6 100644
-> --- a/drivers/gpu/drm/i915/gvt/gtt.h
-> +++ b/drivers/gpu/drm/i915/gvt/gtt.h
-> @@ -221,7 +221,7 @@ struct intel_vgpu_oos_page {
->  	struct list_head list;
->  	struct list_head vm_list;
->  	int id;
-> -	unsigned char mem[I915_GTT_PAGE_SIZE];
-> +	void *mem;
->  };
-> =20
->  #define GTT_ENTRY_NUM_IN_ONE_PAGE 512
-> --=20
-
-Looks good to me.
-
-Reviewed-by: Zhenyu Wang <zhenyuw@linux.intel.com>
-
-btw, last time check I think we could skip oos page setup if out of sync
-is not enabled at all, would you add that change too?
-
-thanks
-
---=20
-Open Source Technology Center, Intel ltd.
-
-$gpg --keyserver wwwkeys.pgp.net --recv-keys 4D781827
-
---JPKYlvo4+BwO1+FT
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iF0EARECAB0WIQTXuabgHDW6LPt9CICxBBozTXgYJwUCXGpldQAKCRCxBBozTXgY
-J4D1AJ0Y2McrF24vQfz3qvLLiXhfwQcsDwCfUMX6+0Ig9Eb2hzOnietIwUmYgJU=
-=qU04
------END PGP SIGNATURE-----
-
---JPKYlvo4+BwO1+FT--
-
---===============1949147985==
+--===============7531686885166066985==
 Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
 Content-Transfer-Encoding: base64
@@ -190,4 +155,4 @@ X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KaW50ZWwtZ3Z0
 LWRldiBtYWlsaW5nIGxpc3QKaW50ZWwtZ3Z0LWRldkBsaXN0cy5mcmVlZGVza3RvcC5vcmcKaHR0
 cHM6Ly9saXN0cy5mcmVlZGVza3RvcC5vcmcvbWFpbG1hbi9saXN0aW5mby9pbnRlbC1ndnQtZGV2
 
---===============1949147985==--
+--===============7531686885166066985==--
