@@ -1,66 +1,69 @@
 Delivered-To: linux.kernel.mailinglists@gmail.com
-Received: by 2002:a81:5710:0:0:0:0:0 with SMTP id l16csp246313ywb;
-        Wed, 20 Mar 2019 21:00:59 -0700 (PDT)
-X-Google-Smtp-Source: APXvYqyEUbl74XiLTJRi+Wo44UoDZv+6OFViFQCdVWdHXY0pLRqqMlZTeSIhISAaajJwKju19VjC
-X-Received: by 2002:a63:db07:: with SMTP id e7mr1330178pgg.231.1553140858965;
-        Wed, 20 Mar 2019 21:00:58 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1553140858; cv=none;
+Received: by 2002:a81:5710:0:0:0:0:0 with SMTP id l16csp399344ywb;
+        Thu, 21 Mar 2019 01:03:33 -0700 (PDT)
+X-Google-Smtp-Source: APXvYqzucT9CQJtbL5Y3hdHOKO3cNtSKjQYGIuCDY8PDeO8xxDSWUNPBEglLycFL7Lhyi8R/fpSx
+X-Received: by 2002:a65:41ca:: with SMTP id b10mr2181308pgq.146.1553155412962;
+        Thu, 21 Mar 2019 01:03:32 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1553155412; cv=none;
         d=google.com; s=arc-20160816;
-        b=mBlvItLvvDK1Rcrcq+5AJUC577ohDjqUVPNAHm2Yu8Lhin32Jvc83F4ZpabtsOswB4
-         jyOstz6G7uwbLaToOOcsB47vpAw1ky6XS6tOCtyEoPY4sAT+xMOCkN0/z0Xw8K417UYK
-         Nq3wWz3oyCI0QnG0BamD/CVDE9OAZXNSt5G3mAQt449u9a+iXLHzSwbU5JBs5lrdbriT
-         ObDs5g+Xn2EW8Kp8JwCz0WmMgAx9TrcNOgnxvek+KOom6Et5480xyzd/4OqPFJmeAyF0
-         JX+b60MpbYn/moxNTFNkcXQIrYTHdgB05NFFNMJzGGvE36C3dLCvjv8TCKUBdwH1a4cU
-         lPlw==
+        b=yNHg+ut5zKyoJD6tBgIOqKlh+hjAfYkMcSXo0rGgP3/vC4eWalEPzIDzQGMruugiPT
+         +W5nZ9CUnNXaLQWxs7s3ZAdg7nRrMjLMMMIi0R+RxCJ3ErF3bDNgV9vkA5RQvb2NNr80
+         1QQWRqHvV6ncgZ7y1IPPHFGLftc0TjrZPzkplQT5uXdVqu4qWCEQcl09YCnpsvr0nedN
+         BsZUKqSd9rTQ+wllHqSxD05edeR0kMcBJI8GjFI1iHYvBDVLOBHXwnqxgQOqSTl5FuPk
+         UdKLsbIfvkqlYSG2RqrcKhMHOMu0KBm91bFlIBKD0ysKtkKHB1tNp4h37tNll7OzmxVq
+         e51g==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=sender:errors-to:cc:reply-to:list-subscribe:list-help:list-post
          :list-archive:list-unsubscribe:list-id:precedence:user-agent
-         :mime-version:message-id:subject:to:from:date:delivered-to;
-        bh=46VUljjz4GYUQaE3BZ0EYh+3S9u82/CXOcub20ia5dw=;
-        b=spfHkTqTP2JPgE5R1dQnhvafm6AXxStg1IpS4ID8CeGLubDkf/qe/FeRAslG5e+LYm
-         UvpugOFkEFVrGMVJy5GiPvhfLsDqnZpBebdNhDFde08l7g5gN94o5QVKNh68AcdB9nE6
-         YC1cUMsY47Do01bqnteadVTSp4KBzAlXF0OdfNqfGQwJWQOYyJCAwHymEfuR4oX6w2bs
-         DRCK0azdC2hwkIcTv6zeki6noRyRpO57o2kUSPEn+0H6qTeeZa1OdH1GzFRlvwJ/fbNT
-         6Mox44uTJQ7S3k1YHyOx8JOdjRnAFDgRMseMqgHuGe1fgOt775OhNhZLsuuDMUv1v/X3
-         YkHg==
+         :in-reply-to:mime-version:references:message-id:subject:to:from:date
+         :delivered-to;
+        bh=D4sCBR/gJ2BgDNY+norT7Fs/G1rJeFgKexczA/lR0EI=;
+        b=0Oc3w0EOdRg5TPmHXagPWmWsRZk2RJl1nou+dumqvgRuN1KiUBMQJoBA+WzMq4V85U
+         4WLL5kcRKmfFoID6+MCIi7tfhvM6Bpik2c/gOPxs75SD/dYZZp5syh2z0RizOZxy8own
+         5VnH3JcS7fC5EeD/gmVRfot7m5x50dlQP5nrmPAT09H7IPQuSUXwW3vaOIHAZqY2Qh9Q
+         hb/girZjWyBN1fKCDFS49DBS7vg5QafQX3x3vzj3s9P9EBJU8Zylte+dYRmcLvI1iZU0
+         4dZYzq04Oo8HlVrHmCiZHIlbiXeDAJuOnLU77cx56bPcZ1eXnARpxwmaSFV0r9mkRWo2
+         kaKw==
 ARC-Authentication-Results: i=1; mx.google.com;
-       spf=pass (google.com: best guess record for domain of intel-gvt-dev-bounces@lists.freedesktop.org designates 131.252.210.177 as permitted sender) smtp.mailfrom=intel-gvt-dev-bounces@lists.freedesktop.org;
+       spf=pass (google.com: best guess record for domain of intel-gvt-dev-bounces@lists.freedesktop.org designates 2610:10:20:722:a800:ff:fe36:1795 as permitted sender) smtp.mailfrom=intel-gvt-dev-bounces@lists.freedesktop.org;
        dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=intel.com
 Return-Path: <intel-gvt-dev-bounces@lists.freedesktop.org>
-Received: from gabe.freedesktop.org (gabe.freedesktop.org. [131.252.210.177])
-        by mx.google.com with ESMTPS id f67si3250891pgc.182.2019.03.20.21.00.58
+Received: from gabe.freedesktop.org (gabe.freedesktop.org. [2610:10:20:722:a800:ff:fe36:1795])
+        by mx.google.com with ESMTPS id 42si4055353pla.391.2019.03.21.01.03.32
         (version=TLS1_2 cipher=ECDHE-RSA-CHACHA20-POLY1305 bits=256/256);
-        Wed, 20 Mar 2019 21:00:58 -0700 (PDT)
-Received-SPF: pass (google.com: best guess record for domain of intel-gvt-dev-bounces@lists.freedesktop.org designates 131.252.210.177 as permitted sender) client-ip=131.252.210.177;
+        Thu, 21 Mar 2019 01:03:32 -0700 (PDT)
+Received-SPF: pass (google.com: best guess record for domain of intel-gvt-dev-bounces@lists.freedesktop.org designates 2610:10:20:722:a800:ff:fe36:1795 as permitted sender) client-ip=2610:10:20:722:a800:ff:fe36:1795;
 Authentication-Results: mx.google.com;
-       spf=pass (google.com: best guess record for domain of intel-gvt-dev-bounces@lists.freedesktop.org designates 131.252.210.177 as permitted sender) smtp.mailfrom=intel-gvt-dev-bounces@lists.freedesktop.org;
+       spf=pass (google.com: best guess record for domain of intel-gvt-dev-bounces@lists.freedesktop.org designates 2610:10:20:722:a800:ff:fe36:1795 as permitted sender) smtp.mailfrom=intel-gvt-dev-bounces@lists.freedesktop.org;
        dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=intel.com
 Received: from gabe.freedesktop.org (localhost [127.0.0.1])
-	by gabe.freedesktop.org (Postfix) with ESMTP id CBFEA89D42;
-	Thu, 21 Mar 2019 04:00:57 +0000 (UTC)
+	by gabe.freedesktop.org (Postfix) with ESMTP id D83BA89E06;
+	Thu, 21 Mar 2019 08:03:31 +0000 (UTC)
 X-Original-To: intel-gvt-dev@lists.freedesktop.org
 Delivered-To: intel-gvt-dev@lists.freedesktop.org
-Received: from mga18.intel.com (mga18.intel.com [134.134.136.126])
- by gabe.freedesktop.org (Postfix) with ESMTPS id AFFA789D2F;
- Thu, 21 Mar 2019 04:00:55 +0000 (UTC)
+Received: from mga06.intel.com (mga06.intel.com [134.134.136.31])
+ by gabe.freedesktop.org (Postfix) with ESMTPS id 631E589E06
+ for <intel-gvt-dev@lists.freedesktop.org>;
+ Thu, 21 Mar 2019 08:03:30 +0000 (UTC)
 X-Amp-Result: UNSCANNABLE
 X-Amp-File-Uploaded: False
-Received: from fmsmga002.fm.intel.com ([10.253.24.26])
- by orsmga106.jf.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384;
- 20 Mar 2019 21:00:55 -0700
+Received: from fmsmga001.fm.intel.com ([10.253.24.23])
+ by orsmga104.jf.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384;
+ 21 Mar 2019 01:03:29 -0700
 X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="5.60,251,1549958400"; 
- d="asc'?scan'208";a="153691020"
+X-IronPort-AV: E=Sophos;i="5.60,252,1549958400"; 
+ d="asc'?scan'208";a="156968811"
 Received: from zhen-hp.sh.intel.com (HELO zhen-hp) ([10.239.13.116])
- by fmsmga002.fm.intel.com with ESMTP; 20 Mar 2019 21:00:52 -0700
-Date: Thu, 21 Mar 2019 11:50:18 +0800
+ by fmsmga001.fm.intel.com with ESMTP; 21 Mar 2019 01:03:28 -0700
+Date: Thu, 21 Mar 2019 15:52:54 +0800
 From: Zhenyu Wang <zhenyuw@linux.intel.com>
-To: "Vivi, Rodrigo" <rodrigo.vivi@intel.com>,
- Jani Nikula <jani.nikula@intel.com>,
- Joonas Lahtinen <joonas.lahtinen@linux.intel.com>
-Subject: [PULL] gvt-fixes
-Message-ID: <20190321035018.GF10798@zhen-hp.sh.intel.com>
+To: Xiong Zhang <xiong.y.zhang@intel.com>
+Subject: Re: [PATCH 2/2] drm/i915/gvt: Change fb_info->size from pages to bytes
+Message-ID: <20190321075254.GG10798@zhen-hp.sh.intel.com>
+References: <1552962525-3786-1-git-send-email-xiong.y.zhang@intel.com>
+ <1552962525-3786-2-git-send-email-xiong.y.zhang@intel.com>
 MIME-Version: 1.0
+In-Reply-To: <1552962525-3786-2-git-send-email-xiong.y.zhang@intel.com>
 User-Agent: Mutt/1.10.0 (2018-05-17)
 X-BeenThere: intel-gvt-dev@lists.freedesktop.org
 X-Mailman-Version: 2.1.23
@@ -75,99 +78,140 @@ List-Help: <mailto:intel-gvt-dev-request@lists.freedesktop.org?subject=help>
 List-Subscribe: <https://lists.freedesktop.org/mailman/listinfo/intel-gvt-dev>, 
  <mailto:intel-gvt-dev-request@lists.freedesktop.org?subject=subscribe>
 Reply-To: Zhenyu Wang <zhenyuw@linux.intel.com>
-Cc: intel-gfx <intel-gfx@lists.freedesktop.org>,
- intel-gvt-dev <intel-gvt-dev@lists.freedesktop.org>, "Lv,
- Zhiyuan" <zhiyuan.lv@intel.com>, Zhi Wang <zhi.a.wang@intel.com>, "Yuan,
- Hang" <hang.yuan@intel.com>
-Content-Type: multipart/mixed; boundary="===============2086231490=="
+Cc: intel-gvt-dev@lists.freedesktop.org
+Content-Type: multipart/mixed; boundary="===============0321302375=="
 Errors-To: intel-gvt-dev-bounces@lists.freedesktop.org
 Sender: "intel-gvt-dev" <intel-gvt-dev-bounces@lists.freedesktop.org>
 
 
---===============2086231490==
+--===============0321302375==
 Content-Type: multipart/signed; micalg=pgp-sha1;
-	protocol="application/pgp-signature"; boundary="p609JBPwWeYlfsbE"
+	protocol="application/pgp-signature"; boundary="E0IhBwMLbrMClE+H"
 Content-Disposition: inline
 
 
---p609JBPwWeYlfsbE
+--E0IhBwMLbrMClE+H
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
+On 2019.03.19 10:28:45 +0800, Xiong Zhang wrote:
+> fb_info->size is in pages, but some function need bytes when it
+> is a parameter. Such as:
+> a. intel_gvt_ggtt_validate_range() according to function definition
+> b. vfio_device_gfx_plane_info->size according to the comment of
+>    its definition
+>=20
+> This patch change fb_info->size into bytes.
+>
 
-Hi,
+I think we should keep plane's size in info->size instead of assigning
+casted page size there, but just round up to page size when create dmabuf
+object, then actual object size is kept in obj->size.
 
-Sorry that I might miss 5.1-rc1 window as I was in full day event
-during this week. Here's re-generated gvt-fixes against
-drm-intel-fixes. This contains fixes for newer version of Windows
-driver, e.g fixing parser for MI_FLUSH_DW command and fixed windows
-font render error, with other stable fix in error path, and fix
-unexpected workload submission when vGPU idle, etc. Details are below.
-
-Thanks!
---
-The following changes since commit 0f75551216091223efe1f18295f655aff6415385:
-
-  drm/i915/gvt: release shadow batch buffer and wa_ctx before destroy one w=
-orkload (2019-01-23 13:58:46 +0800)
-
-are available in the Git repository at:
-
-  https://github.com/intel/gvt-linux.git tags/gvt-fixes-2019-03-21
-
-for you to fetch changes up to 72aabfb862e40ee83c136c4f87877c207e6859b7:
-
-  drm/i915/gvt: Add mutual lock for ppgtt mm LRU list (2019-03-04 14:45:28 =
-+0800)
-
-----------------------------------------------------------------
-gvt-fixes-2019-03-21
-
-- Fix MI_FLUSH_DW cmd parser on index check (Zhenyu)
-- Fix Windows guest font render error (Colin)
-- Fix unexpected workload submission for inactive vGPU (Weinan)
-- Fix incorrect workload submission in error path (Zhenyu)
-- Fix warning for shadow ppgtt mm reclaim list walk with locking (Zhenyu)
-
-----------------------------------------------------------------
-Colin Xu (1):
-      drm/i915/gvt: Add in context mmio 0x20D8 to gen9 mmio list
-
-Weinan Li (1):
-      drm/i915/gvt: stop scheduling workload when vgpu is inactive
-
-Zhenyu Wang (4):
-      drm/i915/gvt: Fix MI_FLUSH_DW parsing with correct index check
-      drm/i915/gvt: Don't submit request for error workload dispatch
-      drm/i915/gvt: Only assign ppgtt root at dispatch time
-      drm/i915/gvt: Add mutual lock for ppgtt mm LRU list
-
- drivers/gpu/drm/i915/gvt/cmd_parser.c   |  2 +-
- drivers/gpu/drm/i915/gvt/gtt.c          | 14 +++++++++++++-
- drivers/gpu/drm/i915/gvt/gtt.h          |  1 +
- drivers/gpu/drm/i915/gvt/mmio_context.c |  1 +
- drivers/gpu/drm/i915/gvt/scheduler.c    | 28 ++++++++++++++++++++--------
- 5 files changed, 36 insertions(+), 10 deletions(-)
+> Signed-off-by: Xiong Zhang <xiong.y.zhang@intel.com>
+> ---
+>  drivers/gpu/drm/i915/gvt/dmabuf.c | 16 ++++++++++------
+>  1 file changed, 10 insertions(+), 6 deletions(-)
+>=20
+> diff --git a/drivers/gpu/drm/i915/gvt/dmabuf.c b/drivers/gpu/drm/i915/gvt=
+/dmabuf.c
+> index 5d887f7..90d2ef6 100644
+> --- a/drivers/gpu/drm/i915/gvt/dmabuf.c
+> +++ b/drivers/gpu/drm/i915/gvt/dmabuf.c
+> @@ -45,6 +45,7 @@ static int vgpu_gem_get_pages(
+>  	int i, ret;
+>  	gen8_pte_t __iomem *gtt_entries;
+>  	struct intel_vgpu_fb_info *fb_info;
+> +	u32 page_num;
+> =20
+>  	fb_info =3D (struct intel_vgpu_fb_info *)obj->gvt_info;
+>  	if (WARN_ON(!fb_info))
+> @@ -54,14 +55,15 @@ static int vgpu_gem_get_pages(
+>  	if (unlikely(!st))
+>  		return -ENOMEM;
+> =20
+> -	ret =3D sg_alloc_table(st, fb_info->size, GFP_KERNEL);
+> +	page_num =3D fb_info->size >> PAGE_SHIFT;
+> +	ret =3D sg_alloc_table(st, page_num, GFP_KERNEL);
+>  	if (ret) {
+>  		kfree(st);
+>  		return ret;
+>  	}
+>  	gtt_entries =3D (gen8_pte_t __iomem *)dev_priv->ggtt.gsm +
+>  		(fb_info->start >> PAGE_SHIFT);
+> -	for_each_sg(st->sgl, sg, fb_info->size, i) {
+> +	for_each_sg(st->sgl, sg, page_num, i) {
+>  		sg->offset =3D 0;
+>  		sg->length =3D PAGE_SIZE;
+>  		sg_dma_address(sg) =3D
+> @@ -157,8 +159,7 @@ static struct drm_i915_gem_object *vgpu_create_gem(st=
+ruct drm_device *dev,
+>  	if (obj =3D=3D NULL)
+>  		return NULL;
+> =20
+> -	drm_gem_private_object_init(dev, &obj->base,
+> -		info->size << PAGE_SHIFT);
+> +	drm_gem_private_object_init(dev, &obj->base, info->size);
+>  	i915_gem_object_init(obj, &intel_vgpu_gem_ops);
+> =20
+>  	obj->read_domains =3D I915_GEM_DOMAIN_GTT;
+> @@ -210,6 +211,7 @@ static int vgpu_get_plane_info(struct drm_device *dev,
+>  	struct intel_vgpu_primary_plane_format p;
+>  	struct intel_vgpu_cursor_plane_format c;
+>  	int ret;
+> +	u32 page_num;
+> =20
+>  	if (plane_id =3D=3D DRM_PLANE_TYPE_PRIMARY) {
+>  		ret =3D intel_vgpu_decode_primary_plane(vgpu, &p);
+> @@ -264,8 +266,10 @@ static int vgpu_get_plane_info(struct drm_device *de=
+v,
+>  		return -EINVAL;
+>  	}
+> =20
+> -	info->size =3D (info->stride * info->height + PAGE_SIZE - 1)
+> +	// align to page
+> +	page_num =3D (info->stride * info->height + PAGE_SIZE - 1)
+>  		      >> PAGE_SHIFT;
+> +	info->size =3D page_num << PAGE_SHIFT;
+>  	if (info->size =3D=3D 0) {
+>  		gvt_vgpu_err("fb size is zero\n");
+>  		return -EINVAL;
+> @@ -275,7 +279,7 @@ static int vgpu_get_plane_info(struct drm_device *dev,
+>  		gvt_vgpu_err("Not aligned fb address:0x%llx\n", info->start);
+>  		return -EFAULT;
+>  	}
+> -	if (((info->start >> PAGE_SHIFT) + info->size) >
+> +	if (((info->start >> PAGE_SHIFT) + page_num) >
+>  		ggtt_total_entries(&dev_priv->ggtt)) {
+>  		gvt_vgpu_err("Invalid GTT offset or size\n");
+>  		return -EFAULT;
+> --=20
+> 2.7.4
+>=20
+> _______________________________________________
+> intel-gvt-dev mailing list
+> intel-gvt-dev@lists.freedesktop.org
+> https://lists.freedesktop.org/mailman/listinfo/intel-gvt-dev
 
 --=20
 Open Source Technology Center, Intel ltd.
 
 $gpg --keyserver wwwkeys.pgp.net --recv-keys 4D781827
 
---p609JBPwWeYlfsbE
+--E0IhBwMLbrMClE+H
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iFwEARECAB0WIQTXuabgHDW6LPt9CICxBBozTXgYJwUCXJMJ+gAKCRCxBBozTXgY
-J6ovAJjeWXPQmYBbrff6xLV5KWMC8wALAJ41hYVrIEYJtR3cVwIjN60aEAkA0A==
-=s9yK
+iF0EARECAB0WIQTXuabgHDW6LPt9CICxBBozTXgYJwUCXJNC1gAKCRCxBBozTXgY
+J1aZAJwLvgWwvvim+uQu0o8+fpX53IfefACePVFWlWXqo97oY17O5NQdAWIeGHk=
+=gnsT
 -----END PGP SIGNATURE-----
 
---p609JBPwWeYlfsbE--
+--E0IhBwMLbrMClE+H--
 
---===============2086231490==
+--===============0321302375==
 Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
 Content-Transfer-Encoding: base64
@@ -177,4 +221,4 @@ X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KaW50ZWwtZ3Z0
 LWRldiBtYWlsaW5nIGxpc3QKaW50ZWwtZ3Z0LWRldkBsaXN0cy5mcmVlZGVza3RvcC5vcmcKaHR0
 cHM6Ly9saXN0cy5mcmVlZGVza3RvcC5vcmcvbWFpbG1hbi9saXN0aW5mby9pbnRlbC1ndnQtZGV2
 
---===============2086231490==--
+--===============0321302375==--
