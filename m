@@ -1,69 +1,72 @@
 Delivered-To: linux.kernel.mailinglists@gmail.com
-Received: by 2002:a81:5710:0:0:0:0:0 with SMTP id l16csp1045768ywb;
-        Thu, 21 Mar 2019 13:03:20 -0700 (PDT)
-X-Google-Smtp-Source: APXvYqx25U+fSuS4V0BnNaFjaDF6owfBWrLzXZYXqigSWcEPq8BRfiA13J5nYRSqanfDymusKYt3
-X-Received: by 2002:a17:902:be09:: with SMTP id r9mr5407121pls.189.1553198600176;
-        Thu, 21 Mar 2019 13:03:20 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1553198600; cv=none;
+Received: by 2002:a81:5710:0:0:0:0:0 with SMTP id l16csp336390ywb;
+        Thu, 21 Mar 2019 23:27:35 -0700 (PDT)
+X-Google-Smtp-Source: APXvYqzcK4K0UGNZ4IeiDYZgHZr+xQcun1VF83UivyAX7lcOMOPq0s9uf+9rjmSqYfmgJT6b7ZWq
+X-Received: by 2002:a62:1c87:: with SMTP id c129mr7485123pfc.94.1553236055043;
+        Thu, 21 Mar 2019 23:27:35 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1553236055; cv=none;
         d=google.com; s=arc-20160816;
-        b=YlYISHiDhmfGlU+Aq+1Y7gaQpbT6bLFRmgGhM6cdFMINewDWOnu0OwThMd4KweKcTi
-         9cWdgSe07VzSoxni3s8anaqIRJHcaw3lfrO95QU/EEKxZnrj1VemxPfQDyqlk3QNUgNW
-         2wHNqMQrUvWDMzIfe1brI3/qIhrxyBskmRfD+fT+tld28l23WO5r5O1nkck4yZGu/SO9
-         jtrrEGGOpzPf7AHQpWDs9PQVW689n85O7vohI+8MBXEak9wGeM2wWz3ZtZmQ2ERuhr7F
-         Qq7kuRy16bgF/RGJOn4QlSqX20ELsLmWoNlISIjnLNp83SuApq8Lkkul3ICoeM274CmW
-         eq5g==
+        b=WXUFYpen0qZQiORWASGYPwwg2HA/OioObmpC7i0RZwJhY0xjkvO0cPliPN92RPlWx8
+         jdwbkKLYlc31HBFMln6Vh4TRsjkfARFQwROryEVpzNdxMldQcCCMy2sGntsu8ye+Vxff
+         wXt0P0PCmStl1v4G/kGlx22ZtWssYGCb4SfDMsgP7OksngHbtdlkTBxIUKZEGnhpdla0
+         ZoEYWN5eTmYNdDCD6MJOnqaJQOXix/Quj4mGA02R+ZsUGRZXvehdIlrjpnpfbh9dkPeG
+         BeVX2pTd6NVsaPL5bQsVyk1KouwZaRen/9w5E9CMEhsCIivGT0fGyPX3aAXEm/D2sVmU
+         kPAg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=sender:errors-to:content-transfer-encoding:cc:list-subscribe
-         :list-help:list-post:list-archive:list-unsubscribe:list-id
-         :precedence:user-agent:in-reply-to:content-disposition:mime-version
-         :references:message-id:subject:to:from:date:delivered-to;
-        bh=1GVXVAqbEZICj87v8faUjOmQDfjnO3+2yN8dmNSDjcU=;
-        b=ZqzGzg7JEFa0sKuNLUH0qzJVmaq9ubcU5q0qDcqPbUujbNFU6ZrURQpVD3KKEVuchJ
-         hEiQDLh6H+wvqNoPJLxrkn0RbHZ52Daks4PC+WVADhfknF0eiRpyx/7gHDAMttDxaO0B
-         1IkzuMG20qltP/V7HZyHwpauc5/DAE7rMzTQVP8cenywRwTdvy2kKa411F+t/awCgt6V
-         n5Ing2DSF69Vz/EoRDPXUnK0lgrgawBI87lddA4ccTnyL6ZFMmB0EXO5LbYHafnKeLJv
-         xjDPkrsFRuB35mE1KrRrz/zA4Vzo4LDxNdslId/81T3+8xyVqHRX4I4tlID9B0HRVwL3
-         5DBQ==
+        h=sender:errors-to:cc:reply-to:list-subscribe:list-help:list-post
+         :list-archive:list-unsubscribe:list-id:precedence:user-agent
+         :in-reply-to:mime-version:references:message-id:subject:to:from:date
+         :delivered-to;
+        bh=6yvBGDpLxxTpHzWChbE9RtNgH1CuUWF1pCYPvLlhdKo=;
+        b=AatFs+rI+ULcRjKvloh6iR/pwcYtY/DwN5WW5pyqVaLjqsmp1fWBtXVC/QcYD+vIEK
+         De38VFcvnO0c2n1JHyzj92xHbFo5XtnNZ9GycHY0YOiJtYtm4YJFdxH5a0J0wXBRTBkM
+         ZgtaleT6hZRb4tiaL+KQvEcE/z71ibNzaCcXQv3bS1QWPPdxKPdTpkn4G6b8eLvXy+yW
+         dwzp4UUCZyH64gxyjlm/3P5Hh/krmkh/HGPlqo7GXvRBvL5vAIR/d2V2qMf7M/EGyVdl
+         5pn7ZwLwCZA5c7JGR7o4wfZ62OsWOZeeZBIlTJp2iJUUdQBZdYy94TowCIlDx13eOK/D
+         rQrg==
 ARC-Authentication-Results: i=1; mx.google.com;
        spf=pass (google.com: best guess record for domain of intel-gvt-dev-bounces@lists.freedesktop.org designates 2610:10:20:722:a800:ff:fe36:1795 as permitted sender) smtp.mailfrom=intel-gvt-dev-bounces@lists.freedesktop.org;
        dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=intel.com
 Return-Path: <intel-gvt-dev-bounces@lists.freedesktop.org>
 Received: from gabe.freedesktop.org (gabe.freedesktop.org. [2610:10:20:722:a800:ff:fe36:1795])
-        by mx.google.com with ESMTPS id a4si4728213pgq.471.2019.03.21.13.03.19
+        by mx.google.com with ESMTPS id 31si6387982plg.364.2019.03.21.23.27.34
         (version=TLS1_2 cipher=ECDHE-RSA-CHACHA20-POLY1305 bits=256/256);
-        Thu, 21 Mar 2019 13:03:20 -0700 (PDT)
+        Thu, 21 Mar 2019 23:27:34 -0700 (PDT)
 Received-SPF: pass (google.com: best guess record for domain of intel-gvt-dev-bounces@lists.freedesktop.org designates 2610:10:20:722:a800:ff:fe36:1795 as permitted sender) client-ip=2610:10:20:722:a800:ff:fe36:1795;
 Authentication-Results: mx.google.com;
        spf=pass (google.com: best guess record for domain of intel-gvt-dev-bounces@lists.freedesktop.org designates 2610:10:20:722:a800:ff:fe36:1795 as permitted sender) smtp.mailfrom=intel-gvt-dev-bounces@lists.freedesktop.org;
        dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=intel.com
 Received: from gabe.freedesktop.org (localhost [127.0.0.1])
-	by gabe.freedesktop.org (Postfix) with ESMTP id 1BA756E1B2;
-	Thu, 21 Mar 2019 20:03:19 +0000 (UTC)
+	by gabe.freedesktop.org (Postfix) with ESMTP id EB7A0890E8;
+	Fri, 22 Mar 2019 06:27:33 +0000 (UTC)
 X-Original-To: intel-gvt-dev@lists.freedesktop.org
 Delivered-To: intel-gvt-dev@lists.freedesktop.org
-Received: from mga12.intel.com (mga12.intel.com [192.55.52.136])
- by gabe.freedesktop.org (Postfix) with ESMTPS id ADE746E194;
- Thu, 21 Mar 2019 20:03:17 +0000 (UTC)
+Received: from mga11.intel.com (mga11.intel.com [192.55.52.93])
+ by gabe.freedesktop.org (Postfix) with ESMTPS id 877CE890E8
+ for <intel-gvt-dev@lists.freedesktop.org>;
+ Fri, 22 Mar 2019 06:27:32 +0000 (UTC)
 X-Amp-Result: UNKNOWN
 X-Amp-Original-Verdict: FILE UNKNOWN
 X-Amp-File-Uploaded: False
 Received: from orsmga005.jf.intel.com ([10.7.209.41])
- by fmsmga106.fm.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384;
- 21 Mar 2019 13:03:17 -0700
+ by fmsmga102.fm.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384;
+ 21 Mar 2019 23:27:31 -0700
 X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="5.60,254,1549958400"; d="scan'208";a="309246324"
-Received: from rdvivi-losangeles.jf.intel.com (HELO intel.com) ([10.7.196.65])
- by orsmga005.jf.intel.com with ESMTP; 21 Mar 2019 13:03:16 -0700
-Date: Thu, 21 Mar 2019 13:03:30 -0700
-From: Rodrigo Vivi <rodrigo.vivi@intel.com>
-To: Zhenyu Wang <zhenyuw@linux.intel.com>
-Subject: Re: [PULL] gvt-fixes
-Message-ID: <20190321200330.GB28473@intel.com>
-References: <20190321035018.GF10798@zhen-hp.sh.intel.com>
+X-IronPort-AV: E=Sophos;i="5.60,255,1549958400"; 
+ d="asc'?scan'208";a="309379133"
+Received: from zhen-hp.sh.intel.com (HELO zhen-hp) ([10.239.13.116])
+ by orsmga005.jf.intel.com with ESMTP; 21 Mar 2019 23:27:30 -0700
+Date: Fri, 22 Mar 2019 14:16:54 +0800
+From: Zhenyu Wang <zhenyuw@linux.intel.com>
+To: Colin Xu <colin.xu@intel.com>
+Subject: Re: [PATCH 1/6] drm/i915/gvt: Prevent invalid array index access to
+ vgpu->fence.regs[]
+Message-ID: <20190322061654.GR10798@zhen-hp.sh.intel.com>
+References: <20190320032130.9817-1-colin.xu@intel.com>
+ <20190320032130.9817-2-colin.xu@intel.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20190321035018.GF10798@zhen-hp.sh.intel.com>
-User-Agent: Mutt/1.11.3 (2019-02-01)
+In-Reply-To: <20190320032130.9817-2-colin.xu@intel.com>
+User-Agent: Mutt/1.10.0 (2018-05-17)
 X-BeenThere: intel-gvt-dev@lists.freedesktop.org
 X-Mailman-Version: 2.1.23
 Precedence: list
@@ -76,63 +79,85 @@ List-Post: <mailto:intel-gvt-dev@lists.freedesktop.org>
 List-Help: <mailto:intel-gvt-dev-request@lists.freedesktop.org?subject=help>
 List-Subscribe: <https://lists.freedesktop.org/mailman/listinfo/intel-gvt-dev>, 
  <mailto:intel-gvt-dev-request@lists.freedesktop.org?subject=subscribe>
-Cc: Jani Nikula <jani.nikula@intel.com>,
- intel-gfx <intel-gfx@lists.freedesktop.org>,
- Joonas Lahtinen <joonas.lahtinen@linux.intel.com>, "Yuan,
- Hang" <hang.yuan@intel.com>, "Lv, Zhiyuan" <zhiyuan.lv@intel.com>,
- intel-gvt-dev <intel-gvt-dev@lists.freedesktop.org>,
- Zhi Wang <zhi.a.wang@intel.com>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Reply-To: Zhenyu Wang <zhenyuw@linux.intel.com>
+Cc: intel-gvt-dev@lists.freedesktop.org
+Content-Type: multipart/mixed; boundary="===============0028500684=="
 Errors-To: intel-gvt-dev-bounces@lists.freedesktop.org
 Sender: "intel-gvt-dev" <intel-gvt-dev-bounces@lists.freedesktop.org>
 
-T24gVGh1LCBNYXIgMjEsIDIwMTkgYXQgMTE6NTA6MThBTSArMDgwMCwgWmhlbnl1IFdhbmcgd3Jv
-dGU6Cj4gCj4gSGksCj4gCj4gU29ycnkgdGhhdCBJIG1pZ2h0IG1pc3MgNS4xLXJjMSB3aW5kb3cg
-YXMgSSB3YXMgaW4gZnVsbCBkYXkgZXZlbnQKPiBkdXJpbmcgdGhpcyB3ZWVrLgoKaG1tLi4uIG15
-IGJhZC4gSSBzaG91bGQgaGFkIHJlbWVtYmVyZWQgdGhhdCB5b3UgaGFkIHN0dWZmIHF1ZXVlZCBm
-b3IKLWZpeGVzIHRoYXQgd2UgZGlkbid0IHB1dCBpbiAtbmV4dC1maXhlcy4uLi4KCkknbSBzb3Jy
-eS4KCj4gSGVyZSdzIHJlLWdlbmVyYXRlZCBndnQtZml4ZXMgYWdhaW5zdAo+IGRybS1pbnRlbC1m
-aXhlcy4gVGhpcyBjb250YWlucyBmaXhlcyBmb3IgbmV3ZXIgdmVyc2lvbiBvZiBXaW5kb3dzCj4g
-ZHJpdmVyLCBlLmcgZml4aW5nIHBhcnNlciBmb3IgTUlfRkxVU0hfRFcgY29tbWFuZCBhbmQgZml4
-ZWQgd2luZG93cwo+IGZvbnQgcmVuZGVyIGVycm9yLCB3aXRoIG90aGVyIHN0YWJsZSBmaXggaW4g
-ZXJyb3IgcGF0aCwgYW5kIGZpeAo+IHVuZXhwZWN0ZWQgd29ya2xvYWQgc3VibWlzc2lvbiB3aGVu
-IHZHUFUgaWRsZSwgZXRjLiBEZXRhaWxzIGFyZSBiZWxvdy4KCnB1bGxlZCB0byBkcm0taW50ZWwt
-Zml4ZXMgbm93LCBidXQgdGhpcyBpcyBwcm9iYWJseSBqdXN0IGdvaW5nIHVwCm5leHQgd2Vlay4K
-ClRoYW5rcywKUm9kcmlnby4KCj4gCj4gVGhhbmtzIQo+IC0tCj4gVGhlIGZvbGxvd2luZyBjaGFu
-Z2VzIHNpbmNlIGNvbW1pdCAwZjc1NTUxMjE2MDkxMjIzZWZlMWYxODI5NWY2NTVhZmY2NDE1Mzg1
-Ogo+IAo+ICAgZHJtL2k5MTUvZ3Z0OiByZWxlYXNlIHNoYWRvdyBiYXRjaCBidWZmZXIgYW5kIHdh
-X2N0eCBiZWZvcmUgZGVzdHJveSBvbmUgd29ya2xvYWQgKDIwMTktMDEtMjMgMTM6NTg6NDYgKzA4
-MDApCj4gCj4gYXJlIGF2YWlsYWJsZSBpbiB0aGUgR2l0IHJlcG9zaXRvcnkgYXQ6Cj4gCj4gICBo
-dHRwczovL2dpdGh1Yi5jb20vaW50ZWwvZ3Z0LWxpbnV4LmdpdCB0YWdzL2d2dC1maXhlcy0yMDE5
-LTAzLTIxCj4gCj4gZm9yIHlvdSB0byBmZXRjaCBjaGFuZ2VzIHVwIHRvIDcyYWFiZmI4NjJlNDBl
-ZTgzYzEzNmM0Zjg3ODc3YzIwN2U2ODU5Yjc6Cj4gCj4gICBkcm0vaTkxNS9ndnQ6IEFkZCBtdXR1
-YWwgbG9jayBmb3IgcHBndHQgbW0gTFJVIGxpc3QgKDIwMTktMDMtMDQgMTQ6NDU6MjggKzA4MDAp
-Cj4gCj4gLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
-LS0tLS0tLS0tLS0tLQo+IGd2dC1maXhlcy0yMDE5LTAzLTIxCj4gCj4gLSBGaXggTUlfRkxVU0hf
-RFcgY21kIHBhcnNlciBvbiBpbmRleCBjaGVjayAoWmhlbnl1KQo+IC0gRml4IFdpbmRvd3MgZ3Vl
-c3QgZm9udCByZW5kZXIgZXJyb3IgKENvbGluKQo+IC0gRml4IHVuZXhwZWN0ZWQgd29ya2xvYWQg
-c3VibWlzc2lvbiBmb3IgaW5hY3RpdmUgdkdQVSAoV2VpbmFuKQo+IC0gRml4IGluY29ycmVjdCB3
-b3JrbG9hZCBzdWJtaXNzaW9uIGluIGVycm9yIHBhdGggKFpoZW55dSkKPiAtIEZpeCB3YXJuaW5n
-IGZvciBzaGFkb3cgcHBndHQgbW0gcmVjbGFpbSBsaXN0IHdhbGsgd2l0aCBsb2NraW5nIChaaGVu
-eXUpCj4gCj4gLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
-LS0tLS0tLS0tLS0tLS0tLQo+IENvbGluIFh1ICgxKToKPiAgICAgICBkcm0vaTkxNS9ndnQ6IEFk
-ZCBpbiBjb250ZXh0IG1taW8gMHgyMEQ4IHRvIGdlbjkgbW1pbyBsaXN0Cj4gCj4gV2VpbmFuIExp
-ICgxKToKPiAgICAgICBkcm0vaTkxNS9ndnQ6IHN0b3Agc2NoZWR1bGluZyB3b3JrbG9hZCB3aGVu
-IHZncHUgaXMgaW5hY3RpdmUKPiAKPiBaaGVueXUgV2FuZyAoNCk6Cj4gICAgICAgZHJtL2k5MTUv
-Z3Z0OiBGaXggTUlfRkxVU0hfRFcgcGFyc2luZyB3aXRoIGNvcnJlY3QgaW5kZXggY2hlY2sKPiAg
-ICAgICBkcm0vaTkxNS9ndnQ6IERvbid0IHN1Ym1pdCByZXF1ZXN0IGZvciBlcnJvciB3b3JrbG9h
-ZCBkaXNwYXRjaAo+ICAgICAgIGRybS9pOTE1L2d2dDogT25seSBhc3NpZ24gcHBndHQgcm9vdCBh
-dCBkaXNwYXRjaCB0aW1lCj4gICAgICAgZHJtL2k5MTUvZ3Z0OiBBZGQgbXV0dWFsIGxvY2sgZm9y
-IHBwZ3R0IG1tIExSVSBsaXN0Cj4gCj4gIGRyaXZlcnMvZ3B1L2RybS9pOTE1L2d2dC9jbWRfcGFy
-c2VyLmMgICB8ICAyICstCj4gIGRyaXZlcnMvZ3B1L2RybS9pOTE1L2d2dC9ndHQuYyAgICAgICAg
-ICB8IDE0ICsrKysrKysrKysrKystCj4gIGRyaXZlcnMvZ3B1L2RybS9pOTE1L2d2dC9ndHQuaCAg
-ICAgICAgICB8ICAxICsKPiAgZHJpdmVycy9ncHUvZHJtL2k5MTUvZ3Z0L21taW9fY29udGV4dC5j
-IHwgIDEgKwo+ICBkcml2ZXJzL2dwdS9kcm0vaTkxNS9ndnQvc2NoZWR1bGVyLmMgICAgfCAyOCAr
-KysrKysrKysrKysrKysrKysrKy0tLS0tLS0tCj4gIDUgZmlsZXMgY2hhbmdlZCwgMzYgaW5zZXJ0
-aW9ucygrKSwgMTAgZGVsZXRpb25zKC0pCj4gCj4gLS0gCj4gT3BlbiBTb3VyY2UgVGVjaG5vbG9n
-eSBDZW50ZXIsIEludGVsIGx0ZC4KPiAKPiAkZ3BnIC0ta2V5c2VydmVyIHd3d2tleXMucGdwLm5l
-dCAtLXJlY3Yta2V5cyA0RDc4MTgyNwoKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fCmludGVsLWd2dC1kZXYgbWFpbGluZyBsaXN0CmludGVsLWd2dC1kZXZA
-bGlzdHMuZnJlZWRlc2t0b3Aub3JnCmh0dHBzOi8vbGlzdHMuZnJlZWRlc2t0b3Aub3JnL21haWxt
-YW4vbGlzdGluZm8vaW50ZWwtZ3Z0LWRldg==
+
+--===============0028500684==
+Content-Type: multipart/signed; micalg=pgp-sha1;
+	protocol="application/pgp-signature"; boundary="XIT9+HGZgTFaGwcE"
+Content-Disposition: inline
+
+
+--XIT9+HGZgTFaGwcE
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On 2019.03.20 11:21:25 +0800, Colin Xu wrote:
+> Invalid index could result in array overflow so limit it to array size.
+> Although these access are protected by current gvt logic and won't hit
+> during running, but still has potential security risk in future.
+>=20
+> Signed-off-by: Colin Xu <colin.xu@intel.com>
+> ---
+>  drivers/gpu/drm/i915/gvt/aperture_gm.c | 3 ++-
+>  1 file changed, 2 insertions(+), 1 deletion(-)
+>=20
+> diff --git a/drivers/gpu/drm/i915/gvt/aperture_gm.c b/drivers/gpu/drm/i91=
+5/gvt/aperture_gm.c
+> index 1fa2f65c3cd1..ec14d7506114 100644
+> --- a/drivers/gpu/drm/i915/gvt/aperture_gm.c
+> +++ b/drivers/gpu/drm/i915/gvt/aperture_gm.c
+> @@ -133,7 +133,8 @@ void intel_vgpu_write_fence(struct intel_vgpu *vgpu,
+> =20
+>  	assert_rpm_wakelock_held(dev_priv);
+> =20
+> -	if (WARN_ON(fence >=3D vgpu_fence_sz(vgpu)))
+> +	if (WARN_ON(fence >=3D vgpu_fence_sz(vgpu) ||
+> +		    fence >=3D INTEL_GVT_MAX_NUM_FENCES))
+>  		return;
+
+Looks unnecessary as vGPU won't use more than max fences.
+
+> =20
+>  	reg =3D vgpu->fence.regs[fence];
+> --=20
+> 2.21.0
+>=20
+> _______________________________________________
+> intel-gvt-dev mailing list
+> intel-gvt-dev@lists.freedesktop.org
+> https://lists.freedesktop.org/mailman/listinfo/intel-gvt-dev
+
+--=20
+Open Source Technology Center, Intel ltd.
+
+$gpg --keyserver wwwkeys.pgp.net --recv-keys 4D781827
+
+--XIT9+HGZgTFaGwcE
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iF0EARECAB0WIQTXuabgHDW6LPt9CICxBBozTXgYJwUCXJR91QAKCRCxBBozTXgY
+J/JbAJ93acp+rl+zntBVZksok6OosvbQPgCdGH5wTxo+XndAtiaUOK2ciZ6PnpI=
+=BdIw
+-----END PGP SIGNATURE-----
+
+--XIT9+HGZgTFaGwcE--
+
+--===============0028500684==
+Content-Type: text/plain; charset="utf-8"
+MIME-Version: 1.0
+Content-Transfer-Encoding: base64
+Content-Disposition: inline
+
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KaW50ZWwtZ3Z0
+LWRldiBtYWlsaW5nIGxpc3QKaW50ZWwtZ3Z0LWRldkBsaXN0cy5mcmVlZGVza3RvcC5vcmcKaHR0
+cHM6Ly9saXN0cy5mcmVlZGVza3RvcC5vcmcvbWFpbG1hbi9saXN0aW5mby9pbnRlbC1ndnQtZGV2
+
+--===============0028500684==--
