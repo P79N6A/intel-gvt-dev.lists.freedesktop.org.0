@@ -1,68 +1,73 @@
 Delivered-To: linux.kernel.mailinglists@gmail.com
-Received: by 2002:a81:5710:0:0:0:0:0 with SMTP id l16csp3367003ywb;
-        Mon, 25 Mar 2019 01:26:01 -0700 (PDT)
-X-Google-Smtp-Source: APXvYqz7uVytUafGtrqHnqgjx5QtqTLHGhzcxIJUG/JozD9SAU76bBaobSO+VWJSMAVPsk6/a6Oj
-X-Received: by 2002:a63:7d03:: with SMTP id y3mr10011758pgc.8.1553502361914;
-        Mon, 25 Mar 2019 01:26:01 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1553502361; cv=none;
+Received: by 2002:a81:5710:0:0:0:0:0 with SMTP id l16csp4347054ywb;
+        Mon, 25 Mar 2019 20:43:13 -0700 (PDT)
+X-Google-Smtp-Source: APXvYqydqMfIwqrjjVubL4R1GX/ti5MNU/PIVzqDsFk3g13Oi+qJAkU/mhCjX1zmmblBAvGXJpQi
+X-Received: by 2002:a62:bd09:: with SMTP id a9mr27341609pff.61.1553571793875;
+        Mon, 25 Mar 2019 20:43:13 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1553571793; cv=none;
         d=google.com; s=arc-20160816;
-        b=jCHrp6dyoJyIuBEyysOMa0EmT/qOUYdEWSHJhyigQkfIkpA1hS3mafuWUcjXJFrfR6
-         azYL/vIAUPrZZyKcU98/x7XAfUmKRzpWK6JQnChxugNS1ZO9vRWq3iMHoHlCZ2gd/RHH
-         IqhWVtpQkw6+Ws2RJNeYwygUD8Nb6E5Ie92Qt2ORrzVjBQ3yyCZzacC415fVIcTm4z84
-         FPAHJ38ibZW069MebfqKQdeYpPKa85Dj/MMEw64QNEAQJ4VaSFXTwdEAGzdhI7zh1tHu
-         hbM4t81C3iMwr7XLTu76a/RVRcnJ7/lw88E7TU+o7hxOUYKa5/CFgJCXwqnqY5nk+Pcf
-         Cv/A==
+        b=yToJ+O34HT6TZ0rWE1nvwza5cKndl0AwZn8ajzA862XcJ/hr8IVJ9tWLhBpZaiBBhZ
+         eBYdd3864GERaczu/6FegfEqVHDzaKoTCGa0GKyEkR8s59Vtfg4tgPfSX0TmNoUe7jN8
+         gxAgqfxFEBYPLZYqZd4736EwgsqHmI+NMHW6VVOcCJnKAqsPdiAyuxWj5AqTqyE3Rq2k
+         yjQNQI76zzixO5UWQoHU2QTRF0vr2GEGzb07WGzQG13LtqGUbVU9otAlLWjNYw8eZl0I
+         jde0MuUNhzhv/ykKDP+HjVc4AxXVaKnRLz3+IWW+0Pp6KIhedhbUskG1qgzsejpi/WTy
+         GLZw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=sender:errors-to:content-transfer-encoding:mime-version:cc
-         :list-subscribe:list-help:list-post:list-archive:list-unsubscribe
-         :list-id:precedence:references:in-reply-to:message-id:date:subject
-         :to:from:delivered-to;
-        bh=huBCy9JdS8O9R0iCNDcU83bhUTDviq4YojXtKdk0Dhk=;
-        b=feWCHsKks5G+AyCX5UyKrkKX6YKL+IKzAYRNvJFfPN2eHFG95g5kJl2m/PeZv6iGKV
-         JOaLop004WOa3eiyfCF44wcsx3BE76NKr4wuDxJrgR0Ly6C0UNUJiFanhVwArUa9fYpf
-         c8y6PCmtnQAmgkdC6DhZ1H5SmG9bKIQJhEngEE3OVqMChTUc0Hj7mNTUGHuI+aO/Le9E
-         tl6hABdQIA9ipYel9svuEuEN7WbLz2OSWnIcf3ZMws2LExTHX4RgKxHPRbreBcRWBqB3
-         22ZiQioenNMnmePUpWNQbKCwgDAdPc16D+lINXEj7US9Zxkyw/j+60Jqc6UtyXLuJihF
-         O1pw==
+        h=sender:errors-to:cc:reply-to:list-subscribe:list-help:list-post
+         :list-archive:list-unsubscribe:list-id:precedence:user-agent
+         :in-reply-to:mime-version:references:message-id:subject:to:from:date
+         :delivered-to;
+        bh=uEfLzSp4521dfIZQVEC46uvX0LKeweEoGL88ID6+HZs=;
+        b=vtoHINp5rIzbTakr7hA8ypcPvrSinDR/PyDJqJApVSbciuDMUiSGgyZ6iV9h0V+wgo
+         sVgjRUqTOU5YoAnzIZ4hlaoZshyShUqF4lReRZqU0gmSIZXvrfKryLvX3Ly2YX9KVD4b
+         5lOF/GPiMGiHQHOeGVHcEjTTwYwq9et5lHMIDSjUSDJ9cQAv8zNs1j16z3RvNWkfO/jK
+         RtQ0DaiCiMBralCtgJQz5StZMA+w9OZMLx0uDk3UK8phSDRbGUHrYK0mD9rviUtSOd0P
+         +10tquDnfp2vn+G67Do/mg4GJ0dMji+XUmaiH0hbghoVcHqKyleoPnEFBFEJlyQgxKDe
+         9LPQ==
 ARC-Authentication-Results: i=1; mx.google.com;
-       spf=pass (google.com: best guess record for domain of intel-gvt-dev-bounces@lists.freedesktop.org designates 131.252.210.177 as permitted sender) smtp.mailfrom=intel-gvt-dev-bounces@lists.freedesktop.org;
+       spf=pass (google.com: best guess record for domain of intel-gvt-dev-bounces@lists.freedesktop.org designates 2610:10:20:722:a800:ff:fe36:1795 as permitted sender) smtp.mailfrom=intel-gvt-dev-bounces@lists.freedesktop.org;
        dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=intel.com
 Return-Path: <intel-gvt-dev-bounces@lists.freedesktop.org>
-Received: from gabe.freedesktop.org (gabe.freedesktop.org. [131.252.210.177])
-        by mx.google.com with ESMTPS id q185si13323042pga.135.2019.03.25.01.26.01
+Received: from gabe.freedesktop.org (gabe.freedesktop.org. [2610:10:20:722:a800:ff:fe36:1795])
+        by mx.google.com with ESMTPS id x6si14512055pfm.219.2019.03.25.20.43.12
         (version=TLS1_2 cipher=ECDHE-RSA-CHACHA20-POLY1305 bits=256/256);
-        Mon, 25 Mar 2019 01:26:01 -0700 (PDT)
-Received-SPF: pass (google.com: best guess record for domain of intel-gvt-dev-bounces@lists.freedesktop.org designates 131.252.210.177 as permitted sender) client-ip=131.252.210.177;
+        Mon, 25 Mar 2019 20:43:13 -0700 (PDT)
+Received-SPF: pass (google.com: best guess record for domain of intel-gvt-dev-bounces@lists.freedesktop.org designates 2610:10:20:722:a800:ff:fe36:1795 as permitted sender) client-ip=2610:10:20:722:a800:ff:fe36:1795;
 Authentication-Results: mx.google.com;
-       spf=pass (google.com: best guess record for domain of intel-gvt-dev-bounces@lists.freedesktop.org designates 131.252.210.177 as permitted sender) smtp.mailfrom=intel-gvt-dev-bounces@lists.freedesktop.org;
+       spf=pass (google.com: best guess record for domain of intel-gvt-dev-bounces@lists.freedesktop.org designates 2610:10:20:722:a800:ff:fe36:1795 as permitted sender) smtp.mailfrom=intel-gvt-dev-bounces@lists.freedesktop.org;
        dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=intel.com
 Received: from gabe.freedesktop.org (localhost [127.0.0.1])
-	by gabe.freedesktop.org (Postfix) with ESMTP id 8366B6E67F;
-	Mon, 25 Mar 2019 08:26:01 +0000 (UTC)
+	by gabe.freedesktop.org (Postfix) with ESMTP id A4EE96E76C;
+	Tue, 26 Mar 2019 03:43:12 +0000 (UTC)
 X-Original-To: intel-gvt-dev@lists.freedesktop.org
 Delivered-To: intel-gvt-dev@lists.freedesktop.org
-Received: from mga17.intel.com (mga17.intel.com [192.55.52.151])
- by gabe.freedesktop.org (Postfix) with ESMTPS id 06A056E67F
+Received: from mga12.intel.com (mga12.intel.com [192.55.52.136])
+ by gabe.freedesktop.org (Postfix) with ESMTPS id 1A0D66E76C
  for <intel-gvt-dev@lists.freedesktop.org>;
- Mon, 25 Mar 2019 08:26:00 +0000 (UTC)
-X-Amp-Result: SKIPPED(no attachment in message)
+ Tue, 26 Mar 2019 03:43:12 +0000 (UTC)
+X-Amp-Result: UNKNOWN
+X-Amp-Original-Verdict: FILE UNKNOWN
 X-Amp-File-Uploaded: False
-Received: from orsmga002.jf.intel.com ([10.7.209.21])
- by fmsmga107.fm.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384;
- 25 Mar 2019 01:26:00 -0700
+Received: from fmsmga003.fm.intel.com ([10.253.24.29])
+ by fmsmga106.fm.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384;
+ 25 Mar 2019 20:43:11 -0700
 X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="5.60,256,1549958400"; d="scan'208";a="144974318"
-Received: from test-optiplex-7040.bj.intel.com ([10.238.154.166])
- by orsmga002.jf.intel.com with ESMTP; 25 Mar 2019 01:25:59 -0700
-From: Xiong Zhang <xiong.y.zhang@intel.com>
-To: intel-gvt-dev@lists.freedesktop.org
-Subject: [PATCH v2 2/2] drm/i915/gvt: Change fb_info->size from pages to bytes
-Date: Mon, 25 Mar 2019 16:29:20 +0800
-Message-Id: <1553502560-3796-2-git-send-email-xiong.y.zhang@intel.com>
-X-Mailer: git-send-email 2.7.4
-In-Reply-To: <1553502560-3796-1-git-send-email-xiong.y.zhang@intel.com>
+X-IronPort-AV: E=Sophos;i="5.60,271,1549958400"; 
+ d="asc'?scan'208";a="143817016"
+Received: from zhen-hp.sh.intel.com (HELO zhen-hp) ([10.239.13.116])
+ by FMSMGA003.fm.intel.com with ESMTP; 25 Mar 2019 20:43:10 -0700
+Date: Tue, 26 Mar 2019 11:32:25 +0800
+From: Zhenyu Wang <zhenyuw@linux.intel.com>
+To: Xiong Zhang <xiong.y.zhang@intel.com>
+Subject: Re: [PATCH v2 2/2] drm/i915/gvt: Change fb_info->size from pages to
+ bytes
+Message-ID: <20190326033225.GD10798@zhen-hp.sh.intel.com>
 References: <20190321075254.GG10798@zhen-hp.sh.intel.com>
  <1553502560-3796-1-git-send-email-xiong.y.zhang@intel.com>
+ <1553502560-3796-2-git-send-email-xiong.y.zhang@intel.com>
+MIME-Version: 1.0
+In-Reply-To: <1553502560-3796-2-git-send-email-xiong.y.zhang@intel.com>
+User-Agent: Mutt/1.10.0 (2018-05-17)
 X-BeenThere: intel-gvt-dev@lists.freedesktop.org
 X-Mailman-Version: 2.1.23
 Precedence: list
@@ -75,65 +80,153 @@ List-Post: <mailto:intel-gvt-dev@lists.freedesktop.org>
 List-Help: <mailto:intel-gvt-dev-request@lists.freedesktop.org?subject=help>
 List-Subscribe: <https://lists.freedesktop.org/mailman/listinfo/intel-gvt-dev>, 
  <mailto:intel-gvt-dev-request@lists.freedesktop.org?subject=subscribe>
-Cc: Xiong Zhang <xiong.y.zhang@intel.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Reply-To: Zhenyu Wang <zhenyuw@linux.intel.com>
+Cc: intel-gvt-dev@lists.freedesktop.org
+Content-Type: multipart/mixed; boundary="===============0502134123=="
 Errors-To: intel-gvt-dev-bounces@lists.freedesktop.org
 Sender: "intel-gvt-dev" <intel-gvt-dev-bounces@lists.freedesktop.org>
 
-ZmJfaW5mby0+c2l6ZSBpcyBpbiBwYWdlcywgYnV0IHNvbWUgZnVuY3Rpb24gbmVlZCBieXRlcyB3
-aGVuIGl0CmlzIGEgcGFyYW1ldGVyLiBTdWNoIGFzOgphLiBpbnRlbF9ndnRfZ2d0dF92YWxpZGF0
-ZV9yYW5nZSgpIGFjY29yZGluZyB0byBmdW5jdGlvbiBkZWZpbml0aW9uCmIuIHZmaW9fZGV2aWNl
-X2dmeF9wbGFuZV9pbmZvLT5zaXplIGFjY29yZGluZyB0byB0aGUgY29tbWVudCBvZgogICBpdHMg
-ZGVmaW5pdGlvbgoKVGhpcyBwYXRjaCBjaGFuZ2UgZmJfaW5mby0+c2l6ZSBpbnRvIGJ5dGVzLgoK
-djI6IEtlZXAgZmJfaW5mby0+c2l6ZSBpbiByZWFsIHNpemUgaW5zdGVhZCBvZiBhc3NpZ25pbmcg
-Y2FzdGVkCiAgICBwYWdlIHNpemUoemhlbnl1KQoKU2lnbmVkLW9mZi1ieTogWGlvbmcgWmhhbmcg
-PHhpb25nLnkuemhhbmdAaW50ZWwuY29tPgotLS0KIGRyaXZlcnMvZ3B1L2RybS9pOTE1L2d2dC9k
-bWFidWYuYyB8IDE3ICsrKysrKysrKystLS0tLS0tCiAxIGZpbGUgY2hhbmdlZCwgMTAgaW5zZXJ0
-aW9ucygrKSwgNyBkZWxldGlvbnMoLSkKCmRpZmYgLS1naXQgYS9kcml2ZXJzL2dwdS9kcm0vaTkx
-NS9ndnQvZG1hYnVmLmMgYi9kcml2ZXJzL2dwdS9kcm0vaTkxNS9ndnQvZG1hYnVmLmMKaW5kZXgg
-NWQ4ODdmNy4uNDg1NWIxYSAxMDA2NDQKLS0tIGEvZHJpdmVycy9ncHUvZHJtL2k5MTUvZ3Z0L2Rt
-YWJ1Zi5jCisrKyBiL2RyaXZlcnMvZ3B1L2RybS9pOTE1L2d2dC9kbWFidWYuYwpAQCAtNDUsNiAr
-NDUsNyBAQCBzdGF0aWMgaW50IHZncHVfZ2VtX2dldF9wYWdlcygKIAlpbnQgaSwgcmV0OwogCWdl
-bjhfcHRlX3QgX19pb21lbSAqZ3R0X2VudHJpZXM7CiAJc3RydWN0IGludGVsX3ZncHVfZmJfaW5m
-byAqZmJfaW5mbzsKKwl1MzIgcGFnZV9udW07CiAKIAlmYl9pbmZvID0gKHN0cnVjdCBpbnRlbF92
-Z3B1X2ZiX2luZm8gKilvYmotPmd2dF9pbmZvOwogCWlmIChXQVJOX09OKCFmYl9pbmZvKSkKQEAg
-LTU0LDE0ICs1NSwxNSBAQCBzdGF0aWMgaW50IHZncHVfZ2VtX2dldF9wYWdlcygKIAlpZiAodW5s
-aWtlbHkoIXN0KSkKIAkJcmV0dXJuIC1FTk9NRU07CiAKLQlyZXQgPSBzZ19hbGxvY190YWJsZShz
-dCwgZmJfaW5mby0+c2l6ZSwgR0ZQX0tFUk5FTCk7CisJcGFnZV9udW0gPSAoZmJfaW5mby0+c2l6
-ZSArIFBBR0VfU0laRSAtIDEpID4+IFBBR0VfU0hJRlQ7CisJcmV0ID0gc2dfYWxsb2NfdGFibGUo
-c3QsIHBhZ2VfbnVtLCBHRlBfS0VSTkVMKTsKIAlpZiAocmV0KSB7CiAJCWtmcmVlKHN0KTsKIAkJ
-cmV0dXJuIHJldDsKIAl9CiAJZ3R0X2VudHJpZXMgPSAoZ2VuOF9wdGVfdCBfX2lvbWVtICopZGV2
-X3ByaXYtPmdndHQuZ3NtICsKIAkJKGZiX2luZm8tPnN0YXJ0ID4+IFBBR0VfU0hJRlQpOwotCWZv
-cl9lYWNoX3NnKHN0LT5zZ2wsIHNnLCBmYl9pbmZvLT5zaXplLCBpKSB7CisJZm9yX2VhY2hfc2co
-c3QtPnNnbCwgc2csIHBhZ2VfbnVtLCBpKSB7CiAJCXNnLT5vZmZzZXQgPSAwOwogCQlzZy0+bGVu
-Z3RoID0gUEFHRV9TSVpFOwogCQlzZ19kbWFfYWRkcmVzcyhzZykgPQpAQCAtMTU3LDggKzE1OSw3
-IEBAIHN0YXRpYyBzdHJ1Y3QgZHJtX2k5MTVfZ2VtX29iamVjdCAqdmdwdV9jcmVhdGVfZ2VtKHN0
-cnVjdCBkcm1fZGV2aWNlICpkZXYsCiAJaWYgKG9iaiA9PSBOVUxMKQogCQlyZXR1cm4gTlVMTDsK
-IAotCWRybV9nZW1fcHJpdmF0ZV9vYmplY3RfaW5pdChkZXYsICZvYmotPmJhc2UsCi0JCWluZm8t
-PnNpemUgPDwgUEFHRV9TSElGVCk7CisJZHJtX2dlbV9wcml2YXRlX29iamVjdF9pbml0KGRldiwg
-Jm9iai0+YmFzZSwgaW5mby0+c2l6ZSk7CiAJaTkxNV9nZW1fb2JqZWN0X2luaXQob2JqLCAmaW50
-ZWxfdmdwdV9nZW1fb3BzKTsKIAogCW9iai0+cmVhZF9kb21haW5zID0gSTkxNV9HRU1fRE9NQUlO
-X0dUVDsKQEAgLTIxMCw2ICsyMTEsNyBAQCBzdGF0aWMgaW50IHZncHVfZ2V0X3BsYW5lX2luZm8o
-c3RydWN0IGRybV9kZXZpY2UgKmRldiwKIAlzdHJ1Y3QgaW50ZWxfdmdwdV9wcmltYXJ5X3BsYW5l
-X2Zvcm1hdCBwOwogCXN0cnVjdCBpbnRlbF92Z3B1X2N1cnNvcl9wbGFuZV9mb3JtYXQgYzsKIAlp
-bnQgcmV0OworCXUzMiBwYWdlX251bTsKIAogCWlmIChwbGFuZV9pZCA9PSBEUk1fUExBTkVfVFlQ
-RV9QUklNQVJZKSB7CiAJCXJldCA9IGludGVsX3ZncHVfZGVjb2RlX3ByaW1hcnlfcGxhbmUodmdw
-dSwgJnApOwpAQCAtMjY0LDggKzI2Niw5IEBAIHN0YXRpYyBpbnQgdmdwdV9nZXRfcGxhbmVfaW5m
-byhzdHJ1Y3QgZHJtX2RldmljZSAqZGV2LAogCQlyZXR1cm4gLUVJTlZBTDsKIAl9CiAKLQlpbmZv
-LT5zaXplID0gKGluZm8tPnN0cmlkZSAqIGluZm8tPmhlaWdodCArIFBBR0VfU0laRSAtIDEpCi0J
-CSAgICAgID4+IFBBR0VfU0hJRlQ7CisJLy8gYWxpZ24gdG8gcGFnZQorCWluZm8tPnNpemUgPSBp
-bmZvLT5zdHJpZGUgKiBpbmZvLT5oZWlnaHQ7CisJcGFnZV9udW0gPSAoaW5mby0+c2l6ZSArIFBB
-R0VfU0laRSAtIDEpID4+IFBBR0VfU0hJRlQ7CiAJaWYgKGluZm8tPnNpemUgPT0gMCkgewogCQln
-dnRfdmdwdV9lcnIoImZiIHNpemUgaXMgemVyb1xuIik7CiAJCXJldHVybiAtRUlOVkFMOwpAQCAt
-Mjc1LDcgKzI3OCw3IEBAIHN0YXRpYyBpbnQgdmdwdV9nZXRfcGxhbmVfaW5mbyhzdHJ1Y3QgZHJt
-X2RldmljZSAqZGV2LAogCQlndnRfdmdwdV9lcnIoIk5vdCBhbGlnbmVkIGZiIGFkZHJlc3M6MHgl
-bGx4XG4iLCBpbmZvLT5zdGFydCk7CiAJCXJldHVybiAtRUZBVUxUOwogCX0KLQlpZiAoKChpbmZv
-LT5zdGFydCA+PiBQQUdFX1NISUZUKSArIGluZm8tPnNpemUpID4KKwlpZiAoKChpbmZvLT5zdGFy
-dCA+PiBQQUdFX1NISUZUKSArIHBhZ2VfbnVtKSA+CiAJCWdndHRfdG90YWxfZW50cmllcygmZGV2
-X3ByaXYtPmdndHQpKSB7CiAJCWd2dF92Z3B1X2VycigiSW52YWxpZCBHVFQgb2Zmc2V0IG9yIHNp
-emVcbiIpOwogCQlyZXR1cm4gLUVGQVVMVDsKLS0gCjIuNy40CgpfX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fXwppbnRlbC1ndnQtZGV2IG1haWxpbmcgbGlzdApp
-bnRlbC1ndnQtZGV2QGxpc3RzLmZyZWVkZXNrdG9wLm9yZwpodHRwczovL2xpc3RzLmZyZWVkZXNr
-dG9wLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2ludGVsLWd2dC1kZXY=
+
+--===============0502134123==
+Content-Type: multipart/signed; micalg=pgp-sha1;
+	protocol="application/pgp-signature"; boundary="GuCODRLlE2VjZS/b"
+Content-Disposition: inline
+
+
+--GuCODRLlE2VjZS/b
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On 2019.03.25 16:29:20 +0800, Xiong Zhang wrote:
+> fb_info->size is in pages, but some function need bytes when it
+> is a parameter. Such as:
+> a. intel_gvt_ggtt_validate_range() according to function definition
+> b. vfio_device_gfx_plane_info->size according to the comment of
+>    its definition
+>=20
+> This patch change fb_info->size into bytes.
+>=20
+> v2: Keep fb_info->size in real size instead of assigning casted
+>     page size(zhenyu)
+>=20
+> Signed-off-by: Xiong Zhang <xiong.y.zhang@intel.com>
+> ---
+>  drivers/gpu/drm/i915/gvt/dmabuf.c | 17 ++++++++++-------
+>  1 file changed, 10 insertions(+), 7 deletions(-)
+>=20
+> diff --git a/drivers/gpu/drm/i915/gvt/dmabuf.c b/drivers/gpu/drm/i915/gvt=
+/dmabuf.c
+> index 5d887f7..4855b1a 100644
+> --- a/drivers/gpu/drm/i915/gvt/dmabuf.c
+> +++ b/drivers/gpu/drm/i915/gvt/dmabuf.c
+> @@ -45,6 +45,7 @@ static int vgpu_gem_get_pages(
+>  	int i, ret;
+>  	gen8_pte_t __iomem *gtt_entries;
+>  	struct intel_vgpu_fb_info *fb_info;
+> +	u32 page_num;
+> =20
+>  	fb_info =3D (struct intel_vgpu_fb_info *)obj->gvt_info;
+>  	if (WARN_ON(!fb_info))
+> @@ -54,14 +55,15 @@ static int vgpu_gem_get_pages(
+>  	if (unlikely(!st))
+>  		return -ENOMEM;
+> =20
+> -	ret =3D sg_alloc_table(st, fb_info->size, GFP_KERNEL);
+> +	page_num =3D (fb_info->size + PAGE_SIZE - 1) >> PAGE_SHIFT;
+
+Don't check for fb_info->size, but just obj->size / PAGE_SIZE for page coun=
+t.
+
+> +	ret =3D sg_alloc_table(st, page_num, GFP_KERNEL);
+>  	if (ret) {
+>  		kfree(st);
+>  		return ret;
+>  	}
+>  	gtt_entries =3D (gen8_pte_t __iomem *)dev_priv->ggtt.gsm +
+>  		(fb_info->start >> PAGE_SHIFT);
+> -	for_each_sg(st->sgl, sg, fb_info->size, i) {
+> +	for_each_sg(st->sgl, sg, page_num, i) {
+>  		sg->offset =3D 0;
+>  		sg->length =3D PAGE_SIZE;
+>  		sg_dma_address(sg) =3D
+> @@ -157,8 +159,7 @@ static struct drm_i915_gem_object *vgpu_create_gem(st=
+ruct drm_device *dev,
+>  	if (obj =3D=3D NULL)
+>  		return NULL;
+> =20
+> -	drm_gem_private_object_init(dev, &obj->base,
+> -		info->size << PAGE_SHIFT);
+> +	drm_gem_private_object_init(dev, &obj->base, info->size);
+
+Here needs to round to page size by roundup(info->size, PAGE_SIZE),
+otherwise i915 would complain.
+
+>  	i915_gem_object_init(obj, &intel_vgpu_gem_ops);
+> =20
+>  	obj->read_domains =3D I915_GEM_DOMAIN_GTT;
+> @@ -210,6 +211,7 @@ static int vgpu_get_plane_info(struct drm_device *dev,
+>  	struct intel_vgpu_primary_plane_format p;
+>  	struct intel_vgpu_cursor_plane_format c;
+>  	int ret;
+> +	u32 page_num;
+> =20
+>  	if (plane_id =3D=3D DRM_PLANE_TYPE_PRIMARY) {
+>  		ret =3D intel_vgpu_decode_primary_plane(vgpu, &p);
+> @@ -264,8 +266,9 @@ static int vgpu_get_plane_info(struct drm_device *dev,
+>  		return -EINVAL;
+>  	}
+> =20
+> -	info->size =3D (info->stride * info->height + PAGE_SIZE - 1)
+> -		      >> PAGE_SHIFT;
+> +	// align to page
+
+comment style
+
+> +	info->size =3D info->stride * info->height;
+> +	page_num =3D (info->size + PAGE_SIZE - 1) >> PAGE_SHIFT;
+>  	if (info->size =3D=3D 0) {
+>  		gvt_vgpu_err("fb size is zero\n");
+>  		return -EINVAL;
+> @@ -275,7 +278,7 @@ static int vgpu_get_plane_info(struct drm_device *dev,
+>  		gvt_vgpu_err("Not aligned fb address:0x%llx\n", info->start);
+>  		return -EFAULT;
+>  	}
+> -	if (((info->start >> PAGE_SHIFT) + info->size) >
+> +	if (((info->start >> PAGE_SHIFT) + page_num) >
+>  		ggtt_total_entries(&dev_priv->ggtt)) {
+>  		gvt_vgpu_err("Invalid GTT offset or size\n");
+>  		return -EFAULT;
+> --
+
+Is this check necessary? later ggtt validate range check should cover us, r=
+ight?
+
+--=20
+Open Source Technology Center, Intel ltd.
+
+$gpg --keyserver wwwkeys.pgp.net --recv-keys 4D781827
+
+--GuCODRLlE2VjZS/b
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iF0EARECAB0WIQTXuabgHDW6LPt9CICxBBozTXgYJwUCXJmdSQAKCRCxBBozTXgY
+J26FAJ4uo649HOyuMbyCfs23miraxL4szgCgg9cEhYnJI4FRVih2+/v1HsXNDzM=
+=ryT5
+-----END PGP SIGNATURE-----
+
+--GuCODRLlE2VjZS/b--
+
+--===============0502134123==
+Content-Type: text/plain; charset="utf-8"
+MIME-Version: 1.0
+Content-Transfer-Encoding: base64
+Content-Disposition: inline
+
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KaW50ZWwtZ3Z0
+LWRldiBtYWlsaW5nIGxpc3QKaW50ZWwtZ3Z0LWRldkBsaXN0cy5mcmVlZGVza3RvcC5vcmcKaHR0
+cHM6Ly9saXN0cy5mcmVlZGVza3RvcC5vcmcvbWFpbG1hbi9saXN0aW5mby9pbnRlbC1ndnQtZGV2
+
+--===============0502134123==--
