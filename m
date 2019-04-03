@@ -1,64 +1,71 @@
 Delivered-To: linux.kernel.mailinglists@gmail.com
-Received: by 2002:a81:ed4:0:0:0:0:0 with SMTP id 203csp2464870ywo;
-        Wed, 3 Apr 2019 01:04:03 -0700 (PDT)
-X-Google-Smtp-Source: APXvYqyCsHeCRRSc1z60x7XAVxryMbJblZhSyZlQWnDBfrlHYCJSgLE8pns9KA5k3tt566fuqwhm
-X-Received: by 2002:a17:902:ab87:: with SMTP id f7mr11135782plr.85.1554278643132;
-        Wed, 03 Apr 2019 01:04:03 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1554278643; cv=none;
+Received: by 2002:a81:ed4:0:0:0:0:0 with SMTP id 203csp2481444ywo;
+        Wed, 3 Apr 2019 01:25:45 -0700 (PDT)
+X-Google-Smtp-Source: APXvYqwxkPOm8s9jnwa2xtelCsauOJPvVYOwt9+VuTMwDGDt7xa2I7FhWURUzbQTqHpcNIJPV9++
+X-Received: by 2002:a62:3186:: with SMTP id x128mr56404227pfx.30.1554279945754;
+        Wed, 03 Apr 2019 01:25:45 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1554279945; cv=none;
         d=google.com; s=arc-20160816;
-        b=tbx8cQNRmGxCGwqxPEc2nQX+2e9ySMsrqJ+6DrQzDH6epOL2vTLaJF8g2UcCWI9dzs
-         AaAXLT33EfXyfTg7BWiU43kh0QGI6HTlVTC0izEm9QDHVn+PAzl+slzIsjqwWB63AKsL
-         uApBnzsY7vLxoifq0ECc8tvfELxfKg2v0+qRoabe6UlZThwZRbLrgRoJGwFzIs+lDWaL
-         BtMPlLXB5LG1sn2/guYC9/VlpA2sfmdReb41MrTYwG+n2tsSlnN4Z2z6woK2FCm78njd
-         x0pmc5WTOapFftnz9is8Tf0onYWK4ZKtFoTV1SgeIyJ/zsYTwmcTfhOa2UQ1831tDPX6
-         Jq3Q==
+        b=gEMXa4BYYOdMbxb7N9SzQ0dvMHiqFWolulq8Dveq+LB+Q3nNSKs9xHXSRNB6R+xKcZ
+         fZ3MGixYD8XAjaay1HC/GYP6rTBgtVH5CU5CrYVO6RwJ2gWZu0HQwyaZ1GGs1CRndlWJ
+         JCqjaUc78C+LZ7MkG60y743IdkxAWxWvH9rYuSEIW0Gdn5WybD/P2vL4gF1za2PlQrM9
+         kswL8DQ2luvgsJa6QCegYbbVkRCpu4hCODVpfmnl9xSFmxplJ2lepCS94Gp//DY7MyMy
+         9uhqMATXilGzS6uOJ8olzd+8eyx7LBHJu+ptL4Fw8yhv+RV9U183pEy2bHiibNKKmg6d
+         An0g==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=sender:errors-to:content-transfer-encoding:mime-version:cc
-         :list-subscribe:list-help:list-post:list-archive:list-unsubscribe
-         :list-id:precedence:message-id:date:subject:to:from:delivered-to;
-        bh=irNpXB9wRteCsGPgxnRKLES8a5i5iROY12p5gUsfPT8=;
-        b=RYK2nWQiaKC6eCYtfDvVsuRFRZUVomUJtqlZcDSkobcsL3pM0/CbWIMhQJ8SLH0gx7
-         3cZDp0zpLiRkBcVA1qCjdzCg2sG34US+422M2YIwyY2Aa239kIC5bM7YZiGcPL3EitIk
-         I5Z0KexTtNQYdN3f+dMeX7o+4Yn58P9XCZAvh11YTohSQUxcTQYzHWJ2bx+PpSPbonOH
-         JKLwVWbwyQK2vJrB3u7Qn4gY+vHqNvst7z3zS9j5dB9RU3aWf2A4Xw5BBnfNSxPvi3rg
-         tku6MUfjUNE8/dLdUdQg/iV/2I2htZoRG9+MF9d7Dn+ocpdON+jRGVid1tqjLhjHauYm
-         rzrw==
+        h=sender:errors-to:cc:reply-to:list-subscribe:list-help:list-post
+         :list-archive:list-unsubscribe:list-id:precedence:user-agent
+         :in-reply-to:mime-version:references:message-id:subject:to:from:date
+         :delivered-to;
+        bh=pCHcDLuunTt0qYTpMlgD0We0y2JZ2HcPU4YOEzwGQYc=;
+        b=q8OULrgX+dbiQqlRGL9hCPq/eH3LlZBlLBVof5Hgb/nMXjdjUvKMeYIlzJs3KqJT+2
+         bO3MKo+Kkncv6oE3cIOHqZqp1tl2YHxYUJ+H79mU8LjjPGixX4mk1lIcL90yJJwXu4YF
+         TPALzJ1P4hVsCpAWuMSFYZ58jZm6cRfxNCWbYjBj9HwNyrZgZAGXdSsxdVO0JbkgkRIm
+         C+CsX0E+GpRvGtdwHKUc899GxEoGZME7FMU+ZYwlCJ7VCO0TT9GWK91YUO5h+bofWtPe
+         0Y7y3Z9ppA0RhiRtVObbdsDutJ90rXzbJJT02Py3mC2+yO4O1w+GnAKj6v0H55ohZhsn
+         t3Lw==
 ARC-Authentication-Results: i=1; mx.google.com;
-       spf=pass (google.com: best guess record for domain of intel-gvt-dev-bounces@lists.freedesktop.org designates 2610:10:20:722:a800:ff:fe36:1795 as permitted sender) smtp.mailfrom=intel-gvt-dev-bounces@lists.freedesktop.org;
+       spf=pass (google.com: best guess record for domain of intel-gvt-dev-bounces@lists.freedesktop.org designates 131.252.210.177 as permitted sender) smtp.mailfrom=intel-gvt-dev-bounces@lists.freedesktop.org;
        dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=intel.com
 Return-Path: <intel-gvt-dev-bounces@lists.freedesktop.org>
-Received: from gabe.freedesktop.org (gabe.freedesktop.org. [2610:10:20:722:a800:ff:fe36:1795])
-        by mx.google.com with ESMTPS id l69si13521084plb.272.2019.04.03.01.04.02
+Received: from gabe.freedesktop.org (gabe.freedesktop.org. [131.252.210.177])
+        by mx.google.com with ESMTPS id z5si12955043pgb.415.2019.04.03.01.25.45
         (version=TLS1_2 cipher=ECDHE-RSA-CHACHA20-POLY1305 bits=256/256);
-        Wed, 03 Apr 2019 01:04:03 -0700 (PDT)
-Received-SPF: pass (google.com: best guess record for domain of intel-gvt-dev-bounces@lists.freedesktop.org designates 2610:10:20:722:a800:ff:fe36:1795 as permitted sender) client-ip=2610:10:20:722:a800:ff:fe36:1795;
+        Wed, 03 Apr 2019 01:25:45 -0700 (PDT)
+Received-SPF: pass (google.com: best guess record for domain of intel-gvt-dev-bounces@lists.freedesktop.org designates 131.252.210.177 as permitted sender) client-ip=131.252.210.177;
 Authentication-Results: mx.google.com;
-       spf=pass (google.com: best guess record for domain of intel-gvt-dev-bounces@lists.freedesktop.org designates 2610:10:20:722:a800:ff:fe36:1795 as permitted sender) smtp.mailfrom=intel-gvt-dev-bounces@lists.freedesktop.org;
+       spf=pass (google.com: best guess record for domain of intel-gvt-dev-bounces@lists.freedesktop.org designates 131.252.210.177 as permitted sender) smtp.mailfrom=intel-gvt-dev-bounces@lists.freedesktop.org;
        dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=intel.com
 Received: from gabe.freedesktop.org (localhost [127.0.0.1])
-	by gabe.freedesktop.org (Postfix) with ESMTP id 5AC826E96C;
-	Wed,  3 Apr 2019 08:04:02 +0000 (UTC)
+	by gabe.freedesktop.org (Postfix) with ESMTP id 0FC3C6E859;
+	Wed,  3 Apr 2019 08:25:45 +0000 (UTC)
 X-Original-To: intel-gvt-dev@lists.freedesktop.org
 Delivered-To: intel-gvt-dev@lists.freedesktop.org
-Received: from mga03.intel.com (mga03.intel.com [134.134.136.65])
- by gabe.freedesktop.org (Postfix) with ESMTPS id B2F316E96C
+Received: from mga11.intel.com (mga11.intel.com [192.55.52.93])
+ by gabe.freedesktop.org (Postfix) with ESMTPS id AF4466E859
  for <intel-gvt-dev@lists.freedesktop.org>;
- Wed,  3 Apr 2019 08:04:00 +0000 (UTC)
-X-Amp-Result: SKIPPED(no attachment in message)
+ Wed,  3 Apr 2019 08:25:43 +0000 (UTC)
+X-Amp-Result: UNKNOWN
+X-Amp-Original-Verdict: FILE UNKNOWN
 X-Amp-File-Uploaded: False
-Received: from fmsmga008.fm.intel.com ([10.253.24.58])
- by orsmga103.jf.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384;
- 03 Apr 2019 01:04:00 -0700
+Received: from orsmga002.jf.intel.com ([10.7.209.21])
+ by fmsmga102.fm.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384;
+ 03 Apr 2019 01:25:43 -0700
 X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="5.60,304,1549958400"; d="scan'208";a="137166585"
-Received: from unknown (HELO xzhan34-rh.bj.intel.com) ([10.238.154.52])
- by fmsmga008.fm.intel.com with ESMTP; 03 Apr 2019 01:03:58 -0700
-From: Xiaolin Zhang <xiaolin.zhang@intel.com>
-To: intel-gvt-dev@lists.freedesktop.org
-Subject: [PATCH v5] drm/i915/gvt: addressed guest GPU hang with HWS index mode
-Date: Wed,  3 Apr 2019 16:07:28 +0800
-Message-Id: <20190403080728.8140-1-xiaolin.zhang@intel.com>
-X-Mailer: git-send-email 2.15.1
+X-IronPort-AV: E=Sophos;i="5.60,304,1549958400"; 
+ d="asc'?scan'208";a="147631100"
+Received: from zhen-hp.sh.intel.com (HELO zhen-hp) ([10.239.13.116])
+ by orsmga002.jf.intel.com with ESMTP; 03 Apr 2019 01:25:42 -0700
+Date: Wed, 3 Apr 2019 16:14:39 +0800
+From: Zhenyu Wang <zhenyuw@linux.intel.com>
+To: Xiaolin Zhang <xiaolin.zhang@intel.com>
+Subject: Re: [PATCH v5] drm/i915/gvt: addressed guest GPU hang with HWS index
+ mode
+Message-ID: <20190403081439.GK2322@zhen-hp.sh.intel.com>
+References: <20190403080728.8140-1-xiaolin.zhang@intel.com>
+MIME-Version: 1.0
+In-Reply-To: <20190403080728.8140-1-xiaolin.zhang@intel.com>
+User-Agent: Mutt/1.10.0 (2018-05-17)
 X-BeenThere: intel-gvt-dev@lists.freedesktop.org
 X-Mailman-Version: 2.1.23
 Precedence: list
@@ -71,59 +78,138 @@ List-Post: <mailto:intel-gvt-dev@lists.freedesktop.org>
 List-Help: <mailto:intel-gvt-dev-request@lists.freedesktop.org?subject=help>
 List-Subscribe: <https://lists.freedesktop.org/mailman/listinfo/intel-gvt-dev>, 
  <mailto:intel-gvt-dev-request@lists.freedesktop.org?subject=subscribe>
-Cc: Xiaolin Zhang <xiaolin.zhang@intel.com>, zhenyuw@linux.intel.com
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Reply-To: Zhenyu Wang <zhenyuw@linux.intel.com>
+Cc: intel-gvt-dev@lists.freedesktop.org
+Content-Type: multipart/mixed; boundary="===============1322773028=="
 Errors-To: intel-gvt-dev-bounces@lists.freedesktop.org
 Sender: "intel-gvt-dev" <intel-gvt-dev-bounces@lists.freedesktop.org>
 
-d2l0aCB0aGUgaW50cm9kdWNlIG9mICJzd2l0Y2ggdG8gdXNlIEhXUyBpbmRpY2VzIHJhdGhlciB0
-aGFuIGFkZHJlc3MiLApndWVzdCBHUFUgaGFuZyBvYnNlcnZlZCB3aGVuIHJ1bm5pbmcgd29ya2xv
-YWRzIHdoaWNoIHdpbGwgdXBkYXRlIHRoZQpzZXFubyB0byB0aGUgcmVhbCBIVyBIV1NQLCBub3Qg
-dml0dXJhbCBHUFUgSFdTUCBhbmQgdGhlbiBjYXVzZSBHUFUgaGFuZy4KCnRoaXMgcGF0Y2ggaXMg
-dG8gcmV2b2tlIGluZGV4IG1vZGUgaW4gUElQRV9DVFJMIGFuZCBNSV9GTFVTSF9EVyBhbmQKcGF0
-Y2ggZ3Vlc3QgR1BVIEhXU1AgYWRkcmVzcyB2YWx1ZSB0byB0aGVzZSBjb21tYW5kcy4KCkZpeGVz
-OiA1NDkzOWVhMGIoImRybS9pOTE1OiBTd2l0Y2ggdG8gdXNlIEhXUyBpbmRpY2VzIHJhdGhlciB0
-aGFuCmFkZHJlc3NlcyIpCgp2NTogcmVmaW5lIGNvZGUgbG9naWMgdG8gaGFuZGxlIGluZGV4X21v
-ZGUuCnY0OiBjYWxsIGNtZF9hZGRyZXNzX2F1ZGl0IGZvciBuZXcgYWRkcmVzcyBjb252ZXJ0ZWQg
-ZnJvbSBpbmRleC4KdjM6IGhhbmRsZSBpbmRleCBtb2RlIHRvIGdtYSBjb252ZXJzaW9uIHdpdGhp
-biBjbWQgaGFuZGxlciBpdHNlbGYuCnYyOiBQSVBFX0NUUkwgYW5kIE1JX0ZMVVNIX0RXIGhhcyBk
-aWZmZXJlbnQgYWRkcmVzcyBvZmZzZXQsIG9mZnNldCBpcwphbHNvIHBhc3NlZCBmb3IgZ21hIGFk
-ZHJlc3MgdXBkYXRlLiA8emhlbnl1PgoKU2lnbmVkLW9mZi1ieTogWGlhb2xpbiBaaGFuZyA8eGlh
-b2xpbi56aGFuZ0BpbnRlbC5jb20+Ci0tLQogZHJpdmVycy9ncHUvZHJtL2k5MTUvZ3Z0L2NtZF9w
-YXJzZXIuYyB8IDIyICsrKysrKysrKysrKysrKysrKysrKysKIDEgZmlsZSBjaGFuZ2VkLCAyMiBp
-bnNlcnRpb25zKCspCgpkaWZmIC0tZ2l0IGEvZHJpdmVycy9ncHUvZHJtL2k5MTUvZ3Z0L2NtZF9w
-YXJzZXIuYyBiL2RyaXZlcnMvZ3B1L2RybS9pOTE1L2d2dC9jbWRfcGFyc2VyLmMKaW5kZXggYjQy
-MDkxOTI3OWM3Li4wODNiYTY0YzhmNWQgMTAwNjQ0Ci0tLSBhL2RyaXZlcnMvZ3B1L2RybS9pOTE1
-L2d2dC9jbWRfcGFyc2VyLmMKKysrIGIvZHJpdmVycy9ncHUvZHJtL2k5MTUvZ3Z0L2NtZF9wYXJz
-ZXIuYwpAQCAtMTA3Nyw2ICsxMDc3LDggQEAgc3RhdGljIGludCBjbWRfaGFuZGxlcl9waXBlX2Nv
-bnRyb2woc3RydWN0IHBhcnNlcl9leGVjX3N0YXRlICpzKQogCWJvb2wgaW5kZXhfbW9kZSA9IGZh
-bHNlOwogCXVuc2lnbmVkIGludCBwb3N0X3N5bmM7CiAJaW50IHJldCA9IDA7CisJdTMyIGh3c19n
-cGE7CisJdTMyIHZhbDsKIAogCXBvc3Rfc3luYyA9IChjbWRfdmFsKHMsIDEpICYgUElQRV9DT05U
-Uk9MX1BPU1RfU1lOQ19PUF9NQVNLKSA+PiAxNDsKIApAQCAtMTEwMCw2ICsxMTAyLDE1IEBAIHN0
-YXRpYyBpbnQgY21kX2hhbmRsZXJfcGlwZV9jb250cm9sKHN0cnVjdCBwYXJzZXJfZXhlY19zdGF0
-ZSAqcykKIAkJCQkJaW5kZXhfbW9kZSA9IHRydWU7CiAJCQkJcmV0IHw9IGNtZF9hZGRyZXNzX2F1
-ZGl0KHMsIGdtYSwgc2l6ZW9mKHU2NCksCiAJCQkJCQlpbmRleF9tb2RlKTsKKwkJCQlpZiAocmV0
-KQorCQkJCQlyZXR1cm4gcmV0OworCQkJCWlmIChpbmRleF9tb2RlKSB7CisJCQkJCWh3c19ncGEg
-PSBzLT52Z3B1LT5od3NfcGdhW3MtPnJpbmdfaWRdOworCQkJCQlnbWEgPSBod3NfZ3BhICsgZ21h
-OworCQkJCQlwYXRjaF92YWx1ZShzLCBjbWRfcHRyKHMsIDIpLCBnbWEpOworCQkJCQl2YWwgPSBj
-bWRfdmFsKHMsIDEpICYgKH4oMSA8PCAyMSkpOworCQkJCQlwYXRjaF92YWx1ZShzLCBjbWRfcHRy
-KHMsIDEpLCB2YWwpOworCQkJCX0KIAkJCX0KIAkJfQogCX0KQEAgLTE1OTgsNiArMTYwOSw4IEBA
-IHN0YXRpYyBpbnQgY21kX2hhbmRsZXJfbWlfZmx1c2hfZHcoc3RydWN0IHBhcnNlcl9leGVjX3N0
-YXRlICpzKQogCXVuc2lnbmVkIGxvbmcgZ21hOwogCWJvb2wgaW5kZXhfbW9kZSA9IGZhbHNlOwog
-CWludCByZXQgPSAwOworCXUzMiBod3NfZ3BhOworCXUzMiB2YWw7CiAKIAkvKiBDaGVjayBwb3N0
-LXN5bmMgYW5kIHBwZ3R0IGJpdCAqLwogCWlmICgoKGNtZF92YWwocywgMCkgPj4gMTQpICYgMHgz
-KSAmJiAoY21kX3ZhbChzLCAxKSAmICgxIDw8IDIpKSkgewpAQCAtMTYwOCw2ICsxNjIxLDE1IEBA
-IHN0YXRpYyBpbnQgY21kX2hhbmRsZXJfbWlfZmx1c2hfZHcoc3RydWN0IHBhcnNlcl9leGVjX3N0
-YXRlICpzKQogCQlpZiAoY21kX3ZhbChzLCAwKSAmICgxIDw8IDIxKSkKIAkJCWluZGV4X21vZGUg
-PSB0cnVlOwogCQlyZXQgPSBjbWRfYWRkcmVzc19hdWRpdChzLCBnbWEsIHNpemVvZih1NjQpLCBp
-bmRleF9tb2RlKTsKKwkJaWYgKHJldCkKKwkJCXJldHVybiByZXQ7CisJCWlmIChpbmRleF9tb2Rl
-KSB7CisJCQlod3NfZ3BhID0gcy0+dmdwdS0+aHdzX3BnYVtzLT5yaW5nX2lkXTsKKwkJCWdtYSA9
-IGh3c19ncGEgKyBnbWE7CisJCQlwYXRjaF92YWx1ZShzLCBjbWRfcHRyKHMsIDEpLCBnbWEpOwor
-CQkJdmFsID0gY21kX3ZhbChzLCAwKSAmICh+KDEgPDwgMjEpKTsKKwkJCXBhdGNoX3ZhbHVlKHMs
-IGNtZF9wdHIocywgMCksIHZhbCk7CisJCX0KIAl9CiAJLyogQ2hlY2sgbm90aWZ5IGJpdCAqLwog
-CWlmICgoY21kX3ZhbChzLCAwKSAmICgxIDw8IDgpKSkKLS0gCjIuMTUuMQoKX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KaW50ZWwtZ3Z0LWRldiBtYWlsaW5n
-IGxpc3QKaW50ZWwtZ3Z0LWRldkBsaXN0cy5mcmVlZGVza3RvcC5vcmcKaHR0cHM6Ly9saXN0cy5m
-cmVlZGVza3RvcC5vcmcvbWFpbG1hbi9saXN0aW5mby9pbnRlbC1ndnQtZGV2
+
+--===============1322773028==
+Content-Type: multipart/signed; micalg=pgp-sha1;
+	protocol="application/pgp-signature"; boundary="iRjOs3ViPWHdlw/I"
+Content-Disposition: inline
+
+
+--iRjOs3ViPWHdlw/I
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+
+On 2019.04.03 16:07:28 +0800, Xiaolin Zhang wrote:
+> with the introduce of "switch to use HWS indices rather than address",
+> guest GPU hang observed when running workloads which will update the
+> seqno to the real HW HWSP, not vitural GPU HWSP and then cause GPU hang.
+>=20
+> this patch is to revoke index mode in PIPE_CTRL and MI_FLUSH_DW and
+> patch guest GPU HWSP address value to these commands.
+>=20
+> Fixes: 54939ea0b("drm/i915: Switch to use HWS indices rather than
+> addresses")
+>=20
+> v5: refine code logic to handle index_mode.
+> v4: call cmd_address_audit for new address converted from index.
+> v3: handle index mode to gma conversion within cmd handler itself.
+> v2: PIPE_CTRL and MI_FLUSH_DW has different address offset, offset is
+> also passed for gma address update. <zhenyu>
+>=20
+> Signed-off-by: Xiaolin Zhang <xiaolin.zhang@intel.com>
+> ---
+
+Reviewed-by: Zhenyu Wang <zhenyuw@linux.intel.com>
+
+>  drivers/gpu/drm/i915/gvt/cmd_parser.c | 22 ++++++++++++++++++++++
+>  1 file changed, 22 insertions(+)
+>=20
+> diff --git a/drivers/gpu/drm/i915/gvt/cmd_parser.c b/drivers/gpu/drm/i915=
+/gvt/cmd_parser.c
+> index b420919279c7..083ba64c8f5d 100644
+> --- a/drivers/gpu/drm/i915/gvt/cmd_parser.c
+> +++ b/drivers/gpu/drm/i915/gvt/cmd_parser.c
+> @@ -1077,6 +1077,8 @@ static int cmd_handler_pipe_control(struct parser_e=
+xec_state *s)
+>  	bool index_mode =3D false;
+>  	unsigned int post_sync;
+>  	int ret =3D 0;
+> +	u32 hws_gpa;
+> +	u32 val;
+> =20
+>  	post_sync =3D (cmd_val(s, 1) & PIPE_CONTROL_POST_SYNC_OP_MASK) >> 14;
+> =20
+> @@ -1100,6 +1102,15 @@ static int cmd_handler_pipe_control(struct parser_=
+exec_state *s)
+>  					index_mode =3D true;
+>  				ret |=3D cmd_address_audit(s, gma, sizeof(u64),
+>  						index_mode);
+> +				if (ret)
+> +					return ret;
+> +				if (index_mode) {
+> +					hws_gpa =3D s->vgpu->hws_pga[s->ring_id];
+> +					gma =3D hws_gpa + gma;
+> +					patch_value(s, cmd_ptr(s, 2), gma);
+> +					val =3D cmd_val(s, 1) & (~(1 << 21));
+> +					patch_value(s, cmd_ptr(s, 1), val);
+> +				}
+>  			}
+>  		}
+>  	}
+> @@ -1598,6 +1609,8 @@ static int cmd_handler_mi_flush_dw(struct parser_ex=
+ec_state *s)
+>  	unsigned long gma;
+>  	bool index_mode =3D false;
+>  	int ret =3D 0;
+> +	u32 hws_gpa;
+> +	u32 val;
+> =20
+>  	/* Check post-sync and ppgtt bit */
+>  	if (((cmd_val(s, 0) >> 14) & 0x3) && (cmd_val(s, 1) & (1 << 2))) {
+> @@ -1608,6 +1621,15 @@ static int cmd_handler_mi_flush_dw(struct parser_e=
+xec_state *s)
+>  		if (cmd_val(s, 0) & (1 << 21))
+>  			index_mode =3D true;
+>  		ret =3D cmd_address_audit(s, gma, sizeof(u64), index_mode);
+> +		if (ret)
+> +			return ret;
+> +		if (index_mode) {
+> +			hws_gpa =3D s->vgpu->hws_pga[s->ring_id];
+> +			gma =3D hws_gpa + gma;
+> +			patch_value(s, cmd_ptr(s, 1), gma);
+> +			val =3D cmd_val(s, 0) & (~(1 << 21));
+> +			patch_value(s, cmd_ptr(s, 0), val);
+> +		}
+>  	}
+>  	/* Check notify bit */
+>  	if ((cmd_val(s, 0) & (1 << 8)))
+> --=20
+> 2.15.1
+>=20
+
+--=20
+Open Source Technology Center, Intel ltd.
+
+$gpg --keyserver wwwkeys.pgp.net --recv-keys 4D781827
+
+--iRjOs3ViPWHdlw/I
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iF0EARECAB0WIQTXuabgHDW6LPt9CICxBBozTXgYJwUCXKRrbwAKCRCxBBozTXgY
+JwexAJ0d3o7xAI9P+AsNSy8ZzK5bO27JZwCfaXFcix34sL+LmRmrsOZuYzNvBVA=
+=86rq
+-----END PGP SIGNATURE-----
+
+--iRjOs3ViPWHdlw/I--
+
+--===============1322773028==
+Content-Type: text/plain; charset="utf-8"
+MIME-Version: 1.0
+Content-Transfer-Encoding: base64
+Content-Disposition: inline
+
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KaW50ZWwtZ3Z0
+LWRldiBtYWlsaW5nIGxpc3QKaW50ZWwtZ3Z0LWRldkBsaXN0cy5mcmVlZGVza3RvcC5vcmcKaHR0
+cHM6Ly9saXN0cy5mcmVlZGVza3RvcC5vcmcvbWFpbG1hbi9saXN0aW5mby9pbnRlbC1ndnQtZGV2
+
+--===============1322773028==--
