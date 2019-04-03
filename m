@@ -1,64 +1,69 @@
 Delivered-To: linux.kernel.mailinglists@gmail.com
-Received: by 2002:a81:ed4:0:0:0:0:0 with SMTP id 203csp2275150ywo;
-        Tue, 2 Apr 2019 20:27:51 -0700 (PDT)
-X-Google-Smtp-Source: APXvYqy5TLfSxAgakdo4EMEaE/YapTo0Y02SNDDLrYxFMr4l9mkNSCLSI5ZUu4uRbP+1OyPolBFL
-X-Received: by 2002:a62:1197:: with SMTP id 23mr72383218pfr.210.1554262071585;
-        Tue, 02 Apr 2019 20:27:51 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1554262071; cv=none;
+Received: by 2002:a81:ed4:0:0:0:0:0 with SMTP id 203csp2293897ywo;
+        Tue, 2 Apr 2019 20:59:28 -0700 (PDT)
+X-Google-Smtp-Source: APXvYqyVFt5H/ZzE8nW9AqQ7XHl1GJxNyRB2nv+PU4J4YZr9GDk1+gN5+iRf5xGN91V6LfuWcqqX
+X-Received: by 2002:a62:a513:: with SMTP id v19mr16051765pfm.212.1554263967954;
+        Tue, 02 Apr 2019 20:59:27 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1554263967; cv=none;
         d=google.com; s=arc-20160816;
-        b=hBLV3/rt9c+c/qiu1hoqGpf+lLsQsY65vO5NA4BG4YpasA99Qos9+Zo0zyz9EM6MrB
-         UcUsJZ1Ng95nPY52qBvGrRrSZynxEiD49kJx3IWphgHZQO0CMTtyVGy940B4HGc6nl/p
-         Zb/41P8stUyJifJMZ/ZArXriIEq719HsKfo/Yxrh54SbXEMQNEMdnWeblq/Gh85BlGST
-         kxrfJcUXZq3lW4dsnQjQpBTmDtVOScPcne/AZ0oDRBvFhv1g/mpN2horFblcn2aBCdMV
-         J98euVX6Ag95wZZtJ499fE/BRkVPdn9LcKRetTlGRPBsgHPE+dJjyRJg3hFOXgbxnklS
-         e8qA==
+        b=y9ZLsF0Usu2lRV3TJhDmwtB1VJwhr/PMRTtvwBmmlYWhhTbhOnFWRb+W9YfVvWRCRQ
+         eTQDEhOQohCY2A0ikd9hPyfwcOgs4jhieMsWq14bo4YsF6Diy8TBZ6eOAJMXmI3A0tSI
+         hB/U4pnsDEXlAE7z8gU80YsPUboGoFHpfrLo2tnpw+Q+HiBJLB7evGtMPF/rTmQ4ZnpC
+         zzOQg68IFJ4alfDxNRtzZ/60LJ5Rh27QzSXz/im0U9IWM6EplB41r15Pcq2V5j0b/WtK
+         qhR0U04MgZGkP8W1rlTkhdAMPA1T/pKAUOA72d7tZkRDTdeqGkQ7fSCc1ahVbBDxrdB2
+         lT/Q==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=sender:errors-to:content-transfer-encoding:mime-version:cc
-         :list-subscribe:list-help:list-post:list-archive:list-unsubscribe
-         :list-id:precedence:message-id:date:subject:to:from:delivered-to;
-        bh=YujQ7vJtpUqcm2QYP0wkJuAU4Q9s4feDV5y6s/tz2yU=;
-        b=cNlGoIWWHat1g/ZjUNn0e77tX9fnleGedoDTvqmJKys+ukFIP3cvBwHbhYzsdEJtqD
-         LfyC6HMOvf9TsES90p5A2eDJ4j+RJvPGYPCTyWkmypE8NltOiV55ztpuTjaIDaChMngr
-         jDV1KnnFZIhsQGZuKnYGtwxx1y7P/czOR7l2SKpWTG5CbHZT5fQoFRvjixAzzEzwYKks
-         +ejG9QyTgpxoYaEVtlG75F9tlsss9Su4DFI/z+wzzEUbEijsCl4tot1bmkfcxWpguG9s
-         ZwPRZ1oT1MdlqMix7t+XSsniIOCsHqrJD9sBwZZ04QDxC+cRCbiq4cbA6zzvAX775mmT
-         fIrQ==
+        h=sender:errors-to:cc:reply-to:list-subscribe:list-help:list-post
+         :list-archive:list-unsubscribe:list-id:precedence:user-agent
+         :in-reply-to:mime-version:references:message-id:subject:to:from:date
+         :delivered-to;
+        bh=DnmXf5QN49gmHhV1Kw/6LR1EnUHUzOGrdIr4HlTTxlU=;
+        b=Wz+fV+lL3xvdY4YdeXMyE7NdKfrsKM9cH8WPs3yK35rjX2mPBSnBmALOSe4gyd7Gke
+         voOpQITT0NGB4PT/dhclPZAGAIwqnbjyUoIug7z8mILa1yTxMMiUZ0nuE01drQpS0XS7
+         CJtod/Uxt+/3kCI1WwRy7Vg5mbgGGIyMM8jdc1MjI6SXUEW971aiJc8QvyQSakAhBYyk
+         +rau6TfgChVAHYo6XZHjFyDFzHocLYWYPnHMXVUnHeSXlYGT184S2NT1Vqxv7HMVSHAK
+         EPDAov7TWkp8+KFbkPwrnyKhiqm8hXvpy3bR0msIMPLiFr9V9cJm6RSFtc41Es46qTVm
+         Wy/w==
 ARC-Authentication-Results: i=1; mx.google.com;
        spf=pass (google.com: best guess record for domain of intel-gvt-dev-bounces@lists.freedesktop.org designates 2610:10:20:722:a800:ff:fe36:1795 as permitted sender) smtp.mailfrom=intel-gvt-dev-bounces@lists.freedesktop.org;
        dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=intel.com
 Return-Path: <intel-gvt-dev-bounces@lists.freedesktop.org>
 Received: from gabe.freedesktop.org (gabe.freedesktop.org. [2610:10:20:722:a800:ff:fe36:1795])
-        by mx.google.com with ESMTPS id 59si13266781plb.405.2019.04.02.20.27.50
+        by mx.google.com with ESMTPS id q2si12767703pgc.507.2019.04.02.20.59.27
         (version=TLS1_2 cipher=ECDHE-RSA-CHACHA20-POLY1305 bits=256/256);
-        Tue, 02 Apr 2019 20:27:51 -0700 (PDT)
+        Tue, 02 Apr 2019 20:59:27 -0700 (PDT)
 Received-SPF: pass (google.com: best guess record for domain of intel-gvt-dev-bounces@lists.freedesktop.org designates 2610:10:20:722:a800:ff:fe36:1795 as permitted sender) client-ip=2610:10:20:722:a800:ff:fe36:1795;
 Authentication-Results: mx.google.com;
        spf=pass (google.com: best guess record for domain of intel-gvt-dev-bounces@lists.freedesktop.org designates 2610:10:20:722:a800:ff:fe36:1795 as permitted sender) smtp.mailfrom=intel-gvt-dev-bounces@lists.freedesktop.org;
        dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=intel.com
 Received: from gabe.freedesktop.org (localhost [127.0.0.1])
-	by gabe.freedesktop.org (Postfix) with ESMTP id A2A856E4A2;
-	Wed,  3 Apr 2019 03:27:50 +0000 (UTC)
+	by gabe.freedesktop.org (Postfix) with ESMTP id 1CD3C6E4A2;
+	Wed,  3 Apr 2019 03:59:27 +0000 (UTC)
 X-Original-To: intel-gvt-dev@lists.freedesktop.org
 Delivered-To: intel-gvt-dev@lists.freedesktop.org
-Received: from mga12.intel.com (mga12.intel.com [192.55.52.136])
- by gabe.freedesktop.org (Postfix) with ESMTPS id 129AD6E4A2
+Received: from mga06.intel.com (mga06.intel.com [134.134.136.31])
+ by gabe.freedesktop.org (Postfix) with ESMTPS id C0C036E4A2
  for <intel-gvt-dev@lists.freedesktop.org>;
- Wed,  3 Apr 2019 03:27:50 +0000 (UTC)
-X-Amp-Result: SKIPPED(no attachment in message)
+ Wed,  3 Apr 2019 03:59:25 +0000 (UTC)
+X-Amp-Result: UNSCANNABLE
 X-Amp-File-Uploaded: False
-Received: from orsmga007.jf.intel.com ([10.7.209.58])
- by fmsmga106.fm.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384;
- 02 Apr 2019 20:27:49 -0700
+Received: from orsmga006.jf.intel.com ([10.7.209.51])
+ by orsmga104.jf.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384;
+ 02 Apr 2019 20:59:25 -0700
 X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="5.60,303,1549958400"; d="scan'208";a="128164365"
-Received: from unknown (HELO xzhan34-rh.bj.intel.com) ([10.238.154.52])
- by orsmga007.jf.intel.com with ESMTP; 02 Apr 2019 20:27:48 -0700
-From: Xiaolin Zhang <xiaolin.zhang@intel.com>
-To: intel-gvt-dev@lists.freedesktop.org
-Subject: [PATCH] drm/i915/gvt: addressed guest GPU hang with HWS index mode
-Date: Wed,  3 Apr 2019 11:31:17 +0800
-Message-Id: <20190403033117.8289-1-xiaolin.zhang@intel.com>
-X-Mailer: git-send-email 2.15.1
+X-IronPort-AV: E=Sophos;i="5.60,303,1549958400"; 
+ d="asc'?scan'208";a="132500114"
+Received: from zhen-hp.sh.intel.com (HELO zhen-hp) ([10.239.13.116])
+ by orsmga006.jf.intel.com with ESMTP; 02 Apr 2019 20:59:24 -0700
+Date: Wed, 3 Apr 2019 11:48:21 +0800
+From: Zhenyu Wang <zhenyuw@linux.intel.com>
+To: Xiaolin Zhang <xiaolin.zhang@intel.com>
+Subject: Re: [PATCH] drm/i915/gvt: addressed guest GPU hang with HWS index mode
+Message-ID: <20190403034821.GH2322@zhen-hp.sh.intel.com>
+References: <20190403033117.8289-1-xiaolin.zhang@intel.com>
+MIME-Version: 1.0
+In-Reply-To: <20190403033117.8289-1-xiaolin.zhang@intel.com>
+User-Agent: Mutt/1.10.0 (2018-05-17)
 X-BeenThere: intel-gvt-dev@lists.freedesktop.org
 X-Mailman-Version: 2.1.23
 Precedence: list
@@ -71,52 +76,132 @@ List-Post: <mailto:intel-gvt-dev@lists.freedesktop.org>
 List-Help: <mailto:intel-gvt-dev-request@lists.freedesktop.org?subject=help>
 List-Subscribe: <https://lists.freedesktop.org/mailman/listinfo/intel-gvt-dev>, 
  <mailto:intel-gvt-dev-request@lists.freedesktop.org?subject=subscribe>
-Cc: Xiaolin Zhang <xiaolin.zhang@intel.com>, zhenyuw@linux.intel.com
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Reply-To: Zhenyu Wang <zhenyuw@linux.intel.com>
+Cc: intel-gvt-dev@lists.freedesktop.org
+Content-Type: multipart/mixed; boundary="===============1184963594=="
 Errors-To: intel-gvt-dev-bounces@lists.freedesktop.org
 Sender: "intel-gvt-dev" <intel-gvt-dev-bounces@lists.freedesktop.org>
 
-d2l0aCB0aGUgaW50cm9kdWNlIG9mICJzd2l0Y2ggdG8gdXNlIEhXUyBpbmRpY2VzIHJhdGhlciB0
-aGFuIGFkZHJlc3MiLApndWVzdCBHUFUgaGFuZyBvYnNlcnZlZCB3aGVuIHJ1bm5pbmcgd29ya2xv
-YWRzIHdoaWNoIHdpbGwgdXBkYXRlIHRoZQpzZXFubyB0byB0aGUgcmVhbCBIVyBIV1NQLCBub3Qg
-dml0dXJhbCBHUFUgSFdTUCBhbmQgdGhlbiBjYXVzZSBHUFUgaGFuZy4KCnRoaXMgcGF0Y2ggaXMg
-dG8gcmV2b2tlIGluZGV4IG1vZGUgaW4gUElQRV9DVFJMIGFuZCBNSV9GTFVTSF9EVyBhbmQKcGF0
-Y2ggZ3Vlc3QgR1BVIEhXU1AgYWRkcmVzcyB2YWx1ZSB0byB0aGVzZSBjb21tYW5kcy4KCkZpeGVz
-OiA1NDkzOWVhMGIoImRybS9pOTE1OiBTd2l0Y2ggdG8gdXNlIEhXUyBpbmRpY2VzIHJhdGhlciB0
-aGFuCmFkZHJlc3NlcyIpCgpTaWduZWQtb2ZmLWJ5OiBYaWFvbGluIFpoYW5nIDx4aWFvbGluLnpo
-YW5nQGludGVsLmNvbT4KLS0tCiBkcml2ZXJzL2dwdS9kcm0vaTkxNS9ndnQvY21kX3BhcnNlci5j
-IHwgMjUgKysrKysrKysrKysrKysrKysrKysrKy0tLQogMSBmaWxlIGNoYW5nZWQsIDIyIGluc2Vy
-dGlvbnMoKyksIDMgZGVsZXRpb25zKC0pCgpkaWZmIC0tZ2l0IGEvZHJpdmVycy9ncHUvZHJtL2k5
-MTUvZ3Z0L2NtZF9wYXJzZXIuYyBiL2RyaXZlcnMvZ3B1L2RybS9pOTE1L2d2dC9jbWRfcGFyc2Vy
-LmMKaW5kZXggYjQyMDkxOTI3OWM3Li5mOTc2Nzc3ZDdiZDUgMTAwNjQ0Ci0tLSBhL2RyaXZlcnMv
-Z3B1L2RybS9pOTE1L2d2dC9jbWRfcGFyc2VyLmMKKysrIGIvZHJpdmVycy9ncHUvZHJtL2k5MTUv
-Z3Z0L2NtZF9wYXJzZXIuYwpAQCAtMTA3MCw2ICsxMDcwLDE4IEBAIHN0YXRpYyBzdHJ1Y3QgY21k
-X2ludGVycnVwdF9ldmVudCBjbWRfaW50ZXJydXB0X2V2ZW50c1tdID0gewogCX0sCiB9OwogCitz
-dGF0aWMgaW50IGluZGV4X21vZGVfdG9fZ21hKHN0cnVjdCBwYXJzZXJfZXhlY19zdGF0ZSAqcywg
-dTMyIGluZGV4KQoreworCXUzMiBnbWE7CisJdTMyIHZhbDsKKworCWdtYSA9IHMtPnZncHUtPmh3
-c19wZ2Fbcy0+cmluZ19pZF0gKyBpbmRleDsKKwlwYXRjaF92YWx1ZShzLCBjbWRfcHRyKHMsIDIp
-LCBnbWEpOworCXZhbCA9IGNtZF92YWwocywgMSkgJiAoflBJUEVfQ09OVFJPTF9TVE9SRV9EQVRB
-X0lOREVYKTsKKwlwYXRjaF92YWx1ZShzLCBjbWRfcHRyKHMsIDEpLCB2YWwpOworCXJldHVybiAw
-OworfQorCiBzdGF0aWMgaW50IGNtZF9oYW5kbGVyX3BpcGVfY29udHJvbChzdHJ1Y3QgcGFyc2Vy
-X2V4ZWNfc3RhdGUgKnMpCiB7CiAJaW50IGdtYWRyX2J5dGVzID0gcy0+dmdwdS0+Z3Z0LT5kZXZp
-Y2VfaW5mby5nbWFkcl9ieXRlc19pbl9jbWQ7CkBAIC0xMDk4LDggKzExMTAsMTEgQEAgc3RhdGlj
-IGludCBjbWRfaGFuZGxlcl9waXBlX2NvbnRyb2woc3RydWN0IHBhcnNlcl9leGVjX3N0YXRlICpz
-KQogCQkJCS8qIFN0b3JlIERhdGEgSW5kZXggKi8KIAkJCQlpZiAoY21kX3ZhbChzLCAxKSAmICgx
-IDw8IDIxKSkKIAkJCQkJaW5kZXhfbW9kZSA9IHRydWU7Ci0JCQkJcmV0IHw9IGNtZF9hZGRyZXNz
-X2F1ZGl0KHMsIGdtYSwgc2l6ZW9mKHU2NCksCi0JCQkJCQlpbmRleF9tb2RlKTsKKwkJCQlpZiAo
-aW5kZXhfbW9kZSkKKwkJCQkJcmV0ID0gaW5kZXhfbW9kZV90b19nbWEocywgZ21hKTsKKwkJCQll
-bHNlCisJCQkJCXJldCB8PSBjbWRfYWRkcmVzc19hdWRpdChzLCBnbWEsCisJCQkJCQlzaXplb2Yo
-dTY0KSwgaW5kZXhfbW9kZSk7CiAJCQl9CiAJCX0KIAl9CkBAIC0xNjA3LDcgKzE2MjIsMTEgQEAg
-c3RhdGljIGludCBjbWRfaGFuZGxlcl9taV9mbHVzaF9kdyhzdHJ1Y3QgcGFyc2VyX2V4ZWNfc3Rh
-dGUgKnMpCiAJCS8qIFN0b3JlIERhdGEgSW5kZXggKi8KIAkJaWYgKGNtZF92YWwocywgMCkgJiAo
-MSA8PCAyMSkpCiAJCQlpbmRleF9tb2RlID0gdHJ1ZTsKLQkJcmV0ID0gY21kX2FkZHJlc3NfYXVk
-aXQocywgZ21hLCBzaXplb2YodTY0KSwgaW5kZXhfbW9kZSk7CisJCWlmIChpbmRleF9tb2RlKQor
-CQkJcmV0ID0gaW5kZXhfbW9kZV90b19nbWEocywgZ21hKTsKKwkJZWxzZQorCQkJcmV0ID0gY21k
-X2FkZHJlc3NfYXVkaXQocywgZ21hLAorCQkJCQlzaXplb2YodTY0KSwgaW5kZXhfbW9kZSk7CiAJ
-fQogCS8qIENoZWNrIG5vdGlmeSBiaXQgKi8KIAlpZiAoKGNtZF92YWwocywgMCkgJiAoMSA8PCA4
-KSkpCi0tIAoyLjE1LjEKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fCmludGVsLWd2dC1kZXYgbWFpbGluZyBsaXN0CmludGVsLWd2dC1kZXZAbGlzdHMuZnJl
-ZWRlc2t0b3Aub3JnCmh0dHBzOi8vbGlzdHMuZnJlZWRlc2t0b3Aub3JnL21haWxtYW4vbGlzdGlu
-Zm8vaW50ZWwtZ3Z0LWRldg==
+
+--===============1184963594==
+Content-Type: multipart/signed; micalg=pgp-sha1;
+	protocol="application/pgp-signature"; boundary="bFsKbPszpzYNtEU6"
+Content-Disposition: inline
+
+
+--bFsKbPszpzYNtEU6
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On 2019.04.03 11:31:17 +0800, Xiaolin Zhang wrote:
+> with the introduce of "switch to use HWS indices rather than address",
+> guest GPU hang observed when running workloads which will update the
+> seqno to the real HW HWSP, not vitural GPU HWSP and then cause GPU hang.
+>=20
+> this patch is to revoke index mode in PIPE_CTRL and MI_FLUSH_DW and
+> patch guest GPU HWSP address value to these commands.
+>=20
+> Fixes: 54939ea0b("drm/i915: Switch to use HWS indices rather than
+> addresses")
+>=20
+> Signed-off-by: Xiaolin Zhang <xiaolin.zhang@intel.com>
+> ---
+>  drivers/gpu/drm/i915/gvt/cmd_parser.c | 25 ++++++++++++++++++++++---
+>  1 file changed, 22 insertions(+), 3 deletions(-)
+>=20
+> diff --git a/drivers/gpu/drm/i915/gvt/cmd_parser.c b/drivers/gpu/drm/i915=
+/gvt/cmd_parser.c
+> index b420919279c7..f976777d7bd5 100644
+> --- a/drivers/gpu/drm/i915/gvt/cmd_parser.c
+> +++ b/drivers/gpu/drm/i915/gvt/cmd_parser.c
+> @@ -1070,6 +1070,18 @@ static struct cmd_interrupt_event cmd_interrupt_ev=
+ents[] =3D {
+>  	},
+>  };
+> =20
+> +static int index_mode_to_gma(struct parser_exec_state *s, u32 index)
+> +{
+> +	u32 gma;
+> +	u32 val;
+> +
+> +	gma =3D s->vgpu->hws_pga[s->ring_id] + index;
+> +	patch_value(s, cmd_ptr(s, 2), gma);
+> +	val =3D cmd_val(s, 1) & (~PIPE_CONTROL_STORE_DATA_INDEX);
+> +	patch_value(s, cmd_ptr(s, 1), val);
+
+MI_FLUSH_DW uses dword 1 for GMA address or index instead of dword 2, altho=
+ugh
+index mode flag for them is both at dword 1, but address offset is differen=
+t,
+and MI_FLUSH_DW has GGTT/PPGTT flag value in dword 1 which should be preser=
+ved.
+Looks better just handle in their handlers.
+
+> +	return 0;
+> +}
+> +
+>  static int cmd_handler_pipe_control(struct parser_exec_state *s)
+>  {
+>  	int gmadr_bytes =3D s->vgpu->gvt->device_info.gmadr_bytes_in_cmd;
+> @@ -1098,8 +1110,11 @@ static int cmd_handler_pipe_control(struct parser_=
+exec_state *s)
+>  				/* Store Data Index */
+>  				if (cmd_val(s, 1) & (1 << 21))
+>  					index_mode =3D true;
+> -				ret |=3D cmd_address_audit(s, gma, sizeof(u64),
+> -						index_mode);
+> +				if (index_mode)
+> +					ret =3D index_mode_to_gma(s, gma);
+> +				else
+> +					ret |=3D cmd_address_audit(s, gma,
+> +						sizeof(u64), index_mode);
+>  			}
+>  		}
+>  	}
+> @@ -1607,7 +1622,11 @@ static int cmd_handler_mi_flush_dw(struct parser_e=
+xec_state *s)
+>  		/* Store Data Index */
+>  		if (cmd_val(s, 0) & (1 << 21))
+>  			index_mode =3D true;
+> -		ret =3D cmd_address_audit(s, gma, sizeof(u64), index_mode);
+> +		if (index_mode)
+> +			ret =3D index_mode_to_gma(s, gma);
+> +		else
+> +			ret =3D cmd_address_audit(s, gma,
+> +					sizeof(u64), index_mode);
+>  	}
+>  	/* Check notify bit */
+>  	if ((cmd_val(s, 0) & (1 << 8)))
+> --=20
+> 2.15.1
+>=20
+
+--=20
+Open Source Technology Center, Intel ltd.
+
+$gpg --keyserver wwwkeys.pgp.net --recv-keys 4D781827
+
+--bFsKbPszpzYNtEU6
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iF0EARECAB0WIQTXuabgHDW6LPt9CICxBBozTXgYJwUCXKQtBQAKCRCxBBozTXgY
+J0cfAJ0a7B7SObEVqYneu/09oH8e6w0RgACghp4mBaAAoAMMSzdziU5mYknUMts=
+=QSQl
+-----END PGP SIGNATURE-----
+
+--bFsKbPszpzYNtEU6--
+
+--===============1184963594==
+Content-Type: text/plain; charset="utf-8"
+MIME-Version: 1.0
+Content-Transfer-Encoding: base64
+Content-Disposition: inline
+
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KaW50ZWwtZ3Z0
+LWRldiBtYWlsaW5nIGxpc3QKaW50ZWwtZ3Z0LWRldkBsaXN0cy5mcmVlZGVza3RvcC5vcmcKaHR0
+cHM6Ly9saXN0cy5mcmVlZGVza3RvcC5vcmcvbWFpbG1hbi9saXN0aW5mby9pbnRlbC1ndnQtZGV2
+
+--===============1184963594==--
