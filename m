@@ -1,59 +1,79 @@
 Delivered-To: linux.kernel.mailinglists@gmail.com
-Received: by 2002:a81:ed4:0:0:0:0:0 with SMTP id 203csp1105631ywo;
-        Thu, 4 Apr 2019 00:14:51 -0700 (PDT)
-X-Google-Smtp-Source: APXvYqzdek+SGF3jVA8AyAa004nvJpSHjl8a1ewCeu5tGcUUDg7lWH0QBPwNmco2fQcW13saF9um
-X-Received: by 2002:a63:d1f:: with SMTP id c31mr4159707pgl.353.1554362091335;
-        Thu, 04 Apr 2019 00:14:51 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1554362091; cv=none;
+Received: by 2002:a81:ed4:0:0:0:0:0 with SMTP id 203csp1107452ywo;
+        Thu, 4 Apr 2019 00:17:17 -0700 (PDT)
+X-Google-Smtp-Source: APXvYqzD+abNDXmmiuwyrI5EdrKLOzLIyGEq4MN2hv/29KpAH5YW8J0K56/Q5lM6aTEc6KU6VXj8
+X-Received: by 2002:a17:902:a607:: with SMTP id u7mr4850954plq.66.1554362237635;
+        Thu, 04 Apr 2019 00:17:17 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1554362237; cv=none;
         d=google.com; s=arc-20160816;
-        b=0b7MqfEmduMxiXF14tMSfsFQXjlSftKdwPH7IQLpdF8iOStgl1Y9v0UZPipvHOJx+1
-         W+zISKLUnNgmg6YZG/SciUkRNgmBxA5w3fIF+rVNQbCcUCxGVXVAICUhxK9uIHX4V8WR
-         tnvXYeOBfnpkQTDfXc8ZtfnIPrgs7/WR09FJ/OU1wQXq4O7zIWKZsVFEZq6s/7ECxSce
-         fqywcn0g1KlIjhSrmFOuJlinn4vN4e2YpBsI8gF0pS1bqcHfYeug9COJaJQcqKQNiVKS
-         aUDr+grkhHJqefzrHoCjgkhGAecc1HB4UZ5keQvSHoFiAQXyG11FOcY4PgkcL4REQJ6J
-         bKBQ==
+        b=pnUJOYsFZHQrCjclItdb/9ottC8b9b03nvxm/5ZOKie64zctOjNLcc/gfIbwV/pHxN
+         J0oP0HnVfD7lr6WGIEbwrhOp3RVsgh2pyZITgd9YIGkEU1m+keerTiy9eu403OYGw7SF
+         QmgswOFaR5WXgPoUE+T59+HeOxRTPxwmsNIAx2UEw8urdNJ4+oMiGSZD9WqGyKxVfh3X
+         H9JoEVFoR1RvJabw/6TBFKkZ6XdxV+52IaND4XG7AR8waRAHm/0yQIzJ96AW/tvhgB6r
+         wxAspgUP8u+rEGy3Mol3Sxb+u9p3l39s73TjPU2Y7NdAPLMAihl/NibS2ztViPCui5bQ
+         Iydw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=sender:errors-to:content-transfer-encoding:cc:list-subscribe
-         :list-help:list-post:list-archive:list-unsubscribe:list-id
-         :precedence:mime-version:message-id:date:subject:to:from
-         :delivered-to;
-        bh=ydSdxoD37EcitGQ9Slka/cfblDKpsLBGB0qec7W41D0=;
-        b=Vx+LjVZGmiyNxNB42TGLRwZcF9L2MU0urRYl44GZnWnApoIx2UKBunJItGd0yZTupV
-         ZSoBcSK+OQkRua/+Je9V1xYse8LEHggXupOwWRp4rBS/dEkRbPgBDJjryxE9xs05/mvS
-         QT1HlZToEefaiJepsb1sHCA3q6h19mfn2zM5N7vP0uZdJD4RBHvC0QNYkE85qVXmzutW
-         Qv1GYRgeXDKCyEQHJ89pOz3xRw4YCPZUbCRgjyKg1XqPJdpTbc8duoCH2Axq6NrnsBTW
-         Y75MV1HJy7bBARB4iFDAj7SHlgH48jrW9wtu0s933SW5w2jD0xOxTKrRXip/KeOLgquG
-         /8Kw==
+        h=sender:errors-to:list-subscribe:list-help:list-post:list-archive
+         :list-unsubscribe:list-id:precedence:date:message-id:in-reply-to:to
+         :from:subject:mime-version:delivered-to;
+        bh=/1Xd5pTEjfTQjGQC+xVeK95jkDWVwjLGRKeWJyP8DE0=;
+        b=KTH0kTsQ55A7k2jPiWHqyl5+Zznx5nkAHyBL+pw8aHdst8Br7a0bVxwDt11VVzh5mc
+         KLFw8Lv2JqS5lDImfwQZNf83xUThdy27yDqJ40GuQ9Fjn2WJzQKEVPVtzj5Yf411N0Br
+         uwtF6qKYFYLTqcKwL/VcKDEYwKzc/4k6OdnjNyCX9BgcroomqR3FTMdZye7C/BJGJW5h
+         nhOL+ML/DTNHGiI5ZrsHceJp0ClUpTcpNkGRfJmd1kwzT6diHyeNYXHTpcdJWUZ4A+WK
+         3/T2RkLE0YbrpvZp/7g0GyP3PNQSBT4KcdrTkC79XwytiKwHdkAjlnev91r1R/UxfQTl
+         vquw==
 ARC-Authentication-Results: i=1; mx.google.com;
-       spf=pass (google.com: best guess record for domain of intel-gvt-dev-bounces@lists.freedesktop.org designates 131.252.210.177 as permitted sender) smtp.mailfrom=intel-gvt-dev-bounces@lists.freedesktop.org
+       spf=pass (google.com: best guess record for domain of intel-gvt-dev-bounces@lists.freedesktop.org designates 131.252.210.177 as permitted sender) smtp.mailfrom=intel-gvt-dev-bounces@lists.freedesktop.org;
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=intel.com
 Return-Path: <intel-gvt-dev-bounces@lists.freedesktop.org>
 Received: from gabe.freedesktop.org (gabe.freedesktop.org. [131.252.210.177])
-        by mx.google.com with ESMTPS id t7si15417012plo.163.2019.04.04.00.14.50
+        by mx.google.com with ESMTPS id q9si15506969pgq.173.2019.04.04.00.17.17
         (version=TLS1_2 cipher=ECDHE-RSA-CHACHA20-POLY1305 bits=256/256);
-        Thu, 04 Apr 2019 00:14:51 -0700 (PDT)
+        Thu, 04 Apr 2019 00:17:17 -0700 (PDT)
 Received-SPF: pass (google.com: best guess record for domain of intel-gvt-dev-bounces@lists.freedesktop.org designates 131.252.210.177 as permitted sender) client-ip=131.252.210.177;
 Authentication-Results: mx.google.com;
-       spf=pass (google.com: best guess record for domain of intel-gvt-dev-bounces@lists.freedesktop.org designates 131.252.210.177 as permitted sender) smtp.mailfrom=intel-gvt-dev-bounces@lists.freedesktop.org
+       spf=pass (google.com: best guess record for domain of intel-gvt-dev-bounces@lists.freedesktop.org designates 131.252.210.177 as permitted sender) smtp.mailfrom=intel-gvt-dev-bounces@lists.freedesktop.org;
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=intel.com
 Received: from gabe.freedesktop.org (localhost [127.0.0.1])
-	by gabe.freedesktop.org (Postfix) with ESMTP id A16C56E558;
-	Thu,  4 Apr 2019 07:14:50 +0000 (UTC)
+	by gabe.freedesktop.org (Postfix) with ESMTP id 3EEE46E562;
+	Thu,  4 Apr 2019 07:17:17 +0000 (UTC)
 X-Original-To: intel-gvt-dev@lists.freedesktop.org
 Delivered-To: intel-gvt-dev@lists.freedesktop.org
-Received: from fireflyinternet.com (mail.fireflyinternet.com [109.228.58.192])
- by gabe.freedesktop.org (Postfix) with ESMTPS id 133E66E558;
- Thu,  4 Apr 2019 07:14:48 +0000 (UTC)
-X-Default-Received-SPF: pass (skip=forwardok (res=PASS))
- x-ip-name=78.156.65.138; 
-Received: from haswell.alporthouse.com (unverified [78.156.65.138]) 
- by fireflyinternet.com (Firefly Internet (M1)) with ESMTP id 16125293-1500050 
- for multiple; Thu, 04 Apr 2019 08:14:27 +0100
-From: Chris Wilson <chris@chris-wilson.co.uk>
-To: intel-gfx@lists.freedesktop.org
-Subject: [PATCH] drm/i915/gvt: Annotate iomem usage
-Date: Thu,  4 Apr 2019 08:14:25 +0100
-Message-Id: <20190404071425.25847-1-chris@chris-wilson.co.uk>
-X-Mailer: git-send-email 2.20.1
+Received: from mga01.intel.com (mga01.intel.com [192.55.52.88])
+ by gabe.freedesktop.org (Postfix) with ESMTPS id EF8C96E562
+ for <intel-gvt-dev@lists.freedesktop.org>;
+ Thu,  4 Apr 2019 07:17:15 +0000 (UTC)
+X-Amp-Result: UNKNOWN
+X-Amp-Original-Verdict: FILE UNKNOWN
+X-Amp-File-Uploaded: False
+Received: from fmsmga004.fm.intel.com ([10.253.24.48])
+ by fmsmga101.fm.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384;
+ 04 Apr 2019 00:17:15 -0700
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="5.60,306,1549958400"; 
+ d="log'?scan'208";a="158631657"
+Received: from fmsmsx103.amr.corp.intel.com ([10.18.124.201])
+ by fmsmga004.fm.intel.com with ESMTP; 04 Apr 2019 00:17:15 -0700
+Received: from fmsmsx154.amr.corp.intel.com (10.18.116.70) by
+ FMSMSX103.amr.corp.intel.com (10.18.124.201) with Microsoft SMTP Server (TLS)
+ id 14.3.408.0; Thu, 4 Apr 2019 00:17:15 -0700
+Received: from shsmsx104.ccr.corp.intel.com (10.239.4.70) by
+ FMSMSX154.amr.corp.intel.com (10.18.116.70) with Microsoft SMTP Server (TLS)
+ id 14.3.408.0; Thu, 4 Apr 2019 00:17:14 -0700
+Received: from [127.0.1.1] (10.239.48.224) by SHSMSX104.ccr.corp.intel.com
+ (10.239.4.70) with Microsoft SMTP Server (TLS) id 14.3.408.0; Thu, 4 Apr 2019
+ 15:17:13 +0800
+Content-Type: multipart/mixed; boundary="===============2998467170290019035=="
 MIME-Version: 1.0
+Subject: Jenkins Job Failed for Patch
+ [PATCH]_drm/i915/gvt:_Annotate_iomem_usage
+From: <lab_gvt-test@intel.com>
+To: <intel-gvt-dev@lists.freedesktop.org>
+In-Reply-To: <20190404071425.25847-1-chris@chris-wilson.co.uk>
+Message-ID: <3d3c9050-6c7a-4f01-8e02-6739145eee0a@shsmsx104.ccr.corp.intel.com>
+Date: Thu, 4 Apr 2019 15:17:13 +0800
+X-Originating-IP: [10.239.48.224]
 X-BeenThere: intel-gvt-dev@lists.freedesktop.org
 X-Mailman-Version: 2.1.23
 Precedence: list
@@ -66,48 +86,52 @@ List-Post: <mailto:intel-gvt-dev@lists.freedesktop.org>
 List-Help: <mailto:intel-gvt-dev-request@lists.freedesktop.org?subject=help>
 List-Subscribe: <https://lists.freedesktop.org/mailman/listinfo/intel-gvt-dev>, 
  <mailto:intel-gvt-dev-request@lists.freedesktop.org?subject=subscribe>
-Cc: Changbin Du <changbin.du@intel.com>, intel-gvt-dev@lists.freedesktop.org,
- Zhi Wang <zhi.a.wang@intel.com>, Zhenyu Wang <zhenyuw@linux.intel.com>,
- Chris Wilson <chris@chris-wilson.co.uk>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
 Errors-To: intel-gvt-dev-bounces@lists.freedesktop.org
 Sender: "intel-gvt-dev" <intel-gvt-dev-bounces@lists.freedesktop.org>
 
-Rml4IHRoZSBzcGFyc2Ugd2FybmluZyBmb3IgYmxpdGhlbHkgdXNpbmcgaW9tZW0gd2l0aCBub3Jt
-YWwgbWVtY3B5OgoKZHJpdmVycy9ncHUvZHJtL2k5MTUvZ3Z0L2t2bWd0LmM6OTE2OjIxOiB3YXJu
-aW5nOiBpbmNvcnJlY3QgdHlwZSBpbiBhc3NpZ25tZW50IChkaWZmZXJlbnQgYWRkcmVzcyBzcGFj
-ZXMpCmRyaXZlcnMvZ3B1L2RybS9pOTE1L2d2dC9rdm1ndC5jOjkxNjoyMTogICAgZXhwZWN0ZWQg
-dm9pZCAqYXBlcnR1cmVfdmEKZHJpdmVycy9ncHUvZHJtL2k5MTUvZ3Z0L2t2bWd0LmM6OTE2OjIx
-OiAgICBnb3Qgdm9pZCBbbm9kZXJlZl0gPGFzbjoyPiAqCmRyaXZlcnMvZ3B1L2RybS9pOTE1L2d2
-dC9rdm1ndC5jOjkyNzoyNjogd2FybmluZzogaW5jb3JyZWN0IHR5cGUgaW4gYXJndW1lbnQgMSAo
-ZGlmZmVyZW50IGFkZHJlc3Mgc3BhY2VzKQpkcml2ZXJzL2dwdS9kcm0vaTkxNS9ndnQva3ZtZ3Qu
-Yzo5Mjc6MjY6ICAgIGV4cGVjdGVkIHZvaWQgW25vZGVyZWZdIDxhc246Mj4gKnZhZGRyCmRyaXZl
-cnMvZ3B1L2RybS9pOTE1L2d2dC9rdm1ndC5jOjkyNzoyNjogICAgZ290IHZvaWQgKmFwZXJ0dXJl
-X3ZhCgpGaXhlczogZDQ4MGIyOGE0MWE2ICgiZHJtL2k5MTUvZ3Z0OiBGaXggYXBlcnR1cmUgcmVh
-ZC93cml0ZSBlbXVsYXRpb24gd2hlbiBlbmFibGUgeC1uby1tbWFwPW9uIikKU2lnbmVkLW9mZi1i
-eTogQ2hyaXMgV2lsc29uIDxjaHJpc0BjaHJpcy13aWxzb24uY28udWs+CkNjOiBaaGVueXUgV2Fu
-ZyA8emhlbnl1d0BsaW51eC5pbnRlbC5jb20+CkNjOiBDaGFuZ2JpbiBEdSA8Y2hhbmdiaW4uZHVA
-aW50ZWwuY29tPgpDYzogWmhpIFdhbmcgPHpoaS5hLndhbmdAaW50ZWwuY29tPgotLS0KIGRyaXZl
-cnMvZ3B1L2RybS9pOTE1L2d2dC9rdm1ndC5jIHwgNiArKystLS0KIDEgZmlsZSBjaGFuZ2VkLCAz
-IGluc2VydGlvbnMoKyksIDMgZGVsZXRpb25zKC0pCgpkaWZmIC0tZ2l0IGEvZHJpdmVycy9ncHUv
-ZHJtL2k5MTUvZ3Z0L2t2bWd0LmMgYi9kcml2ZXJzL2dwdS9kcm0vaTkxNS9ndnQva3ZtZ3QuYwpp
-bmRleCBkNWZjYzQ0N2QyMmYuLmE2OGFkZGY5NWMyMyAxMDA2NDQKLS0tIGEvZHJpdmVycy9ncHUv
-ZHJtL2k5MTUvZ3Z0L2t2bWd0LmMKKysrIGIvZHJpdmVycy9ncHUvZHJtL2k5MTUvZ3Z0L2t2bWd0
-LmMKQEAgLTkwNSw3ICs5MDUsNyBAQCBzdGF0aWMgaW5saW5lIGJvb2wgaW50ZWxfdmdwdV9pbl9h
-cGVydHVyZShzdHJ1Y3QgaW50ZWxfdmdwdSAqdmdwdSwgdTY0IG9mZikKIHN0YXRpYyBpbnQgaW50
-ZWxfdmdwdV9hcGVydHVyZV9ydyhzdHJ1Y3QgaW50ZWxfdmdwdSAqdmdwdSwgdTY0IG9mZiwKIAkJ
-dm9pZCAqYnVmLCB1bnNpZ25lZCBsb25nIGNvdW50LCBib29sIGlzX3dyaXRlKQogewotCXZvaWQg
-KmFwZXJ0dXJlX3ZhOworCXZvaWQgX19pb21lbSAqYXBlcnR1cmVfdmE7CiAKIAlpZiAoIWludGVs
-X3ZncHVfaW5fYXBlcnR1cmUodmdwdSwgb2ZmKSB8fAogCSAgICAhaW50ZWxfdmdwdV9pbl9hcGVy
-dHVyZSh2Z3B1LCBvZmYgKyBjb3VudCkpIHsKQEAgLTkyMCw5ICs5MjAsOSBAQCBzdGF0aWMgaW50
-IGludGVsX3ZncHVfYXBlcnR1cmVfcncoc3RydWN0IGludGVsX3ZncHUgKnZncHUsIHU2NCBvZmYs
-CiAJCXJldHVybiAtRUlPOwogCiAJaWYgKGlzX3dyaXRlKQotCQltZW1jcHkoYXBlcnR1cmVfdmEg
-KyBvZmZzZXRfaW5fcGFnZShvZmYpLCBidWYsIGNvdW50KTsKKwkJbWVtY3B5X3RvaW8oYXBlcnR1
-cmVfdmEgKyBvZmZzZXRfaW5fcGFnZShvZmYpLCBidWYsIGNvdW50KTsKIAllbHNlCi0JCW1lbWNw
-eShidWYsIGFwZXJ0dXJlX3ZhICsgb2Zmc2V0X2luX3BhZ2Uob2ZmKSwgY291bnQpOworCQltZW1j
-cHlfZnJvbWlvKGJ1ZiwgYXBlcnR1cmVfdmEgKyBvZmZzZXRfaW5fcGFnZShvZmYpLCBjb3VudCk7
-CiAKIAlpb19tYXBwaW5nX3VubWFwKGFwZXJ0dXJlX3ZhKTsKIAotLSAKMi4yMC4xCgpfX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwppbnRlbC1ndnQtZGV2IG1h
-aWxpbmcgbGlzdAppbnRlbC1ndnQtZGV2QGxpc3RzLmZyZWVkZXNrdG9wLm9yZwpodHRwczovL2xp
-c3RzLmZyZWVkZXNrdG9wLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2ludGVsLWd2dC1kZXY=
+--===============2998467170290019035==
+Content-Type: text/html; charset="uft-8"
+MIME-Version: 1.0
+Content-Transfer-Encoding: base64
+
+CiAgICAgICAgICAgICAgICA8dGFibGUgY29sb3I9IkNDQ0MzMyIgd2lkdGg9IjgwMCIgYm9yZGVy
+PSIxIiBjZWxsc3BhY2luZz0iMCIgY2VsbHBhZGRpbmc9IjUiIHRleHQtYWxpZ249ImNlbnRlciI+
+CiAgICAgICAgICAgICAgICAgICAgPHRyPgogICAgICAgICAgICAgICAgICAgICAgICA8dGQgc3R5
+bGU9IndvcmQtd3JhcDpicmVhay13b3JkO3dvcmQtYnJlYWs6YnJlYWstYWxsOyIgd2lkdGg9IjEw
+MHB4IiB0ZXh0LWFsaWduPSJjZW50ZXIiIGJnY29sb3I9ImxpZ2h0Ymx1ZSI+U3ViamVjdDo8L3Rk
+PgogICAgICAgICAgICAgICAgICAgICAgICA8dGQgbm93cmFwPSJub3dyYXAiIHRleHQtYWxpZ249
+ImNlbnRlciIgYmdjb2xvcj0ibGlnaHRibHVlIj5Pd25lcjo8L3RkPgogICAgICAgICAgICAgICAg
+ICAgICAgICA8dGQgbm93cmFwPSJub3dyYXAiIHRleHQtYWxpZ249ImNlbnRlciIgYmdjb2xvcj0i
+bGlnaHRibHVlIj48Zm9udCBjb2xvcj0ncmVkJz5FcnJvciBUeXBlOjwvZm9udD48L3RkPgogICAg
+ICAgICAgICAgICAgICAgICAgICA8dGQgbm93cmFwPSJub3dyYXAiIHRleHQtYWxpZ249ImNlbnRl
+ciIgYmdjb2xvcj0ibGlnaHRibHVlIj5Mb2c6PC90ZD4KICAgICAgICAgICAgICAgICAgICA8L3Ry
+PgogICAgICAgICAgICAgICAgICAgIDx0cj4KICAgICAgICAgICAgICAgICAgICAgICAgPHRkIHRl
+eHQtYWxpZ249ImNlbnRlciI+W1BBVENIXV9kcm0vaTkxNS9ndnQ6X0Fubm90YXRlX2lvbWVtX3Vz
+YWdlIDwvdGQ+CiAgICAgICAgICAgICAgICAgICAgICAgIDx0ZD5jaHJpcyA8L3RkPgogICAgICAg
+ICAgICAgICAgICAgICAgICA8dGQ+YnVpbGRfZmFpbHVyZSA8L3RkPgogICAgICAgICAgICAgICAg
+ICAgICAgICA8dGQ+YnVpbGQgPGEgaHJlZj0iaHR0cDovL2d2dC1qZW5raW5zLnNoLmludGVsLmNv
+bTo4MDgwL2pvYi9wYXRjaC10ZXN0LWt2bWd0LzQxOS9jb25zb2xlIj40MTk8L2E+PC90ZD4KICAg
+ICAgICAgICAgICAgICAgICA8L3RyPgogICAgICAgICAgICAgICAgPC90YWJsZT4=
+
+--===============2998467170290019035==
+MIME-Version: 1.0
+Content-Transfer-Encoding: base64
+Content-Type: application/octet-stream
+Content-Disposition: attachment; filename="build.log"
+
+W3BhdGNoLXRlc3Qta3ZtZ3RdIFJ1bm5pbmcgc2hlbGwgc2NyaXB0CisgZWNobyAjIyMjIyBzdGFy
+dCB0byBjb25zdW1lIHBhdGNoIFtQQVRDSF1fZHJtL2k5MTUvZ3Z0Ol9Bbm5vdGF0ZV9pb21lbV91
+c2FnZSAjIyMjIwojIyMjIyBzdGFydCB0byBjb25zdW1lIHBhdGNoIFtQQVRDSF1fZHJtL2k5MTUv
+Z3Z0Ol9Bbm5vdGF0ZV9pb21lbV91c2FnZSAjIyMjIwo=
+
+--===============2998467170290019035==
+Content-Type: text/plain; charset="utf-8"
+MIME-Version: 1.0
+Content-Transfer-Encoding: base64
+Content-Disposition: inline
+
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KaW50ZWwtZ3Z0
+LWRldiBtYWlsaW5nIGxpc3QKaW50ZWwtZ3Z0LWRldkBsaXN0cy5mcmVlZGVza3RvcC5vcmcKaHR0
+cHM6Ly9saXN0cy5mcmVlZGVza3RvcC5vcmcvbWFpbG1hbi9saXN0aW5mby9pbnRlbC1ndnQtZGV2
+
+--===============2998467170290019035==--
