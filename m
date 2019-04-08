@@ -1,63 +1,72 @@
 Delivered-To: linux.kernel.mailinglists@gmail.com
-Received: by 2002:a81:ed4:0:0:0:0:0 with SMTP id 203csp1149290ywo;
-        Thu, 4 Apr 2019 01:12:18 -0700 (PDT)
-X-Google-Smtp-Source: APXvYqw67F0+Hxk6OkYn3sHAylQ0A23ohEo7Q9BxgyiHhWLxwmRmsTogb82pE4ZGlm4pf2IvP/4V
-X-Received: by 2002:a63:e554:: with SMTP id z20mr4447794pgj.234.1554365538739;
-        Thu, 04 Apr 2019 01:12:18 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1554365538; cv=none;
+Received: by 2002:a81:ed4:0:0:0:0:0 with SMTP id 203csp2907985ywo;
+        Sun, 7 Apr 2019 19:38:27 -0700 (PDT)
+X-Google-Smtp-Source: APXvYqyHpTvs42lplrXcdFXHU3x+Di4ceWRmkzFk18NPoSvfmCmK3t2+p9akijXswK11HVyklmjm
+X-Received: by 2002:aa7:8190:: with SMTP id g16mr27331292pfi.92.1554691107069;
+        Sun, 07 Apr 2019 19:38:27 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1554691107; cv=none;
         d=google.com; s=arc-20160816;
-        b=ZjVB/n97FHdXmlL7KkUlWgsggt0XaJ3lkQcaQzBfCtT+TcFvqhjWfVhjFMroLSkUca
-         +SpQEncwGhZUzRntbGYmcv2atgLjHHhTyVG/OURIflYR0rZ74HTYnrEsqTD5aDH+CSWe
-         h/61NdjAtZXK1VMXhvoz3rxSO0d/ieqkP/LtFjEv6rbTB2NO5EFpk/LUrl4Yc5lVnXyP
-         bfQBdzfTtYdhzbaS3fYcY6RaKxERW4wh3hBD7ha7ED7YMk2Rt6FrBoohNqH/KIGMi9H1
-         aCMPh2Saoplck2QwLUAWnbHJZg76GORo0uO1HvTZsYVDkdHGeW5qMsY0JVjBMecdSWET
-         m8Kg==
+        b=tRTxH1CFNTudJygglaOCT2lMbx7z/a6487VipVN5O9BBptMwUhh4raGe8GMptW8Rmf
+         3O9quHZSO9gBlgTO6f7EpHZT3Z89fFUWp764lQyKzgyfjZMTrWjgmg/gQujplZN0rQD/
+         jUaPGpynr/2cldesAsj9As94WS35qmB4dAl8A9EULfIZZkH4Q6CI3Ej23VezejtghuGz
+         V3sBzoMtIcn5Isp6rmPQwNTsZx2fdFpPVwNQ6wfu2fElccwXmqBh28syzUIx49ZBDc8j
+         RHKK2Rbrq2qwds2nVkZkuRGcWn9gnUV0xybaiC2B/EG8yMNWZIvHihEmgexW5cEpSUYi
+         icwQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=sender:errors-to:content-transfer-encoding:cc:list-subscribe
-         :list-help:list-post:list-archive:list-unsubscribe:list-id
-         :precedence:date:subject:user-agent:message-id:references
-         :in-reply-to:from:to:mime-version:delivered-to;
-        bh=i5xUzwWw7H2ddyjYthe6Ouku1RHUbnB+LC5lmugRBY4=;
-        b=COcp20u/kTgrkmVNvXqyEMOurshJL6arOcvUkIJvCx40X+g1Y9eB7A0SSOsGkBxpDA
-         kO++ZG2Zvk80vrIbRKmz3JUWrB9DWIaRryCdcSQs5yd4p2rRROaK1T6V583LVAWEHtCk
-         XWrS8foT4ZqvZgQ92NMJ84UYY09bhhZW+f+0UFnZutcjLqc/qBSBBretm9D2952vTWnC
-         gpWX6elC0KqGzcwxfaXp+G1HuqmreK+w66ocIW2WwLFwywY1bEb67dXE5Gq5FNlCcVGr
-         xmro0BS7GrOfxYTdB+PUxvUnMPKgWUSYgRTq+a2HgEmVQWhJB/OAlBFgqzJSEgVKxJDw
-         /H0A==
+        h=sender:errors-to:cc:reply-to:list-subscribe:list-help:list-post
+         :list-archive:list-unsubscribe:list-id:precedence:user-agent
+         :in-reply-to:mime-version:references:message-id:subject:to:from:date
+         :delivered-to;
+        bh=FMs0c+Wr+hR7sRJsd9gMBNtlq1dLHBUsGHi2zCl/SbM=;
+        b=HmDggssZv55W7a+VFVKRN70E8bvLYe10Addr6BbKoLC2VgfjmnnGtT/bwzlv2+LwU9
+         NyCT05dP8RHrw1ljcEJcUIJIZT7oAkThfXQ/tGLAudMSb8KO8Xi0TIFlmkFJmO0hhou4
+         VpiD14KbngZ5AEV8JdamZytNoyp0vmpyUrr0LRTRHXeA0wNxz2xJjNhR/qmEVVt/Ettn
+         rO4cokIzjLnJQ8mG1AQf3HleH2wMfY2rAknr7lIyWn/YHKVgwP3mWqIQ8eBV3RcUyphx
+         ZEzb/OWMr4+kNkx2idkPwZZUHSyzXiTPO3p5GNcHno9rZw1/1eIYB13QtOfX+V7s3NMZ
+         AASw==
 ARC-Authentication-Results: i=1; mx.google.com;
-       spf=pass (google.com: best guess record for domain of intel-gvt-dev-bounces@lists.freedesktop.org designates 2610:10:20:722:a800:ff:fe36:1795 as permitted sender) smtp.mailfrom=intel-gvt-dev-bounces@lists.freedesktop.org
+       spf=pass (google.com: best guess record for domain of intel-gvt-dev-bounces@lists.freedesktop.org designates 131.252.210.177 as permitted sender) smtp.mailfrom=intel-gvt-dev-bounces@lists.freedesktop.org;
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=intel.com
 Return-Path: <intel-gvt-dev-bounces@lists.freedesktop.org>
-Received: from gabe.freedesktop.org (gabe.freedesktop.org. [2610:10:20:722:a800:ff:fe36:1795])
-        by mx.google.com with ESMTPS id k8si7709299plt.354.2019.04.04.01.12.18
+Received: from gabe.freedesktop.org (gabe.freedesktop.org. [131.252.210.177])
+        by mx.google.com with ESMTPS id l34si24988496pgb.574.2019.04.07.19.38.26
         (version=TLS1_2 cipher=ECDHE-RSA-CHACHA20-POLY1305 bits=256/256);
-        Thu, 04 Apr 2019 01:12:18 -0700 (PDT)
-Received-SPF: pass (google.com: best guess record for domain of intel-gvt-dev-bounces@lists.freedesktop.org designates 2610:10:20:722:a800:ff:fe36:1795 as permitted sender) client-ip=2610:10:20:722:a800:ff:fe36:1795;
+        Sun, 07 Apr 2019 19:38:27 -0700 (PDT)
+Received-SPF: pass (google.com: best guess record for domain of intel-gvt-dev-bounces@lists.freedesktop.org designates 131.252.210.177 as permitted sender) client-ip=131.252.210.177;
 Authentication-Results: mx.google.com;
-       spf=pass (google.com: best guess record for domain of intel-gvt-dev-bounces@lists.freedesktop.org designates 2610:10:20:722:a800:ff:fe36:1795 as permitted sender) smtp.mailfrom=intel-gvt-dev-bounces@lists.freedesktop.org
+       spf=pass (google.com: best guess record for domain of intel-gvt-dev-bounces@lists.freedesktop.org designates 131.252.210.177 as permitted sender) smtp.mailfrom=intel-gvt-dev-bounces@lists.freedesktop.org;
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=intel.com
 Received: from gabe.freedesktop.org (localhost [127.0.0.1])
-	by gabe.freedesktop.org (Postfix) with ESMTP id 4B50F6E557;
-	Thu,  4 Apr 2019 08:12:18 +0000 (UTC)
+	by gabe.freedesktop.org (Postfix) with ESMTP id B495D892F2;
+	Mon,  8 Apr 2019 02:38:25 +0000 (UTC)
 X-Original-To: intel-gvt-dev@lists.freedesktop.org
 Delivered-To: intel-gvt-dev@lists.freedesktop.org
-Received: from fireflyinternet.com (mail.fireflyinternet.com [109.228.58.192])
- by gabe.freedesktop.org (Postfix) with ESMTPS id AF5586E557;
- Thu,  4 Apr 2019 08:12:16 +0000 (UTC)
-X-Default-Received-SPF: pass (skip=forwardok (res=PASS))
- x-ip-name=78.156.65.138; 
-Received: from localhost (unverified [78.156.65.138]) 
- by fireflyinternet.com (Firefly Internet (M1)) with ESMTP (TLS) id
- 16125941-1500050 for multiple; Thu, 04 Apr 2019 09:11:57 +0100
-MIME-Version: 1.0
-To: Zhenyu Wang <zhenyuw@linux.intel.com>
-From: Chris Wilson <chris@chris-wilson.co.uk>
-In-Reply-To: <20190404074834.GS2322@zhen-hp.sh.intel.com>
-References: <20190404073056.12407-1-chris@chris-wilson.co.uk>
- <20190404074834.GS2322@zhen-hp.sh.intel.com>
-Message-ID: <155436551568.7532.6039435513500149424@skylake-alporthouse-com>
-User-Agent: alot/0.6
+Received: from mga14.intel.com (mga14.intel.com [192.55.52.115])
+ by gabe.freedesktop.org (Postfix) with ESMTPS id 6F6AF891D4;
+ Mon,  8 Apr 2019 02:38:24 +0000 (UTC)
+X-Amp-Result: UNKNOWN
+X-Amp-Original-Verdict: FILE UNKNOWN
+X-Amp-File-Uploaded: False
+Received: from fmsmga008.fm.intel.com ([10.253.24.58])
+ by fmsmga103.fm.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384;
+ 07 Apr 2019 19:38:23 -0700
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="5.60,323,1549958400"; 
+ d="asc'?scan'208";a="138374932"
+Received: from zhen-hp.sh.intel.com (HELO zhen-hp) ([10.239.13.116])
+ by fmsmga008.fm.intel.com with ESMTP; 07 Apr 2019 19:38:24 -0700
+Date: Mon, 8 Apr 2019 10:27:09 +0800
+From: Zhenyu Wang <zhenyuw@linux.intel.com>
+To: Chris Wilson <chris@chris-wilson.co.uk>
 Subject: Re: [PATCH] drm/i915/gvt: Prevent use-after-free in
  ppgtt_free_all_spt()
-Date: Thu, 04 Apr 2019 09:11:55 +0100
+Message-ID: <20190408022709.GT2322@zhen-hp.sh.intel.com>
+References: <20190404073056.12407-1-chris@chris-wilson.co.uk>
+ <20190404074834.GS2322@zhen-hp.sh.intel.com>
+ <155436551568.7532.6039435513500149424@skylake-alporthouse-com>
+MIME-Version: 1.0
+In-Reply-To: <155436551568.7532.6039435513500149424@skylake-alporthouse-com>
+User-Agent: Mutt/1.10.0 (2018-05-17)
 X-BeenThere: intel-gvt-dev@lists.freedesktop.org
 X-Mailman-Version: 2.1.23
 Precedence: list
@@ -70,75 +79,141 @@ List-Post: <mailto:intel-gvt-dev@lists.freedesktop.org>
 List-Help: <mailto:intel-gvt-dev-request@lists.freedesktop.org?subject=help>
 List-Subscribe: <https://lists.freedesktop.org/mailman/listinfo/intel-gvt-dev>, 
  <mailto:intel-gvt-dev-request@lists.freedesktop.org?subject=subscribe>
+Reply-To: Zhenyu Wang <zhenyuw@linux.intel.com>
 Cc: intel-gfx@lists.freedesktop.org, intel-gvt-dev@lists.freedesktop.org,
- Zhi Wang <zhi.a.wang@intel.com>, Zhenyu Wang <zhenyuw@linux.intel.com>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+ Zhi Wang <zhi.a.wang@intel.com>
+Content-Type: multipart/mixed; boundary="===============2056858392=="
 Errors-To: intel-gvt-dev-bounces@lists.freedesktop.org
 Sender: "intel-gvt-dev" <intel-gvt-dev-bounces@lists.freedesktop.org>
 
-UXVvdGluZyBaaGVueXUgV2FuZyAoMjAxOS0wNC0wNCAwODo0ODozNCkKPiBPbiAyMDE5LjA0LjA0
-IDA4OjMwOjU2ICswMTAwLCBDaHJpcyBXaWxzb24gd3JvdGU6Cj4gPiBwcGd0dF9mcmVlX2FsbF9z
-cHQoKSBpdGVyYXRlcyB0aGUgcmFkaXh0cmVlIGFzIGl0IGlzIGRlbGV0aW5nIGl0LAo+ID4gZm9y
-Z29pbmcgYWxsIHByb3RlY3Rpb24gYWdhaW5zdCB0aGUgbGVhdmVzIGJlaW5nIGZyZWVkIGluIHRo
-ZSBwcm9jZXNzCj4gPiAobGVhdmluZyB0aGUgaXRlciBwb2ludGluZyBpbnRvIHRoZSB2b2lkKS4K
-PiA+IAo+ID4gQSBtaW5pbWFsIGZpeCBzZWVtcyB0byBiZSB0byB1c2UgdGhlIGF2YWlsYWJsZSBw
-b3N0X3NoYWRvd19saXN0IHRvCj4gPiBkZWNvbXBvc2UgdGhlIHRyZWUgaW50byBhIGxpc3QgcHJp
-b3IgdG8gZGVzdHJveWluZyB0aGUgcmFkaXh0cmVlLgo+ID4gCj4gPiBBbGVydGVkIGJ5IHRoZSBz
-cGFyc2Ugd2FybmluZ3M6Cj4gPiAKPiA+IGRyaXZlcnMvZ3B1L2RybS9pOTE1L2d2dC9ndHQuYzo3
-NTc6OTogd2FybmluZzogaW5jb3JyZWN0IHR5cGUgaW4gYXNzaWdubWVudCAoZGlmZmVyZW50IGFk
-ZHJlc3Mgc3BhY2VzKQo+ID4gZHJpdmVycy9ncHUvZHJtL2k5MTUvZ3Z0L2d0dC5jOjc1Nzo5OiAg
-ICBleHBlY3RlZCB2b2lkICoqc2xvdAo+ID4gZHJpdmVycy9ncHUvZHJtL2k5MTUvZ3Z0L2d0dC5j
-Ojc1Nzo5OiAgICBnb3Qgdm9pZCBbbm9kZXJlZl0gPGFzbjo0PiAqKgo+ID4gZHJpdmVycy9ncHUv
-ZHJtL2k5MTUvZ3Z0L2d0dC5jOjc1Nzo5OiB3YXJuaW5nOiBpbmNvcnJlY3QgdHlwZSBpbiBhc3Np
-Z25tZW50IChkaWZmZXJlbnQgYWRkcmVzcyBzcGFjZXMpCj4gPiBkcml2ZXJzL2dwdS9kcm0vaTkx
-NS9ndnQvZ3R0LmM6NzU3Ojk6ICAgIGV4cGVjdGVkIHZvaWQgKipzbG90Cj4gPiBkcml2ZXJzL2dw
-dS9kcm0vaTkxNS9ndnQvZ3R0LmM6NzU3Ojk6ICAgIGdvdCB2b2lkIFtub2RlcmVmXSA8YXNuOjQ+
-ICoqCj4gPiBkcml2ZXJzL2dwdS9kcm0vaTkxNS9ndnQvZ3R0LmM6NzU4OjQ1OiB3YXJuaW5nOiBp
-bmNvcnJlY3QgdHlwZSBpbiBhcmd1bWVudCAxIChkaWZmZXJlbnQgYWRkcmVzcyBzcGFjZXMpCj4g
-PiBkcml2ZXJzL2dwdS9kcm0vaTkxNS9ndnQvZ3R0LmM6NzU4OjQ1OiAgICBleHBlY3RlZCB2b2lk
-IFtub2RlcmVmXSA8YXNuOjQ+ICoqc2xvdAo+ID4gZHJpdmVycy9ncHUvZHJtL2k5MTUvZ3Z0L2d0
-dC5jOjc1ODo0NTogICAgZ290IHZvaWQgKipzbG90Cj4gPiBkcml2ZXJzL2dwdS9kcm0vaTkxNS9n
-dnQvZ3R0LmM6NzU3Ojk6IHdhcm5pbmc6IGluY29ycmVjdCB0eXBlIGluIGFyZ3VtZW50IDEgKGRp
-ZmZlcmVudCBhZGRyZXNzIHNwYWNlcykKPiA+IGRyaXZlcnMvZ3B1L2RybS9pOTE1L2d2dC9ndHQu
-Yzo3NTc6OTogICAgZXhwZWN0ZWQgdm9pZCBbbm9kZXJlZl0gPGFzbjo0PiAqKnNsb3QKPiA+IGRy
-aXZlcnMvZ3B1L2RybS9pOTE1L2d2dC9ndHQuYzo3NTc6OTogICAgZ290IHZvaWQgKipzbG90Cj4g
-PiBkcml2ZXJzL2dwdS9kcm0vaTkxNS9ndnQvZ3R0LmM6NzU3Ojk6IHdhcm5pbmc6IGluY29ycmVj
-dCB0eXBlIGluIGFzc2lnbm1lbnQgKGRpZmZlcmVudCBhZGRyZXNzIHNwYWNlcykKPiA+IGRyaXZl
-cnMvZ3B1L2RybS9pOTE1L2d2dC9ndHQuYzo3NTc6OTogICAgZXhwZWN0ZWQgdm9pZCAqKnNsb3QK
-PiA+IGRyaXZlcnMvZ3B1L2RybS9pOTE1L2d2dC9ndHQuYzo3NTc6OTogICAgZ290IHZvaWQgW25v
-ZGVyZWZdIDxhc246ND4gKioKPiA+IAo+ID4gVGhpcyB3b3VsZCBhbHNvIGhhdmUgYmVlbiBsb3Vk
-bHkgd2FybmluZyBpZiBydW4gdGhyb3VnaCBDSSBmb3IgdGhlCj4gPiBpbnZhbGlkIFJDVSBkZXJl
-ZmVyZW5jZXMuCj4gPiAKPiA+IEZpeGVzOiBiNmMxMjZhMzkzNDUgKCJkcm0vaTkxNS9ndnQ6IE1h
-bmFnZSBzaGFkb3cgcGFnZXMgd2l0aCByYWRpeCB0cmVlIikKPiA+IFNpZ25lZC1vZmYtYnk6IENo
-cmlzIFdpbHNvbiA8Y2hyaXNAY2hyaXMtd2lsc29uLmNvLnVrPgo+ID4gQ2M6IENoYW5nYmluIER1
-IDxjaGFuZ2Jpbi5kdUBpbnRlbC5jb20+Cj4gPiBDYzogWmhlbnl1IFdhbmcgPHpoZW55dXdAbGlu
-dXguaW50ZWwuY29tPgo+ID4gQ2M6IFpoaSBXYW5nIDx6aGkuYS53YW5nQGludGVsLmNvbT4KPiA+
-IC0tLQo+ID4gIGRyaXZlcnMvZ3B1L2RybS9pOTE1L2d2dC9ndHQuYyB8IDEyICsrKysrKysrKy0t
-LQo+ID4gIDEgZmlsZSBjaGFuZ2VkLCA5IGluc2VydGlvbnMoKyksIDMgZGVsZXRpb25zKC0pCj4g
-PiAKPiA+IGRpZmYgLS1naXQgYS9kcml2ZXJzL2dwdS9kcm0vaTkxNS9ndnQvZ3R0LmMgYi9kcml2
-ZXJzL2dwdS9kcm0vaTkxNS9ndnQvZ3R0LmMKPiA+IGluZGV4IGNmMTMzZWYwMzg3My4uOTgxNDc3
-Mzg4MmVjIDEwMDY0NAo+ID4gLS0tIGEvZHJpdmVycy9ncHUvZHJtL2k5MTUvZ3Z0L2d0dC5jCj4g
-PiArKysgYi9kcml2ZXJzL2dwdS9kcm0vaTkxNS9ndnQvZ3R0LmMKPiA+IEBAIC03NTAsMTQgKzc1
-MCwyMCBAQCBzdGF0aWMgdm9pZCBwcGd0dF9mcmVlX3NwdChzdHJ1Y3QgaW50ZWxfdmdwdV9wcGd0
-dF9zcHQgKnNwdCkKPiA+ICAKPiA+ICBzdGF0aWMgdm9pZCBwcGd0dF9mcmVlX2FsbF9zcHQoc3Ry
-dWN0IGludGVsX3ZncHUgKnZncHUpCj4gPiAgewo+ID4gLSAgICAgc3RydWN0IGludGVsX3ZncHVf
-cHBndHRfc3B0ICpzcHQ7Cj4gPiArICAgICBzdHJ1Y3QgaW50ZWxfdmdwdV9wcGd0dF9zcHQgKnNw
-dCwgKnNwbjsKPiA+ICAgICAgIHN0cnVjdCByYWRpeF90cmVlX2l0ZXIgaXRlcjsKPiA+IC0gICAg
-IHZvaWQgKipzbG90Owo+ID4gKyAgICAgTElTVF9IRUFEKGFsbF9zcHQpOwo+ID4gKyAgICAgdm9p
-ZCBfX3JjdSAqKnNsb3Q7Cj4gPiAgCj4gPiArICAgICByY3VfcmVhZF9sb2NrKCk7Cj4gPiAgICAg
-ICByYWRpeF90cmVlX2Zvcl9lYWNoX3Nsb3Qoc2xvdCwgJnZncHUtPmd0dC5zcHRfdHJlZSwgJml0
-ZXIsIDApIHsKPiA+ICAgICAgICAgICAgICAgc3B0ID0gcmFkaXhfdHJlZV9kZXJlZl9zbG90KHNs
-b3QpOwo+ID4gLSAgICAgICAgICAgICBwcGd0dF9mcmVlX3NwdChzcHQpOwo+ID4gKyAgICAgICAg
-ICAgICBsaXN0X21vdmUoJnNwdC0+cG9zdF9zaGFkb3dfbGlzdCwgJmFsbF9zcHQpOwo+ID4gICAg
-ICAgfQo+ID4gKyAgICAgcmN1X3JlYWRfdW5sb2NrKCk7Cj4gPiArCj4gPiArICAgICBsaXN0X2Zv
-cl9lYWNoX2VudHJ5X3NhZmUoc3B0LCBzcG4sICZhbGxfc3B0LCBwb3N0X3NoYWRvd19saXN0KQo+
-ID4gKyAgICAgICAgICAgICBwcGd0dF9mcmVlX3NwdChzcHQpOwo+ID4gIH0KPiA+Cj4gCj4gQXMg
-d2UgZW5zdXJlIHRvIGZsdXNoIHBvc3Qgc2hhZG93IGxpc3QsIHNvIHRoaXMgaXMgc2FmZSB0byBy
-ZXVzZS4KClBoZXchIEkgbG9va2VkLCBjb3VsZG4ndCBzZWUgdGhhdCBpdCB3b3VsZCBiZSB1c2Vk
-IGF0IHRoaXMgcG9pbnQsIHNvCmhvcGVkIGZvciB0aGUgYmVzdC4KIAo+IFJldmlld2VkLWJ5OiBa
-aGVueXUgV2FuZyA8emhlbnl1d0BsaW51eC5pbnRlbC5jb20+CgpXaWxsIHlvdSB0YWtlIGJvdGgg
-b2YgdGhlc2UgcGF0Y2hlcyB0aHJvdWdoIHlvdXIgdHJlZT8KLUNocmlzCl9fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmludGVsLWd2dC1kZXYgbWFpbGluZyBs
-aXN0CmludGVsLWd2dC1kZXZAbGlzdHMuZnJlZWRlc2t0b3Aub3JnCmh0dHBzOi8vbGlzdHMuZnJl
-ZWRlc2t0b3Aub3JnL21haWxtYW4vbGlzdGluZm8vaW50ZWwtZ3Z0LWRldg==
+
+--===============2056858392==
+Content-Type: multipart/signed; micalg=pgp-sha1;
+	protocol="application/pgp-signature"; boundary="tgGnixv3tJWXBxdL"
+Content-Disposition: inline
+
+
+--tgGnixv3tJWXBxdL
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On 2019.04.04 09:11:55 +0100, Chris Wilson wrote:
+> Quoting Zhenyu Wang (2019-04-04 08:48:34)
+> > On 2019.04.04 08:30:56 +0100, Chris Wilson wrote:
+> > > ppgtt_free_all_spt() iterates the radixtree as it is deleting it,
+> > > forgoing all protection against the leaves being freed in the process
+> > > (leaving the iter pointing into the void).
+> > >=20
+> > > A minimal fix seems to be to use the available post_shadow_list to
+> > > decompose the tree into a list prior to destroying the radixtree.
+> > >=20
+> > > Alerted by the sparse warnings:
+> > >=20
+> > > drivers/gpu/drm/i915/gvt/gtt.c:757:9: warning: incorrect type in assi=
+gnment (different address spaces)
+> > > drivers/gpu/drm/i915/gvt/gtt.c:757:9:    expected void **slot
+> > > drivers/gpu/drm/i915/gvt/gtt.c:757:9:    got void [noderef] <asn:4> **
+> > > drivers/gpu/drm/i915/gvt/gtt.c:757:9: warning: incorrect type in assi=
+gnment (different address spaces)
+> > > drivers/gpu/drm/i915/gvt/gtt.c:757:9:    expected void **slot
+> > > drivers/gpu/drm/i915/gvt/gtt.c:757:9:    got void [noderef] <asn:4> **
+> > > drivers/gpu/drm/i915/gvt/gtt.c:758:45: warning: incorrect type in arg=
+ument 1 (different address spaces)
+> > > drivers/gpu/drm/i915/gvt/gtt.c:758:45:    expected void [noderef] <as=
+n:4> **slot
+> > > drivers/gpu/drm/i915/gvt/gtt.c:758:45:    got void **slot
+> > > drivers/gpu/drm/i915/gvt/gtt.c:757:9: warning: incorrect type in argu=
+ment 1 (different address spaces)
+> > > drivers/gpu/drm/i915/gvt/gtt.c:757:9:    expected void [noderef] <asn=
+:4> **slot
+> > > drivers/gpu/drm/i915/gvt/gtt.c:757:9:    got void **slot
+> > > drivers/gpu/drm/i915/gvt/gtt.c:757:9: warning: incorrect type in assi=
+gnment (different address spaces)
+> > > drivers/gpu/drm/i915/gvt/gtt.c:757:9:    expected void **slot
+> > > drivers/gpu/drm/i915/gvt/gtt.c:757:9:    got void [noderef] <asn:4> **
+> > >=20
+> > > This would also have been loudly warning if run through CI for the
+> > > invalid RCU dereferences.
+> > >=20
+> > > Fixes: b6c126a39345 ("drm/i915/gvt: Manage shadow pages with radix tr=
+ee")
+> > > Signed-off-by: Chris Wilson <chris@chris-wilson.co.uk>
+> > > Cc: Changbin Du <changbin.du@intel.com>
+> > > Cc: Zhenyu Wang <zhenyuw@linux.intel.com>
+> > > Cc: Zhi Wang <zhi.a.wang@intel.com>
+> > > ---
+> > >  drivers/gpu/drm/i915/gvt/gtt.c | 12 +++++++++---
+> > >  1 file changed, 9 insertions(+), 3 deletions(-)
+> > >=20
+> > > diff --git a/drivers/gpu/drm/i915/gvt/gtt.c b/drivers/gpu/drm/i915/gv=
+t/gtt.c
+> > > index cf133ef03873..9814773882ec 100644
+> > > --- a/drivers/gpu/drm/i915/gvt/gtt.c
+> > > +++ b/drivers/gpu/drm/i915/gvt/gtt.c
+> > > @@ -750,14 +750,20 @@ static void ppgtt_free_spt(struct intel_vgpu_pp=
+gtt_spt *spt)
+> > > =20
+> > >  static void ppgtt_free_all_spt(struct intel_vgpu *vgpu)
+> > >  {
+> > > -     struct intel_vgpu_ppgtt_spt *spt;
+> > > +     struct intel_vgpu_ppgtt_spt *spt, *spn;
+> > >       struct radix_tree_iter iter;
+> > > -     void **slot;
+> > > +     LIST_HEAD(all_spt);
+> > > +     void __rcu **slot;
+> > > =20
+> > > +     rcu_read_lock();
+> > >       radix_tree_for_each_slot(slot, &vgpu->gtt.spt_tree, &iter, 0) {
+> > >               spt =3D radix_tree_deref_slot(slot);
+> > > -             ppgtt_free_spt(spt);
+> > > +             list_move(&spt->post_shadow_list, &all_spt);
+> > >       }
+> > > +     rcu_read_unlock();
+> > > +
+> > > +     list_for_each_entry_safe(spt, spn, &all_spt, post_shadow_list)
+> > > +             ppgtt_free_spt(spt);
+> > >  }
+> > >
+> >=20
+> > As we ensure to flush post shadow list, so this is safe to reuse.
+>=20
+> Phew! I looked, couldn't see that it would be used at this point, so
+> hoped for the best.
+> =20
+> > Reviewed-by: Zhenyu Wang <zhenyuw@linux.intel.com>
+>=20
+> Will you take both of these patches through your tree?
+
+Yes.
+
+Thanks!
+
+--=20
+Open Source Technology Center, Intel ltd.
+
+$gpg --keyserver wwwkeys.pgp.net --recv-keys 4D781827
+
+--tgGnixv3tJWXBxdL
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iF0EARECAB0WIQTXuabgHDW6LPt9CICxBBozTXgYJwUCXKqxfQAKCRCxBBozTXgY
+J3brAJ0WFNeqAFFRQQ4jSVrV+wClquowZACfTQ7RIiUZ1b1A1UssmuQDORuQ/7A=
+=h/z2
+-----END PGP SIGNATURE-----
+
+--tgGnixv3tJWXBxdL--
+
+--===============2056858392==
+Content-Type: text/plain; charset="utf-8"
+MIME-Version: 1.0
+Content-Transfer-Encoding: base64
+Content-Disposition: inline
+
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KaW50ZWwtZ3Z0
+LWRldiBtYWlsaW5nIGxpc3QKaW50ZWwtZ3Z0LWRldkBsaXN0cy5mcmVlZGVza3RvcC5vcmcKaHR0
+cHM6Ly9saXN0cy5mcmVlZGVza3RvcC5vcmcvbWFpbG1hbi9saXN0aW5mby9pbnRlbC1ndnQtZGV2
+
+--===============2056858392==--
