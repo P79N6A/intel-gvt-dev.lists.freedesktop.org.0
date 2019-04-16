@@ -1,76 +1,94 @@
 Delivered-To: linux.kernel.mailinglists@gmail.com
-Received: by 2002:a81:ed4:0:0:0:0:0 with SMTP id 203csp3433152ywo;
-        Mon, 15 Apr 2019 23:07:44 -0700 (PDT)
-X-Google-Smtp-Source: APXvYqywDqMpPByAU1i/hYU9Z9HTNvBBL+npfgZjUM3uC0XqQ0w6TGH8pnOr9vD9esDUqxJQgvB1
-X-Received: by 2002:a63:30c5:: with SMTP id w188mr73912727pgw.76.1555394864707;
-        Mon, 15 Apr 2019 23:07:44 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1555394864; cv=none;
+Received: by 2002:a81:ed4:0:0:0:0:0 with SMTP id 203csp3424777ywo;
+        Mon, 15 Apr 2019 22:57:09 -0700 (PDT)
+X-Google-Smtp-Source: APXvYqzwL0d3vcpLYHkoQ4cVCKbF4sYSlmGB/ih8ZSPryjEMnwBuXGxUlgnmLXy0gaw9o/6MlMUM
+X-Received: by 2002:a63:fb4d:: with SMTP id w13mr48765258pgj.397.1555394229474;
+        Mon, 15 Apr 2019 22:57:09 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1555394229; cv=none;
         d=google.com; s=arc-20160816;
-        b=Ppp/d22S3IIqhE0dklib1A+J2PsN9whavHE6UX3TG7GFBErEh+a1r0TpdUN8jh444g
-         qipIOBzoNGgeCjbRCKQgGdhkwaaOJ/pOP1X7/8MmHM8+HaUWVHVKqf59K2Bl2zRDQ/NB
-         hR9Bg+Ngk3xZpLdQIajk2YIIBmnc4Ph133feSjMOfotONuO5GYDYenqtdDB5aHPuZvgZ
-         WI5DMAUX4kgkQ828u96st6W4M1i/jgJ+h71U86pt/iHivYr6AWrCrlIQ4AdL7y0bGrM9
-         TqozcJh2cRLI6lmFt5n9nYym8iwCtHBWcLWf+Ddcvmoxd720mBvkUjN2c7WN2uOt+vxP
-         k3qA==
+        b=RuuodX46RpzId2oAQyM+Fq1XJabVJDiCX0ZYr7jQ6dMfJxOWenoO0zCsaxjNGDiiYn
+         MwWU4AlLnditqQ2gOZhZlZR8Zuay1Y1wkxGyshz9fowh3vPguhtnddbKjlNqQ/XXtXJX
+         Kg+U+6QhPZf9R3f8AabXzrQOCGSmKX76brQUJvwg0IoljRhsY2fOYdxaY3XRpQszgZBf
+         feSMdCrUxGtboPXmU3AYsSHylBpJS5JYHPueGU63RayjqQT1hWDgj60t4D/cuuVxArX5
+         8Siu1EeuxdxlEK08GOzGSsVBSz4/3b1/vkVS8Z0KYsw28Iyx7+d9DrwMRXwF77SGaUo5
+         urpA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=sender:errors-to:cc:reply-to:list-subscribe:list-help:list-post
-         :list-archive:list-unsubscribe:list-id:precedence:user-agent
-         :in-reply-to:mime-version:references:message-id:subject:to:from:date
-         :delivered-to;
-        bh=PaW2TLEAp3uCDJ1fvbBhakFOCOeb77iaAaoGdU8vO+g=;
-        b=t0BM9vaFKl0Tg+exgtN/RBPBxTLJ8z8c+prPAtHMMKxLd15xJV5Ai6pUVJHUw5K1nD
-         MvYT1FS+5BLtFkmjwSm6Uus4IM06QesZ3Ifjs4pInvYeWmZEjgWEKPWCVwo5EgBS3aAe
-         C5DPlOOOVIh/rPzV//7b+Fm51qnnfCW7xTLHfhBa0MwvNY32mQXsXqX+dvUKS73XP04e
-         e1YE9jXJuzbbQWOjhGPvHAaSaiLt6e8RJbGKU270TAx5UHrHtBgae4TCa/vdcpgff3ei
-         aBrTVywxlciiusBFc9iB8iDMTof9RmrodDcr00tSvXHnU5TXRuw3UEzy/yria+JK1WBK
-         FdAw==
+        h=sender:errors-to:content-transfer-encoding:cc:list-subscribe
+         :list-help:list-post:list-archive:list-unsubscribe:list-id
+         :precedence:mime-version:dlp-reaction:dlp-version:dlp-product
+         :content-language:accept-language:in-reply-to:references:message-id
+         :date:thread-index:thread-topic:subject:to:from:delivered-to;
+        bh=eaUupiuCI4m7BsTlQ53w0xdU29YJmBShYS2AhL/roWE=;
+        b=i0p30MLS1vVm/sp2yrmMnDE/ti/6ahsFKwBtjWqie+Xnvv4GaCH83FSoEHGA039mG9
+         9RbGDeQSzqWJ6uhiJToAJXcTlo8qlRYOlitfifYq2NNMQP3gu43bMQhbyROs6+3+8127
+         szdlLP0TTeCyfYtfLqyWEUE+mpzWVWRmL8SPNupXbX/66Tcdp6fmaqdSnDYZoPZ7kv8s
+         LbAUKpyIWOj4Tw9vNcKDXeIXxZoaCIdFSk8C6X/1B4hePS8TyvI+af1rsX5us3JwBYqo
+         awb07ai3MoTeHO2iziBMFkoyRscra631MgH9zgXHr+4L9ejxbK1gLJT8aGsxHY/7KAmS
+         SGmQ==
 ARC-Authentication-Results: i=1; mx.google.com;
        spf=pass (google.com: best guess record for domain of intel-gvt-dev-bounces@lists.freedesktop.org designates 131.252.210.177 as permitted sender) smtp.mailfrom=intel-gvt-dev-bounces@lists.freedesktop.org;
        dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=intel.com
 Return-Path: <intel-gvt-dev-bounces@lists.freedesktop.org>
 Received: from gabe.freedesktop.org (gabe.freedesktop.org. [131.252.210.177])
-        by mx.google.com with ESMTPS id q13si47627065pfh.162.2019.04.15.23.07.44
+        by mx.google.com with ESMTPS id w67si51372972pfb.20.2019.04.15.22.57.08
         (version=TLS1_2 cipher=ECDHE-RSA-CHACHA20-POLY1305 bits=256/256);
-        Mon, 15 Apr 2019 23:07:44 -0700 (PDT)
+        Mon, 15 Apr 2019 22:57:09 -0700 (PDT)
 Received-SPF: pass (google.com: best guess record for domain of intel-gvt-dev-bounces@lists.freedesktop.org designates 131.252.210.177 as permitted sender) client-ip=131.252.210.177;
 Authentication-Results: mx.google.com;
        spf=pass (google.com: best guess record for domain of intel-gvt-dev-bounces@lists.freedesktop.org designates 131.252.210.177 as permitted sender) smtp.mailfrom=intel-gvt-dev-bounces@lists.freedesktop.org;
        dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=intel.com
 Received: from gabe.freedesktop.org (localhost [127.0.0.1])
-	by gabe.freedesktop.org (Postfix) with ESMTP id E36FC89733;
-	Tue, 16 Apr 2019 06:07:43 +0000 (UTC)
+	by gabe.freedesktop.org (Postfix) with ESMTP id A92B589688;
+	Tue, 16 Apr 2019 05:57:08 +0000 (UTC)
 X-Original-To: intel-gvt-dev@lists.freedesktop.org
 Delivered-To: intel-gvt-dev@lists.freedesktop.org
-Received: from mga05.intel.com (mga05.intel.com [192.55.52.43])
- by gabe.freedesktop.org (Postfix) with ESMTPS id 886B189733
+Received: from mga04.intel.com (mga04.intel.com [192.55.52.120])
+ by gabe.freedesktop.org (Postfix) with ESMTPS id 18CEF89688
  for <intel-gvt-dev@lists.freedesktop.org>;
- Tue, 16 Apr 2019 06:07:43 +0000 (UTC)
-X-Amp-Result: UNKNOWN
-X-Amp-Original-Verdict: FILE UNKNOWN
+ Tue, 16 Apr 2019 05:57:07 +0000 (UTC)
+X-Amp-Result: SKIPPED(no attachment in message)
 X-Amp-File-Uploaded: False
-Received: from orsmga004.jf.intel.com ([10.7.209.38])
- by fmsmga105.fm.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384;
- 15 Apr 2019 23:07:43 -0700
+Received: from orsmga003.jf.intel.com ([10.7.209.27])
+ by fmsmga104.fm.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384;
+ 15 Apr 2019 22:57:06 -0700
 X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="5.60,355,1549958400"; 
- d="asc'?scan'208";a="291918531"
-Received: from zhen-hp.sh.intel.com (HELO zhen-hp) ([10.239.13.116])
- by orsmga004.jf.intel.com with ESMTP; 15 Apr 2019 23:07:40 -0700
-Date: Tue, 16 Apr 2019 13:56:10 +0800
-From: Zhenyu Wang <zhenyuw@linux.intel.com>
-To: "Wang, Zhi A" <zhi.a.wang@intel.com>
-Subject: Re: [PATCH V2 1/6] drm/i915/gvt: Remove typedef intel_gvt_gtt_type_t
-Message-ID: <20190416055610.GC17995@zhen-hp.sh.intel.com>
+X-IronPort-AV: E=Sophos;i="5.60,355,1549958400"; d="scan'208";a="143090843"
+Received: from fmsmsx106.amr.corp.intel.com ([10.18.124.204])
+ by orsmga003.jf.intel.com with ESMTP; 15 Apr 2019 22:57:05 -0700
+Received: from fmsmsx101.amr.corp.intel.com (10.18.124.199) by
+ FMSMSX106.amr.corp.intel.com (10.18.124.204) with Microsoft SMTP Server (TLS)
+ id 14.3.408.0; Mon, 15 Apr 2019 22:57:05 -0700
+Received: from shsmsx106.ccr.corp.intel.com (10.239.4.159) by
+ fmsmsx101.amr.corp.intel.com (10.18.124.199) with Microsoft SMTP Server (TLS)
+ id 14.3.408.0; Mon, 15 Apr 2019 22:57:05 -0700
+Received: from shsmsx104.ccr.corp.intel.com ([169.254.5.92]) by
+ SHSMSX106.ccr.corp.intel.com ([169.254.10.21]) with mapi id 14.03.0415.000;
+ Tue, 16 Apr 2019 13:57:03 +0800
+From: "Wang, Zhi A" <zhi.a.wang@intel.com>
+To: 'Zhenyu Wang' <zhenyuw@linux.intel.com>
+Subject: RE: [PATCH V2 1/6] drm/i915/gvt: Remove typedef intel_gvt_gtt_type_t
+Thread-Topic: [PATCH V2 1/6] drm/i915/gvt: Remove typedef intel_gvt_gtt_type_t
+Thread-Index: AQHU8FP2ZFHTq8Sl40G+dMUSE+F/TaY3N44AgADLRyCAAAvywP//ipEAgACWfnCABiHk4A==
+Date: Tue, 16 Apr 2019 05:57:03 +0000
+Message-ID: <F3B0350DF4CB6849A642218320DE483D7D9FC81D@SHSMSX104.ccr.corp.intel.com>
 References: <20190411104631.7627-1-aleksei.gimbitskii@intel.com>
  <20190411104631.7627-2-aleksei.gimbitskii@intel.com>
  <91e9a249-f15d-b5cd-a718-51097de4637f@intel.com>
  <F3B0350DF4CB6849A642218320DE483D7D9F95F5@SHSMSX104.ccr.corp.intel.com>
  <20190412071924.GK17995@zhen-hp.sh.intel.com>
  <F3B0350DF4CB6849A642218320DE483D7D9F96AF@SHSMSX104.ccr.corp.intel.com>
- <F3B0350DF4CB6849A642218320DE483D7D9FC81D@SHSMSX104.ccr.corp.intel.com>
+In-Reply-To: <F3B0350DF4CB6849A642218320DE483D7D9F96AF@SHSMSX104.ccr.corp.intel.com>
+Accept-Language: zh-CN, en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-ctpclassification: CTP_NT
+x-titus-metadata-40: eyJDYXRlZ29yeUxhYmVscyI6IiIsIk1ldGFkYXRhIjp7Im5zIjoiaHR0cDpcL1wvd3d3LnRpdHVzLmNvbVwvbnNcL0ludGVsMyIsImlkIjoiNjI2MWY1MDQtZWQxYi00ZjY5LTk5MjYtOGMyY2E1NTg4NTU0IiwicHJvcHMiOlt7Im4iOiJDVFBDbGFzc2lmaWNhdGlvbiIsInZhbHMiOlt7InZhbHVlIjoiQ1RQX05UIn1dfV19LCJTdWJqZWN0TGFiZWxzIjpbXSwiVE1DVmVyc2lvbiI6IjE3LjEwLjE4MDQuNDkiLCJUcnVzdGVkTGFiZWxIYXNoIjoiNEFcLzlBMU5RRzBucFFLWVwvQ01ZM0ZwN2dST29TVE0xb2RsNytSbEZIa21LUGt1TVFXdGk5OTFOdWZVc01LekpqIn0=
+dlp-product: dlpe-windows
+dlp-version: 11.0.600.7
+dlp-reaction: no-action
+x-originating-ip: [10.239.127.40]
 MIME-Version: 1.0
-In-Reply-To: <F3B0350DF4CB6849A642218320DE483D7D9FC81D@SHSMSX104.ccr.corp.intel.com>
-User-Agent: Mutt/1.10.0 (2018-05-17)
 X-BeenThere: intel-gvt-dev@lists.freedesktop.org
 X-Mailman-Version: 2.1.23
 Precedence: list
@@ -83,300 +101,163 @@ List-Post: <mailto:intel-gvt-dev@lists.freedesktop.org>
 List-Help: <mailto:intel-gvt-dev-request@lists.freedesktop.org?subject=help>
 List-Subscribe: <https://lists.freedesktop.org/mailman/listinfo/intel-gvt-dev>, 
  <mailto:intel-gvt-dev-request@lists.freedesktop.org?subject=subscribe>
-Reply-To: Zhenyu Wang <zhenyuw@linux.intel.com>
 Cc: "Gimbitskii, Aleksei" <aleksei.gimbitskii@intel.com>,
  "'intel-gvt-dev@lists.freedesktop.org'"
- <intel-gvt-dev@lists.freedesktop.org>, "Xu, Colin" <colin.xu@intel.com>,
- 'Zhenyu Wang' <zhenyuw@linux.intel.com>
-Content-Type: multipart/mixed; boundary="===============1832093444=="
+ <intel-gvt-dev@lists.freedesktop.org>, "Xu, Colin" <colin.xu@intel.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Errors-To: intel-gvt-dev-bounces@lists.freedesktop.org
 Sender: "intel-gvt-dev" <intel-gvt-dev-bounces@lists.freedesktop.org>
 
-
---===============1832093444==
-Content-Type: multipart/signed; micalg=pgp-sha1;
-	protocol="application/pgp-signature"; boundary="HKLejDDV6gCqJAZ/"
-Content-Disposition: inline
-
-
---HKLejDDV6gCqJAZ/
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On 2019.04.16 05:57:03 +0000, Wang, Zhi A wrote:
-> Ping.
->=20
-> -----Original Message-----
-> From: Wang, Zhi A=20
-> Sent: Friday, April 12, 2019 11:21 AM
-> To: Zhenyu Wang <zhenyuw@linux.intel.com>
-> Cc: Xu, Colin <colin.xu@intel.com>; Gimbitskii, Aleksei <aleksei.gimbitsk=
-ii@intel.com>; intel-gvt-dev@lists.freedesktop.org
-> Subject: RE: [PATCH V2 1/6] drm/i915/gvt: Remove typedef intel_gvt_gtt_ty=
-pe_t
->=20
-> Yes. But if we keep the enumeration type here, how about we let the enume=
-ration value begins from 0? Then clockwork would be happy while we keep the=
- enumeration type?
->
-
-Sure, seems no problem to me.
-
-> -----Original Message-----
-> From: Zhenyu Wang [mailto:zhenyuw@linux.intel.com]
-> Sent: Friday, April 12, 2019 10:19 AM
-> To: Wang, Zhi A <zhi.a.wang@intel.com>
-> Cc: Xu, Colin <colin.xu@intel.com>; Gimbitskii, Aleksei <aleksei.gimbitsk=
-ii@intel.com>; Zhenyu Wang <zhenyuw@linux.intel.com>; intel-gvt-dev@lists.f=
-reedesktop.org
-> Subject: Re: [PATCH V2 1/6] drm/i915/gvt: Remove typedef intel_gvt_gtt_ty=
-pe_t
->=20
-> On 2019.04.12 06:20:26 +0000, Wang, Zhi A wrote:
-> > Also, the other reason to remove the typedef is:
-> > https://yarchive.net/comp/linux/typedefs.html
-> >=20
-> > i915 has already removed almost all of them because of this.
-> >=20
->=20
-> Remove typedef is ok, I think everyone agree but would be better still ke=
-ep enum type.
->=20
-> >=20
-> > -----Original Message-----
-> > From: Wang, Zhi A
-> > Sent: Friday, April 12, 2019 8:44 AM
-> > To: Xu, Colin <colin.xu@intel.com>; Gimbitskii, Aleksei=20
-> > <aleksei.gimbitskii@intel.com>; Zhenyu Wang <zhenyuw@linux.intel.com>
-> > Cc: intel-gvt-dev@lists.freedesktop.org
-> > Subject: RE: [PATCH V2 1/6] drm/i915/gvt: Remove typedef=20
-> > intel_gvt_gtt_type_t
-> >=20
-> > I think klocwork is going a bit too far actually. It always takes the f=
-ull range would be used if we go enumeration type. For option 2, I guess we=
- have to add a lot of useless check of GTT_TYPE_INVALID in every place we a=
-re going to use the enumeration as array index, which looks very ugly.
-> >=20
-> > I'd like to go practical. We need the enumeration for sure and we check=
- the GTT_TYPE_INVALID in the place we think necessary and let clockwork be =
-happy and also not make the code ugly.
-> >=20
-> > -----Original Message-----
-> > From: Xu, Colin
-> > Sent: Friday, April 12, 2019 4:29 AM
-> > To: Gimbitskii, Aleksei <aleksei.gimbitskii@intel.com>; Wang, Zhi A=20
-> > <zhi.a.wang@intel.com>; Zhenyu Wang <zhenyuw@linux.intel.com>
-> > Cc: intel-gvt-dev@lists.freedesktop.org
-> > Subject: Re: [PATCH V2 1/6] drm/i915/gvt: Remove typedef=20
-> > intel_gvt_gtt_type_t
-> >=20
-> > Seems like V2 of this patch doesn't get updated?
-> >=20
-> > Hi Zhi, Zhenyu, from architecture point of view, what kind of change is=
- better?
-> > - Change parameter type from enum type to int looks "cheat" klocwork st=
-atic analysis, but lose natural protection since any int could be passed in=
-to the function.
-> > - If we keep using enum type as the function parameter, we may need ext=
-ract check so that klocwork static analysis will consider as safe.
-> > Any comments? I prefer the latter.
-> >=20
-> > On 2019-04-11 18:46, Aleksei Gimbitskii wrote:
-> > > The klocwork static code analyzer takes the enumeration as the full=
-=20
-> > > range of intel_gvt_gtt_type_t. But the full range of=20
-> > > intel_gvt_gtt_type_t will never be used in full range. For example,=
-=20
-> > > the GTT_TYPE_INVALID will never be used as an index of an array. So=
-=20
-> > > we will not use it as a type but only the enumeration.
-> > >
-> > > This patch fixed the critial issues #483, #551, #665 reported by=20
-> > > klockwork.
-> > >
-> > > Signed-off-by: Aleksei Gimbitskii <aleksei.gimbitskii@intel.com>
-> > > Cc: Zhenyu Wang <zhenyuw@linux.intel.com>
-> > > Cc: Zhi Wang <zhi.a.wang@intel.com>
-> > > ---
-> > >   drivers/gpu/drm/i915/gvt/gtt.c | 12 ++++++------
-> > >   drivers/gpu/drm/i915/gvt/gtt.h | 14 +++++++-------
-> > >   2 files changed, 13 insertions(+), 13 deletions(-)
-> > >
-> > > diff --git a/drivers/gpu/drm/i915/gvt/gtt.c=20
-> > > b/drivers/gpu/drm/i915/gvt/gtt.c index 88ed2e9df253..8dcb6223b985
-> > > 100644
-> > > --- a/drivers/gpu/drm/i915/gvt/gtt.c
-> > > +++ b/drivers/gpu/drm/i915/gvt/gtt.c
-> > > @@ -805,7 +805,7 @@ static int reclaim_one_ppgtt_mm(struct intel_gvt=
-=20
-> > > *gvt);
-> > >  =20
-> > >   /* Allocate shadow page table without guest page. */
-> > >   static struct intel_vgpu_ppgtt_spt *ppgtt_alloc_spt(
-> > > -		struct intel_vgpu *vgpu, intel_gvt_gtt_type_t type)
-> > > +		struct intel_vgpu *vgpu, int type)
-> > >   {
-> > >   	struct device *kdev =3D &vgpu->gvt->dev_priv->drm.pdev->dev;
-> > >   	struct intel_vgpu_ppgtt_spt *spt =3D NULL; @@ -855,7 +855,7 @@=20
-> > > static struct intel_vgpu_ppgtt_spt *ppgtt_alloc_spt(
-> > >  =20
-> > >   /* Allocate shadow page table associated with specific gfn. */
-> > >   static struct intel_vgpu_ppgtt_spt *ppgtt_alloc_spt_gfn(
-> > > -		struct intel_vgpu *vgpu, intel_gvt_gtt_type_t type,
-> > > +		struct intel_vgpu *vgpu, int type,
-> > >   		unsigned long gfn, bool guest_pde_ips)
-> > >   {
-> > >   	struct intel_vgpu_ppgtt_spt *spt; @@ -930,7 +930,7 @@ static int=
-=20
-> > > ppgtt_invalidate_spt_by_shadow_entry(struct intel_vgpu *vgpu,
-> > >   {
-> > >   	struct intel_gvt_gtt_pte_ops *ops =3D vgpu->gvt->gtt.pte_ops;
-> > >   	struct intel_vgpu_ppgtt_spt *s;
-> > > -	intel_gvt_gtt_type_t cur_pt_type;
-> > > +	int cur_pt_type;
-> > >  =20
-> > >   	GEM_BUG_ON(!gtt_type_is_pt(get_next_pt_type(e->type)));
-> > >  =20
-> > > @@ -1849,7 +1849,7 @@ static void vgpu_free_mm(struct intel_vgpu_mm *=
-mm)
-> > >    * Zero on success, negative error code in pointer if failed.
-> > >    */
-> > >   struct intel_vgpu_mm *intel_vgpu_create_ppgtt_mm(struct intel_vgpu =
-*vgpu,
-> > > -		intel_gvt_gtt_type_t root_entry_type, u64 pdps[])
-> > > +		int root_entry_type, u64 pdps[])
-> > >   {
-> > >   	struct intel_gvt *gvt =3D vgpu->gvt;
-> > >   	struct intel_vgpu_mm *mm;
-> > > @@ -2303,7 +2303,7 @@ int intel_vgpu_emulate_ggtt_mmio_write(struct i=
-ntel_vgpu *vgpu,
-> > >   }
-> > >  =20
-> > >   static int alloc_scratch_pages(struct intel_vgpu *vgpu,
-> > > -		intel_gvt_gtt_type_t type)
-> > > +		int type)
-> > >   {
-> > >   	struct intel_vgpu_gtt *gtt =3D &vgpu->gtt;
-> > >   	struct intel_gvt_gtt_pte_ops *ops =3D vgpu->gvt->gtt.pte_ops; @@
-> > > -2588,7 +2588,7 @@ struct intel_vgpu_mm *intel_vgpu_find_ppgtt_mm(str=
-uct intel_vgpu *vgpu,
-> > >    * Zero on success, negative error code if failed.
-> > >    */
-> > >   struct intel_vgpu_mm *intel_vgpu_get_ppgtt_mm(struct intel_vgpu *vg=
-pu,
-> > > -		intel_gvt_gtt_type_t root_entry_type, u64 pdps[])
-> > > +		int root_entry_type, u64 pdps[])
-> > >   {
-> > >   	struct intel_vgpu_mm *mm;
-> > >  =20
-> > > diff --git a/drivers/gpu/drm/i915/gvt/gtt.h=20
-> > > b/drivers/gpu/drm/i915/gvt/gtt.h index 32c573aea494..645ddc1bd223
-> > > 100644
-> > > --- a/drivers/gpu/drm/i915/gvt/gtt.h
-> > > +++ b/drivers/gpu/drm/i915/gvt/gtt.h
-> > > @@ -95,7 +95,7 @@ struct intel_gvt_gtt {
-> > >   	unsigned long scratch_mfn;
-> > >   };
-> > >  =20
-> > > -typedef enum {
-> > > +enum {
-> > >   	GTT_TYPE_INVALID =3D -1,
-> > >  =20
-> > >   	GTT_TYPE_GGTT_PTE,
-> > > @@ -124,7 +124,7 @@ typedef enum {
-> > >   	GTT_TYPE_PPGTT_PML4_PT,
-> > >  =20
-> > >   	GTT_TYPE_MAX,
-> > > -} intel_gvt_gtt_type_t;
-> > > +};
-> > >  =20
-> > >   enum intel_gvt_mm_type {
-> > >   	INTEL_GVT_MM_GGTT,
-> > > @@ -148,7 +148,7 @@ struct intel_vgpu_mm {
-> > >  =20
-> > >   	union {
-> > >   		struct {
-> > > -			intel_gvt_gtt_type_t root_entry_type;
-> > > +			int root_entry_type;
-> > >   			/*
-> > >   			 * The 4 PDPs in ring context. For 48bit addressing,
-> > >   			 * only PDP0 is valid and point to PML4. For 32it @@ -169,7
-> > > +169,7 @@ struct intel_vgpu_mm {
-> > >   };
-> > >  =20
-> > >   struct intel_vgpu_mm *intel_vgpu_create_ppgtt_mm(struct intel_vgpu =
-*vgpu,
-> > > -		intel_gvt_gtt_type_t root_entry_type, u64 pdps[]);
-> > > +		int root_entry_type, u64 pdps[]);
-> > >  =20
-> > >   static inline void intel_vgpu_mm_get(struct intel_vgpu_mm *mm)
-> > >   {
-> > > @@ -233,7 +233,7 @@ struct intel_vgpu_ppgtt_spt {
-> > >   	struct intel_vgpu *vgpu;
-> > >  =20
-> > >   	struct {
-> > > -		intel_gvt_gtt_type_t type;
-> > > +		int type;
-> > >   		bool pde_ips; /* for 64KB PTEs */
-> > >   		void *vaddr;
-> > >   		struct page *page;
-> > > @@ -241,7 +241,7 @@ struct intel_vgpu_ppgtt_spt {
-> > >   	} shadow_page;
-> > >  =20
-> > >   	struct {
-> > > -		intel_gvt_gtt_type_t type;
-> > > +		int type;
-> > >   		bool pde_ips; /* for 64KB PTEs */
-> > >   		unsigned long gfn;
-> > >   		unsigned long write_cnt;
-> > > @@ -267,7 +267,7 @@ struct intel_vgpu_mm *intel_vgpu_find_ppgtt_mm(st=
-ruct intel_vgpu *vgpu,
-> > >   		u64 pdps[]);
-> > >  =20
-> > >   struct intel_vgpu_mm *intel_vgpu_get_ppgtt_mm(struct intel_vgpu *vg=
-pu,
-> > > -		intel_gvt_gtt_type_t root_entry_type, u64 pdps[]);
-> > > +		int root_entry_type, u64 pdps[]);
-> > >  =20
-> > >   int intel_vgpu_put_ppgtt_mm(struct intel_vgpu *vgpu, u64 pdps[]);
-> > >  =20
-> >=20
-> > --
-> > Best Regards,
-> > Colin Xu
-> >=20
->=20
-> --
-> Open Source Technology Center, Intel ltd.
->=20
-> $gpg --keyserver wwwkeys.pgp.net --recv-keys 4D781827
-
---=20
-Open Source Technology Center, Intel ltd.
-
-$gpg --keyserver wwwkeys.pgp.net --recv-keys 4D781827
-
---HKLejDDV6gCqJAZ/
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iF0EARECAB0WIQTXuabgHDW6LPt9CICxBBozTXgYJwUCXLVuegAKCRCxBBozTXgY
-J23tAJ93l0TTNBqMBR+eGFd71E8e83w5DACfRXu196sig5+p0Spor4WOAlGRhVk=
-=BFkT
------END PGP SIGNATURE-----
-
---HKLejDDV6gCqJAZ/--
-
---===============1832093444==
-Content-Type: text/plain; charset="utf-8"
-MIME-Version: 1.0
-Content-Transfer-Encoding: base64
-Content-Disposition: inline
-
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KaW50ZWwtZ3Z0
-LWRldiBtYWlsaW5nIGxpc3QKaW50ZWwtZ3Z0LWRldkBsaXN0cy5mcmVlZGVza3RvcC5vcmcKaHR0
-cHM6Ly9saXN0cy5mcmVlZGVza3RvcC5vcmcvbWFpbG1hbi9saXN0aW5mby9pbnRlbC1ndnQtZGV2
-
---===============1832093444==--
+UGluZy4KCi0tLS0tT3JpZ2luYWwgTWVzc2FnZS0tLS0tCkZyb206IFdhbmcsIFpoaSBBIApTZW50
+OiBGcmlkYXksIEFwcmlsIDEyLCAyMDE5IDExOjIxIEFNClRvOiBaaGVueXUgV2FuZyA8emhlbnl1
+d0BsaW51eC5pbnRlbC5jb20+CkNjOiBYdSwgQ29saW4gPGNvbGluLnh1QGludGVsLmNvbT47IEdp
+bWJpdHNraWksIEFsZWtzZWkgPGFsZWtzZWkuZ2ltYml0c2tpaUBpbnRlbC5jb20+OyBpbnRlbC1n
+dnQtZGV2QGxpc3RzLmZyZWVkZXNrdG9wLm9yZwpTdWJqZWN0OiBSRTogW1BBVENIIFYyIDEvNl0g
+ZHJtL2k5MTUvZ3Z0OiBSZW1vdmUgdHlwZWRlZiBpbnRlbF9ndnRfZ3R0X3R5cGVfdAoKWWVzLiBC
+dXQgaWYgd2Uga2VlcCB0aGUgZW51bWVyYXRpb24gdHlwZSBoZXJlLCBob3cgYWJvdXQgd2UgbGV0
+IHRoZSBlbnVtZXJhdGlvbiB2YWx1ZSBiZWdpbnMgZnJvbSAwPyBUaGVuIGNsb2Nrd29yayB3b3Vs
+ZCBiZSBoYXBweSB3aGlsZSB3ZSBrZWVwIHRoZSBlbnVtZXJhdGlvbiB0eXBlPwoKLS0tLS1Pcmln
+aW5hbCBNZXNzYWdlLS0tLS0KRnJvbTogWmhlbnl1IFdhbmcgW21haWx0bzp6aGVueXV3QGxpbnV4
+LmludGVsLmNvbV0KU2VudDogRnJpZGF5LCBBcHJpbCAxMiwgMjAxOSAxMDoxOSBBTQpUbzogV2Fu
+ZywgWmhpIEEgPHpoaS5hLndhbmdAaW50ZWwuY29tPgpDYzogWHUsIENvbGluIDxjb2xpbi54dUBp
+bnRlbC5jb20+OyBHaW1iaXRza2lpLCBBbGVrc2VpIDxhbGVrc2VpLmdpbWJpdHNraWlAaW50ZWwu
+Y29tPjsgWmhlbnl1IFdhbmcgPHpoZW55dXdAbGludXguaW50ZWwuY29tPjsgaW50ZWwtZ3Z0LWRl
+dkBsaXN0cy5mcmVlZGVza3RvcC5vcmcKU3ViamVjdDogUmU6IFtQQVRDSCBWMiAxLzZdIGRybS9p
+OTE1L2d2dDogUmVtb3ZlIHR5cGVkZWYgaW50ZWxfZ3Z0X2d0dF90eXBlX3QKCk9uIDIwMTkuMDQu
+MTIgMDY6MjA6MjYgKzAwMDAsIFdhbmcsIFpoaSBBIHdyb3RlOgo+IEFsc28sIHRoZSBvdGhlciBy
+ZWFzb24gdG8gcmVtb3ZlIHRoZSB0eXBlZGVmIGlzOgo+IGh0dHBzOi8veWFyY2hpdmUubmV0L2Nv
+bXAvbGludXgvdHlwZWRlZnMuaHRtbAo+IAo+IGk5MTUgaGFzIGFscmVhZHkgcmVtb3ZlZCBhbG1v
+c3QgYWxsIG9mIHRoZW0gYmVjYXVzZSBvZiB0aGlzLgo+IAoKUmVtb3ZlIHR5cGVkZWYgaXMgb2ss
+IEkgdGhpbmsgZXZlcnlvbmUgYWdyZWUgYnV0IHdvdWxkIGJlIGJldHRlciBzdGlsbCBrZWVwIGVu
+dW0gdHlwZS4KCj4gCj4gLS0tLS1PcmlnaW5hbCBNZXNzYWdlLS0tLS0KPiBGcm9tOiBXYW5nLCBa
+aGkgQQo+IFNlbnQ6IEZyaWRheSwgQXByaWwgMTIsIDIwMTkgODo0NCBBTQo+IFRvOiBYdSwgQ29s
+aW4gPGNvbGluLnh1QGludGVsLmNvbT47IEdpbWJpdHNraWksIEFsZWtzZWkgCj4gPGFsZWtzZWku
+Z2ltYml0c2tpaUBpbnRlbC5jb20+OyBaaGVueXUgV2FuZyA8emhlbnl1d0BsaW51eC5pbnRlbC5j
+b20+Cj4gQ2M6IGludGVsLWd2dC1kZXZAbGlzdHMuZnJlZWRlc2t0b3Aub3JnCj4gU3ViamVjdDog
+UkU6IFtQQVRDSCBWMiAxLzZdIGRybS9pOTE1L2d2dDogUmVtb3ZlIHR5cGVkZWYgCj4gaW50ZWxf
+Z3Z0X2d0dF90eXBlX3QKPiAKPiBJIHRoaW5rIGtsb2N3b3JrIGlzIGdvaW5nIGEgYml0IHRvbyBm
+YXIgYWN0dWFsbHkuIEl0IGFsd2F5cyB0YWtlcyB0aGUgZnVsbCByYW5nZSB3b3VsZCBiZSB1c2Vk
+IGlmIHdlIGdvIGVudW1lcmF0aW9uIHR5cGUuIEZvciBvcHRpb24gMiwgSSBndWVzcyB3ZSBoYXZl
+IHRvIGFkZCBhIGxvdCBvZiB1c2VsZXNzIGNoZWNrIG9mIEdUVF9UWVBFX0lOVkFMSUQgaW4gZXZl
+cnkgcGxhY2Ugd2UgYXJlIGdvaW5nIHRvIHVzZSB0aGUgZW51bWVyYXRpb24gYXMgYXJyYXkgaW5k
+ZXgsIHdoaWNoIGxvb2tzIHZlcnkgdWdseS4KPiAKPiBJJ2QgbGlrZSB0byBnbyBwcmFjdGljYWwu
+IFdlIG5lZWQgdGhlIGVudW1lcmF0aW9uIGZvciBzdXJlIGFuZCB3ZSBjaGVjayB0aGUgR1RUX1RZ
+UEVfSU5WQUxJRCBpbiB0aGUgcGxhY2Ugd2UgdGhpbmsgbmVjZXNzYXJ5IGFuZCBsZXQgY2xvY2t3
+b3JrIGJlIGhhcHB5IGFuZCBhbHNvIG5vdCBtYWtlIHRoZSBjb2RlIHVnbHkuCj4gCj4gLS0tLS1P
+cmlnaW5hbCBNZXNzYWdlLS0tLS0KPiBGcm9tOiBYdSwgQ29saW4KPiBTZW50OiBGcmlkYXksIEFw
+cmlsIDEyLCAyMDE5IDQ6MjkgQU0KPiBUbzogR2ltYml0c2tpaSwgQWxla3NlaSA8YWxla3NlaS5n
+aW1iaXRza2lpQGludGVsLmNvbT47IFdhbmcsIFpoaSBBIAo+IDx6aGkuYS53YW5nQGludGVsLmNv
+bT47IFpoZW55dSBXYW5nIDx6aGVueXV3QGxpbnV4LmludGVsLmNvbT4KPiBDYzogaW50ZWwtZ3Z0
+LWRldkBsaXN0cy5mcmVlZGVza3RvcC5vcmcKPiBTdWJqZWN0OiBSZTogW1BBVENIIFYyIDEvNl0g
+ZHJtL2k5MTUvZ3Z0OiBSZW1vdmUgdHlwZWRlZiAKPiBpbnRlbF9ndnRfZ3R0X3R5cGVfdAo+IAo+
+IFNlZW1zIGxpa2UgVjIgb2YgdGhpcyBwYXRjaCBkb2Vzbid0IGdldCB1cGRhdGVkPwo+IAo+IEhp
+IFpoaSwgWmhlbnl1LCBmcm9tIGFyY2hpdGVjdHVyZSBwb2ludCBvZiB2aWV3LCB3aGF0IGtpbmQg
+b2YgY2hhbmdlIGlzIGJldHRlcj8KPiAtIENoYW5nZSBwYXJhbWV0ZXIgdHlwZSBmcm9tIGVudW0g
+dHlwZSB0byBpbnQgbG9va3MgImNoZWF0IiBrbG9jd29yayBzdGF0aWMgYW5hbHlzaXMsIGJ1dCBs
+b3NlIG5hdHVyYWwgcHJvdGVjdGlvbiBzaW5jZSBhbnkgaW50IGNvdWxkIGJlIHBhc3NlZCBpbnRv
+IHRoZSBmdW5jdGlvbi4KPiAtIElmIHdlIGtlZXAgdXNpbmcgZW51bSB0eXBlIGFzIHRoZSBmdW5j
+dGlvbiBwYXJhbWV0ZXIsIHdlIG1heSBuZWVkIGV4dHJhY3QgY2hlY2sgc28gdGhhdCBrbG9jd29y
+ayBzdGF0aWMgYW5hbHlzaXMgd2lsbCBjb25zaWRlciBhcyBzYWZlLgo+IEFueSBjb21tZW50cz8g
+SSBwcmVmZXIgdGhlIGxhdHRlci4KPiAKPiBPbiAyMDE5LTA0LTExIDE4OjQ2LCBBbGVrc2VpIEdp
+bWJpdHNraWkgd3JvdGU6Cj4gPiBUaGUga2xvY3dvcmsgc3RhdGljIGNvZGUgYW5hbHl6ZXIgdGFr
+ZXMgdGhlIGVudW1lcmF0aW9uIGFzIHRoZSBmdWxsIAo+ID4gcmFuZ2Ugb2YgaW50ZWxfZ3Z0X2d0
+dF90eXBlX3QuIEJ1dCB0aGUgZnVsbCByYW5nZSBvZiAKPiA+IGludGVsX2d2dF9ndHRfdHlwZV90
+IHdpbGwgbmV2ZXIgYmUgdXNlZCBpbiBmdWxsIHJhbmdlLiBGb3IgZXhhbXBsZSwgCj4gPiB0aGUg
+R1RUX1RZUEVfSU5WQUxJRCB3aWxsIG5ldmVyIGJlIHVzZWQgYXMgYW4gaW5kZXggb2YgYW4gYXJy
+YXkuIFNvIAo+ID4gd2Ugd2lsbCBub3QgdXNlIGl0IGFzIGEgdHlwZSBidXQgb25seSB0aGUgZW51
+bWVyYXRpb24uCj4gPgo+ID4gVGhpcyBwYXRjaCBmaXhlZCB0aGUgY3JpdGlhbCBpc3N1ZXMgIzQ4
+MywgIzU1MSwgIzY2NSByZXBvcnRlZCBieSAKPiA+IGtsb2Nrd29yay4KPiA+Cj4gPiBTaWduZWQt
+b2ZmLWJ5OiBBbGVrc2VpIEdpbWJpdHNraWkgPGFsZWtzZWkuZ2ltYml0c2tpaUBpbnRlbC5jb20+
+Cj4gPiBDYzogWmhlbnl1IFdhbmcgPHpoZW55dXdAbGludXguaW50ZWwuY29tPgo+ID4gQ2M6IFpo
+aSBXYW5nIDx6aGkuYS53YW5nQGludGVsLmNvbT4KPiA+IC0tLQo+ID4gICBkcml2ZXJzL2dwdS9k
+cm0vaTkxNS9ndnQvZ3R0LmMgfCAxMiArKysrKystLS0tLS0KPiA+ICAgZHJpdmVycy9ncHUvZHJt
+L2k5MTUvZ3Z0L2d0dC5oIHwgMTQgKysrKysrKy0tLS0tLS0KPiA+ICAgMiBmaWxlcyBjaGFuZ2Vk
+LCAxMyBpbnNlcnRpb25zKCspLCAxMyBkZWxldGlvbnMoLSkKPiA+Cj4gPiBkaWZmIC0tZ2l0IGEv
+ZHJpdmVycy9ncHUvZHJtL2k5MTUvZ3Z0L2d0dC5jIAo+ID4gYi9kcml2ZXJzL2dwdS9kcm0vaTkx
+NS9ndnQvZ3R0LmMgaW5kZXggODhlZDJlOWRmMjUzLi44ZGNiNjIyM2I5ODUKPiA+IDEwMDY0NAo+
+ID4gLS0tIGEvZHJpdmVycy9ncHUvZHJtL2k5MTUvZ3Z0L2d0dC5jCj4gPiArKysgYi9kcml2ZXJz
+L2dwdS9kcm0vaTkxNS9ndnQvZ3R0LmMKPiA+IEBAIC04MDUsNyArODA1LDcgQEAgc3RhdGljIGlu
+dCByZWNsYWltX29uZV9wcGd0dF9tbShzdHJ1Y3QgaW50ZWxfZ3Z0IAo+ID4gKmd2dCk7Cj4gPiAg
+IAo+ID4gICAvKiBBbGxvY2F0ZSBzaGFkb3cgcGFnZSB0YWJsZSB3aXRob3V0IGd1ZXN0IHBhZ2Uu
+ICovCj4gPiAgIHN0YXRpYyBzdHJ1Y3QgaW50ZWxfdmdwdV9wcGd0dF9zcHQgKnBwZ3R0X2FsbG9j
+X3NwdCgKPiA+IC0JCXN0cnVjdCBpbnRlbF92Z3B1ICp2Z3B1LCBpbnRlbF9ndnRfZ3R0X3R5cGVf
+dCB0eXBlKQo+ID4gKwkJc3RydWN0IGludGVsX3ZncHUgKnZncHUsIGludCB0eXBlKQo+ID4gICB7
+Cj4gPiAgIAlzdHJ1Y3QgZGV2aWNlICprZGV2ID0gJnZncHUtPmd2dC0+ZGV2X3ByaXYtPmRybS5w
+ZGV2LT5kZXY7Cj4gPiAgIAlzdHJ1Y3QgaW50ZWxfdmdwdV9wcGd0dF9zcHQgKnNwdCA9IE5VTEw7
+IEBAIC04NTUsNyArODU1LDcgQEAgCj4gPiBzdGF0aWMgc3RydWN0IGludGVsX3ZncHVfcHBndHRf
+c3B0ICpwcGd0dF9hbGxvY19zcHQoCj4gPiAgIAo+ID4gICAvKiBBbGxvY2F0ZSBzaGFkb3cgcGFn
+ZSB0YWJsZSBhc3NvY2lhdGVkIHdpdGggc3BlY2lmaWMgZ2ZuLiAqLwo+ID4gICBzdGF0aWMgc3Ry
+dWN0IGludGVsX3ZncHVfcHBndHRfc3B0ICpwcGd0dF9hbGxvY19zcHRfZ2ZuKAo+ID4gLQkJc3Ry
+dWN0IGludGVsX3ZncHUgKnZncHUsIGludGVsX2d2dF9ndHRfdHlwZV90IHR5cGUsCj4gPiArCQlz
+dHJ1Y3QgaW50ZWxfdmdwdSAqdmdwdSwgaW50IHR5cGUsCj4gPiAgIAkJdW5zaWduZWQgbG9uZyBn
+Zm4sIGJvb2wgZ3Vlc3RfcGRlX2lwcykKPiA+ICAgewo+ID4gICAJc3RydWN0IGludGVsX3ZncHVf
+cHBndHRfc3B0ICpzcHQ7IEBAIC05MzAsNyArOTMwLDcgQEAgc3RhdGljIGludCAKPiA+IHBwZ3R0
+X2ludmFsaWRhdGVfc3B0X2J5X3NoYWRvd19lbnRyeShzdHJ1Y3QgaW50ZWxfdmdwdSAqdmdwdSwK
+PiA+ICAgewo+ID4gICAJc3RydWN0IGludGVsX2d2dF9ndHRfcHRlX29wcyAqb3BzID0gdmdwdS0+
+Z3Z0LT5ndHQucHRlX29wczsKPiA+ICAgCXN0cnVjdCBpbnRlbF92Z3B1X3BwZ3R0X3NwdCAqczsK
+PiA+IC0JaW50ZWxfZ3Z0X2d0dF90eXBlX3QgY3VyX3B0X3R5cGU7Cj4gPiArCWludCBjdXJfcHRf
+dHlwZTsKPiA+ICAgCj4gPiAgIAlHRU1fQlVHX09OKCFndHRfdHlwZV9pc19wdChnZXRfbmV4dF9w
+dF90eXBlKGUtPnR5cGUpKSk7Cj4gPiAgIAo+ID4gQEAgLTE4NDksNyArMTg0OSw3IEBAIHN0YXRp
+YyB2b2lkIHZncHVfZnJlZV9tbShzdHJ1Y3QgaW50ZWxfdmdwdV9tbSAqbW0pCj4gPiAgICAqIFpl
+cm8gb24gc3VjY2VzcywgbmVnYXRpdmUgZXJyb3IgY29kZSBpbiBwb2ludGVyIGlmIGZhaWxlZC4K
+PiA+ICAgICovCj4gPiAgIHN0cnVjdCBpbnRlbF92Z3B1X21tICppbnRlbF92Z3B1X2NyZWF0ZV9w
+cGd0dF9tbShzdHJ1Y3QgaW50ZWxfdmdwdSAqdmdwdSwKPiA+IC0JCWludGVsX2d2dF9ndHRfdHlw
+ZV90IHJvb3RfZW50cnlfdHlwZSwgdTY0IHBkcHNbXSkKPiA+ICsJCWludCByb290X2VudHJ5X3R5
+cGUsIHU2NCBwZHBzW10pCj4gPiAgIHsKPiA+ICAgCXN0cnVjdCBpbnRlbF9ndnQgKmd2dCA9IHZn
+cHUtPmd2dDsKPiA+ICAgCXN0cnVjdCBpbnRlbF92Z3B1X21tICptbTsKPiA+IEBAIC0yMzAzLDcg
+KzIzMDMsNyBAQCBpbnQgaW50ZWxfdmdwdV9lbXVsYXRlX2dndHRfbW1pb193cml0ZShzdHJ1Y3Qg
+aW50ZWxfdmdwdSAqdmdwdSwKPiA+ICAgfQo+ID4gICAKPiA+ICAgc3RhdGljIGludCBhbGxvY19z
+Y3JhdGNoX3BhZ2VzKHN0cnVjdCBpbnRlbF92Z3B1ICp2Z3B1LAo+ID4gLQkJaW50ZWxfZ3Z0X2d0
+dF90eXBlX3QgdHlwZSkKPiA+ICsJCWludCB0eXBlKQo+ID4gICB7Cj4gPiAgIAlzdHJ1Y3QgaW50
+ZWxfdmdwdV9ndHQgKmd0dCA9ICZ2Z3B1LT5ndHQ7Cj4gPiAgIAlzdHJ1Y3QgaW50ZWxfZ3Z0X2d0
+dF9wdGVfb3BzICpvcHMgPSB2Z3B1LT5ndnQtPmd0dC5wdGVfb3BzOyBAQAo+ID4gLTI1ODgsNyAr
+MjU4OCw3IEBAIHN0cnVjdCBpbnRlbF92Z3B1X21tICppbnRlbF92Z3B1X2ZpbmRfcHBndHRfbW0o
+c3RydWN0IGludGVsX3ZncHUgKnZncHUsCj4gPiAgICAqIFplcm8gb24gc3VjY2VzcywgbmVnYXRp
+dmUgZXJyb3IgY29kZSBpZiBmYWlsZWQuCj4gPiAgICAqLwo+ID4gICBzdHJ1Y3QgaW50ZWxfdmdw
+dV9tbSAqaW50ZWxfdmdwdV9nZXRfcHBndHRfbW0oc3RydWN0IGludGVsX3ZncHUgKnZncHUsCj4g
+PiAtCQlpbnRlbF9ndnRfZ3R0X3R5cGVfdCByb290X2VudHJ5X3R5cGUsIHU2NCBwZHBzW10pCj4g
+PiArCQlpbnQgcm9vdF9lbnRyeV90eXBlLCB1NjQgcGRwc1tdKQo+ID4gICB7Cj4gPiAgIAlzdHJ1
+Y3QgaW50ZWxfdmdwdV9tbSAqbW07Cj4gPiAgIAo+ID4gZGlmZiAtLWdpdCBhL2RyaXZlcnMvZ3B1
+L2RybS9pOTE1L2d2dC9ndHQuaCAKPiA+IGIvZHJpdmVycy9ncHUvZHJtL2k5MTUvZ3Z0L2d0dC5o
+IGluZGV4IDMyYzU3M2FlYTQ5NC4uNjQ1ZGRjMWJkMjIzCj4gPiAxMDA2NDQKPiA+IC0tLSBhL2Ry
+aXZlcnMvZ3B1L2RybS9pOTE1L2d2dC9ndHQuaAo+ID4gKysrIGIvZHJpdmVycy9ncHUvZHJtL2k5
+MTUvZ3Z0L2d0dC5oCj4gPiBAQCAtOTUsNyArOTUsNyBAQCBzdHJ1Y3QgaW50ZWxfZ3Z0X2d0dCB7
+Cj4gPiAgIAl1bnNpZ25lZCBsb25nIHNjcmF0Y2hfbWZuOwo+ID4gICB9Owo+ID4gICAKPiA+IC10
+eXBlZGVmIGVudW0gewo+ID4gK2VudW0gewo+ID4gICAJR1RUX1RZUEVfSU5WQUxJRCA9IC0xLAo+
+ID4gICAKPiA+ICAgCUdUVF9UWVBFX0dHVFRfUFRFLAo+ID4gQEAgLTEyNCw3ICsxMjQsNyBAQCB0
+eXBlZGVmIGVudW0gewo+ID4gICAJR1RUX1RZUEVfUFBHVFRfUE1MNF9QVCwKPiA+ICAgCj4gPiAg
+IAlHVFRfVFlQRV9NQVgsCj4gPiAtfSBpbnRlbF9ndnRfZ3R0X3R5cGVfdDsKPiA+ICt9Owo+ID4g
+ICAKPiA+ICAgZW51bSBpbnRlbF9ndnRfbW1fdHlwZSB7Cj4gPiAgIAlJTlRFTF9HVlRfTU1fR0dU
+VCwKPiA+IEBAIC0xNDgsNyArMTQ4LDcgQEAgc3RydWN0IGludGVsX3ZncHVfbW0gewo+ID4gICAK
+PiA+ICAgCXVuaW9uIHsKPiA+ICAgCQlzdHJ1Y3Qgewo+ID4gLQkJCWludGVsX2d2dF9ndHRfdHlw
+ZV90IHJvb3RfZW50cnlfdHlwZTsKPiA+ICsJCQlpbnQgcm9vdF9lbnRyeV90eXBlOwo+ID4gICAJ
+CQkvKgo+ID4gICAJCQkgKiBUaGUgNCBQRFBzIGluIHJpbmcgY29udGV4dC4gRm9yIDQ4Yml0IGFk
+ZHJlc3NpbmcsCj4gPiAgIAkJCSAqIG9ubHkgUERQMCBpcyB2YWxpZCBhbmQgcG9pbnQgdG8gUE1M
+NC4gRm9yIDMyaXQgQEAgLTE2OSw3Cj4gPiArMTY5LDcgQEAgc3RydWN0IGludGVsX3ZncHVfbW0g
+ewo+ID4gICB9Owo+ID4gICAKPiA+ICAgc3RydWN0IGludGVsX3ZncHVfbW0gKmludGVsX3ZncHVf
+Y3JlYXRlX3BwZ3R0X21tKHN0cnVjdCBpbnRlbF92Z3B1ICp2Z3B1LAo+ID4gLQkJaW50ZWxfZ3Z0
+X2d0dF90eXBlX3Qgcm9vdF9lbnRyeV90eXBlLCB1NjQgcGRwc1tdKTsKPiA+ICsJCWludCByb290
+X2VudHJ5X3R5cGUsIHU2NCBwZHBzW10pOwo+ID4gICAKPiA+ICAgc3RhdGljIGlubGluZSB2b2lk
+IGludGVsX3ZncHVfbW1fZ2V0KHN0cnVjdCBpbnRlbF92Z3B1X21tICptbSkKPiA+ICAgewo+ID4g
+QEAgLTIzMyw3ICsyMzMsNyBAQCBzdHJ1Y3QgaW50ZWxfdmdwdV9wcGd0dF9zcHQgewo+ID4gICAJ
+c3RydWN0IGludGVsX3ZncHUgKnZncHU7Cj4gPiAgIAo+ID4gICAJc3RydWN0IHsKPiA+IC0JCWlu
+dGVsX2d2dF9ndHRfdHlwZV90IHR5cGU7Cj4gPiArCQlpbnQgdHlwZTsKPiA+ICAgCQlib29sIHBk
+ZV9pcHM7IC8qIGZvciA2NEtCIFBURXMgKi8KPiA+ICAgCQl2b2lkICp2YWRkcjsKPiA+ICAgCQlz
+dHJ1Y3QgcGFnZSAqcGFnZTsKPiA+IEBAIC0yNDEsNyArMjQxLDcgQEAgc3RydWN0IGludGVsX3Zn
+cHVfcHBndHRfc3B0IHsKPiA+ICAgCX0gc2hhZG93X3BhZ2U7Cj4gPiAgIAo+ID4gICAJc3RydWN0
+IHsKPiA+IC0JCWludGVsX2d2dF9ndHRfdHlwZV90IHR5cGU7Cj4gPiArCQlpbnQgdHlwZTsKPiA+
+ICAgCQlib29sIHBkZV9pcHM7IC8qIGZvciA2NEtCIFBURXMgKi8KPiA+ICAgCQl1bnNpZ25lZCBs
+b25nIGdmbjsKPiA+ICAgCQl1bnNpZ25lZCBsb25nIHdyaXRlX2NudDsKPiA+IEBAIC0yNjcsNyAr
+MjY3LDcgQEAgc3RydWN0IGludGVsX3ZncHVfbW0gKmludGVsX3ZncHVfZmluZF9wcGd0dF9tbShz
+dHJ1Y3QgaW50ZWxfdmdwdSAqdmdwdSwKPiA+ICAgCQl1NjQgcGRwc1tdKTsKPiA+ICAgCj4gPiAg
+IHN0cnVjdCBpbnRlbF92Z3B1X21tICppbnRlbF92Z3B1X2dldF9wcGd0dF9tbShzdHJ1Y3QgaW50
+ZWxfdmdwdSAqdmdwdSwKPiA+IC0JCWludGVsX2d2dF9ndHRfdHlwZV90IHJvb3RfZW50cnlfdHlw
+ZSwgdTY0IHBkcHNbXSk7Cj4gPiArCQlpbnQgcm9vdF9lbnRyeV90eXBlLCB1NjQgcGRwc1tdKTsK
+PiA+ICAgCj4gPiAgIGludCBpbnRlbF92Z3B1X3B1dF9wcGd0dF9tbShzdHJ1Y3QgaW50ZWxfdmdw
+dSAqdmdwdSwgdTY0IHBkcHNbXSk7Cj4gPiAgIAo+IAo+IC0tCj4gQmVzdCBSZWdhcmRzLAo+IENv
+bGluIFh1Cj4gCgotLQpPcGVuIFNvdXJjZSBUZWNobm9sb2d5IENlbnRlciwgSW50ZWwgbHRkLgoK
+JGdwZyAtLWtleXNlcnZlciB3d3drZXlzLnBncC5uZXQgLS1yZWN2LWtleXMgNEQ3ODE4MjcKX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KaW50ZWwtZ3Z0LWRl
+diBtYWlsaW5nIGxpc3QKaW50ZWwtZ3Z0LWRldkBsaXN0cy5mcmVlZGVza3RvcC5vcmcKaHR0cHM6
+Ly9saXN0cy5mcmVlZGVza3RvcC5vcmcvbWFpbG1hbi9saXN0aW5mby9pbnRlbC1ndnQtZGV2
